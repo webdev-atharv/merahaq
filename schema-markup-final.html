@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://merahaq.in/schema-markup-final" />
+  <title>Schema Markup Snippets – MeraHaq Internal Tool</title>
+  <meta name="description" content="Internal reference tool for MeraHaq. Paste each FAQ schema snippet before the closing head tag of the corresponding page to enable Google Rich Results." />
+  <link rel="icon" href="https://merahaq.in/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --saffron: #FF9933;
+      --green: #138808;
+      --navy: #0a1628;
+      --navy-mid: #112240;
+      --navy-card: #0d1e38;
+      --text: #e8edf5;
+      --text-muted: #8892a4;
+      --border: rgba(255,255,255,0.08);
+      --code-bg: #060f1e;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy-mid);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+    }
+    header h1 { font-size: 1.3rem; color: var(--saffron); }
+    header p  { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+    /* ── INSTRUCTIONS ── */
+    .instructions {
+      max-width: 900px;
+      margin: 2rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .inst-box {
+      background: rgba(19,136,8,0.1);
+      border: 1px solid rgba(19,136,8,0.3);
+      border-left: 4px solid var(--green);
+      border-radius: 8px;
+      padding: 1rem 1.3rem;
+      margin-bottom: 2rem;
+      font-size: 0.93rem;
+      line-height: 1.8;
+    }
+    .inst-box strong { color: var(--green); }
+    .inst-box code {
+      background: var(--code-bg);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--saffron);
+    }
+    .inst-box ol { padding-left: 1.2rem; }
+    .inst-box li { margin-bottom: 0.3rem; }
+    .pages-list {
+      margin-top: 0.5rem;
+      padding-left: 1.4rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .pages-list li { margin-bottom: 0.15rem; font-family: 'JetBrains Mono', monospace; color: var(--saffron); }
+
+    /* ── SNIPPETS ── */
+    .snippets {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .snippet-block {
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .snippet-header {
+      background: var(--navy-card);
+      padding: 0.9rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .snippet-header .page-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .snippet-header .page-url {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 0.15rem;
+    }
+
+    /* ── COPY BUTTON ── */
+    .copy-btn {
+      background: rgba(255,153,51,0.12);
+      color: var(--saffron);
+      border: 1px solid rgba(255,153,51,0.3);
+      border-radius: 6px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+    .copy-btn:hover  { background: rgba(255,153,51,0.22); }
+    .copy-btn.copied { background: rgba(19,136,8,0.2); color: #4ade80; border-color: rgba(19,136,8,0.4); }
+    .copy-btn.error  { background: rgba(220,38,38,0.15); color: #f87171; border-color: rgba(220,38,38,0.4); }
+
+    /* ── MOBILE HINT (shown only when clipboard fails) ── */
+    .mobile-hint {
+      display: none;
+      background: rgba(255,153,51,0.08);
+      border-top: 1px solid rgba(255,153,51,0.2);
+      padding: 0.6rem 1.2rem;
+      font-size: 0.82rem;
+      color: var(--saffron);
+    }
+    .mobile-hint.visible { display: block; }
+
+    /* ── CODE BLOCK ── */
+    pre {
+      background: var(--code-bg);
+      padding: 1.2rem 1.3rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      line-height: 1.65;
+      color: #a8b5cb;
+      white-space: pre;
+    }
+
+    /* ── NOSCRIPT WARNING ── */
+    noscript .no-js-warn {
+      background: rgba(220,38,38,0.12);
+      border: 1px solid rgba(220,38,38,0.3);
+      border-radius: 8px;
+      padding: 0.8rem 1.2rem;
+      color: #f87171;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🇮🇳 MeraHaq – FAQ Schema Markup Snippets</h1>
+  <p>Internal tool. Paste each snippet just before the closing <strong>&lt;/head&gt;</strong> tag of the corresponding page to enable Google Rich Results (FAQ dropdowns in search).</p>
+</header>
+
+<div class="instructions">
+  <noscript>
+    <div class="no-js-warn">⚠️ JavaScript is disabled. Copy buttons will not work. Please long-press the code text, tap Select All, then Copy manually.</div>
+  </noscript>
+  <div class="inst-box">
+    <strong>How to use these snippets:</strong>
+    <ol>
+      <li>Find the page you want to update below and tap <strong>Copy</strong>.</li>
+      <li>Open the <code>.html</code> file on GitHub and tap the ✏️ pencil (Edit) icon.</li>
+      <li>Tap the Chrome menu ⋮ → <strong>Find in page</strong> → search <code>&lt;/head&gt;</code>.</li>
+      <li>Tap just before <code>&lt;/head&gt;</code>, long-press → <strong>Paste</strong>.</li>
+      <li>Make sure <code>&lt;/head&gt;</code> stays on its own line after the pasted snippet.</li>
+      <li>Tap <strong>Commit changes</strong> to save.</li>
+      <li>Go to Google Search Console → URL Inspection → paste the page URL → <strong>Request Indexing</strong>.</li>
+      <li>After indexing, test at <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer" style="color:var(--saffron);">search.google.com/test/rich-results ↗</a></li>
+    </ol>
+    <br/>
+    <strong>Pages to update and submit for indexing:</strong>
+    <ul class="pages-list">
+      <li>merahaq.in/rti-guide ✅ (already done)</li>
+      <li>merahaq.in/ayushman-bharat</li>
+      <li>merahaq.in/pm-kisan</li>
+      <li>merahaq.in/scholarships</li>
+      <li>merahaq.in/legal-rights</li>
+      <li>merahaq.in/mgnrega</li>
+    </ul>
+  </div>
+</div>
+
+<div class="snippets">
+
+  <!-- ── RTI GUIDE ── -->
+  <div class="snippet-block">
+    <div class="snippet-header">
+      <div>
+        <div class="page-title">📝 RTI Guide</div>
+        <div class="page-url">rti-guide.html</div>
+      </div>
+      <button class="copy-btn" onclick="copySnippet(this, 'rti')">Copy</button>
+    </div>
+    <pre id="rti">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the RTI Act 2005?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Right to Information Act 2005 gives every Indian citizen the right to request information from any public authority — from a Gram Panchayat to the Prime Minister's Office. The government office must respond within 30 days. Filing an RTI costs ₹10 and is free for BPL cardholders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does filing an RTI application cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Filing an RTI application costs ₹10 for Central Government departments. BPL (Below Poverty Line) cardholders pay zero fee — attach a copy of your BPL card. For state governments, fees vary by state, usually ₹10 to ₹50. Online filing at rtionline.gov.in costs ₹10 payable by UPI, net banking, or debit card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the government have to reply to an RTI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The government department must reply within 30 days of receiving your RTI application. If the information concerns the life or liberty of a person, the reply must come within 48 hours. If the department received the wrong RTI, they must transfer it to the correct department within 5 days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I file an RTI application online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can file RTI applications online at rtionline.gov.in for Central Government departments. No registration account is required. Pay the ₹10 fee via UPI, net banking, or debit card and receive an instant acknowledgement with a registration number. For state governments, search for your state's RTI portal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do if I receive no reply to my RTI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you receive no reply within 30 days, file a First Appeal with the First Appellate Authority in the same department — this is free and must be filed within 30 days of the missed deadline. If the First Appeal also fails, file a Second Appeal with the Central or State Information Commission, also free. The Commission can impose a penalty of ₹250 per day (up to ₹25,000) on the Public Information Officer for unjustified delay."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+    <div class="mobile-hint" id="hint-rti">📋 Text selected — long-press and tap Copy to copy it.</div>
+  </div>
+
+  <!-- ── AYUSHMAN BHARAT ── -->
+  <div class="snippet-block">
+    <div class="snippet-header">
+      <div>
+        <div class="page-title">🏥 Ayushman Bharat</div>
+        <div class="page-url">ayushman-bharat.html</div>
+      </div>
+      <button class="copy-btn" onclick="copySnippet(this, 'ayushman')">Copy</button>
+    </div>
+    <pre id="ayushman">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Ayushman Bharat PMJAY?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ayushman Bharat PM-JAY (Pradhan Mantri Jan Arogya Yojana) is the world's largest government-funded health insurance scheme. It provides up to ₹5 lakh per year of completely free hospital treatment to eligible Indian families. There is no premium to pay, no enrollment fee, and no cash required at the hospital. You simply carry your Aadhaar card to any empanelled hospital."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is eligible for Ayushman Bharat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligibility is based on the Socio-Economic Caste Census (SECC) 2011 data. Eligible groups include SC/ST households, landless households earning mainly from manual labour, families with no adult member aged 16–59, families with a disabled member and no able-bodied adult, and manual scavenger families. In addition, all senior citizens aged 70 years and above are eligible regardless of income (added in 2024). Call 14555 with your Aadhaar number to check your eligibility instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check if I am eligible for Ayushman Bharat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call the Ayushman Bharat helpline at 14555 (free, 24/7) with your Aadhaar number ready. Or visit pmjay.gov.in and click 'Am I Eligible?' to check online. You can also visit any Common Service Centre (CSC) or go to the Ayushman Bharat helpdesk at any empanelled hospital — they will check on the spot for free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What treatments are covered under Ayushman Bharat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ayushman Bharat covers 1,929 medical and surgical procedures across 27 specialties including cancer treatment, heart surgery (bypass, valve replacement, angioplasty), kidney dialysis and transplant, orthopaedic surgery (knee and hip replacement), eye surgeries, brain surgery, maternity and neonatal care. All medicines, doctor fees, ICU, and post-surgery care are covered — up to ₹5 lakh per family per year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents do I need to use Ayushman Bharat at a hospital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You only need your Aadhaar card. The Ayushman Bharat helpdesk at any empanelled hospital will verify your eligibility on the government portal and issue your free Ayushman card on the spot. If you do not have an Aadhaar card, a Ration Card or Voter ID may be used. No proof of income or BPL card is required."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+    <div class="mobile-hint" id="hint-ayushman">📋 Text selected — long-press and tap Copy to copy it.</div>
+  </div>
+
+  <!-- ── PM KISAN ── -->
+  <div class="snippet-block">
+    <div class="snippet-header">
+      <div>
+        <div class="page-title">🌾 PM Kisan</div>
+        <div class="page-url">pm-kisan.html</div>
+      </div>
+      <button class="copy-btn" onclick="copySnippet(this, 'pmkisan')">Copy</button>
+    </div>
+    <pre id="pmkisan">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is PM Kisan Samman Nidhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PM Kisan Samman Nidhi is a Central Government scheme that provides ₹6,000 per year to all landholding farmer families in India. The money is paid in three equal instalments of ₹2,000 each — directly to the farmer's bank account via Direct Benefit Transfer (DBT), with no middlemen. The scheme was launched in February 2019."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check my PM Kisan payment status?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visit the official PM Kisan portal at pmkisan.gov.in. Click 'Beneficiary Status' in the Farmers Corner section. Enter your Aadhaar number or mobile number and click 'Get Data'. You will see all past payments, their dates, and whether any future payments are pending or on hold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my PM Kisan payment stuck or not coming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common reasons for stuck PM Kisan payments are: wrong bank account number or IFSC code, Aadhaar not linked to bank account, e-KYC not completed, land records mismatch, or name mismatch between Aadhaar and bank records. The most common fix is completing e-KYC — do this at pmkisan.gov.in or at any Common Service Centre (CSC) near you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is NOT eligible for PM Kisan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The following are not eligible for PM Kisan: current or former government employees, income tax payers, professionals such as doctors, engineers, lawyers, and chartered accountants, current or former MPs, MLAs and Ministers, persons receiving a monthly pension above ₹10,000, and those who paid income tax in the last assessment year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I register for PM Kisan as a new farmer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Go to pmkisan.gov.in and click 'New Farmer Registration' in the Farmers Corner section. Enter your Aadhaar number, select Rural or Urban, fill in your details including bank account number and IFSC code, and upload your land ownership documents (Khasra or Khatauni). Your application will be verified by the state government in 2–4 weeks. You can also register for free at any Common Service Centre (CSC) or Gram Panchayat."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+    <div class="mobile-hint" id="hint-pmkisan">📋 Text selected — long-press and tap Copy to copy it.</div>
+  </div>
+
+  <!-- ── SCHOLARSHIPS ── -->
+  <div class="snippet-block">
+    <div class="snippet-header">
+      <div>
+        <div class="page-title">🎓 Scholarships</div>
+        <div class="page-url">scholarships.html</div>
+      </div>
+      <button class="copy-btn" onclick="copySnippet(this, 'scholar')">Copy</button>
+    </div>
+    <pre id="scholar">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the National Scholarship Portal (NSP)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The National Scholarship Portal (NSP) at scholarships.gov.in is the official Government of India platform for all central government scholarships. It hosts over 120 scholarship schemes from multiple ministries for SC, ST, OBC, minority, and disabled students from Class 9 to PhD level. Registration and application is completely free — never pay anyone to apply."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When does the NSP scholarship application window open?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The NSP application window typically opens between July and November each year. Check scholarships.gov.in at the start of each academic year for exact opening and closing dates. Missing the deadline means waiting a full year for the next cycle, so set a reminder at the start of each academic year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents are needed to apply for NSP scholarships?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Required documents for NSP scholarships: Aadhaar card (name must exactly match other documents), bank account in the student's own name, caste certificate (for SC/ST/OBC applicants), income certificate from tehsildar (must be current year), previous year marksheet, current year admission or fee receipt, bonafide certificate from institution, and domicile or residence proof."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do NSP scholarship applications get rejected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common reasons for NSP rejection include: name mismatch between Aadhaar and other documents, bank account not in the student's own name, institution not registered on NSP (ask your school or college to register), institution failing to verify and forward your application, applying in the wrong category, and income certificate from a previous financial year (must be current year)."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+    <div class="mobile-hint" id="hint-scholar">📋 Text selected — long-press and tap Copy to copy it.</div>
+  </div>
+
+  <!-- ── LEGAL RIGHTS ── -->
+  <div class="snippet-block">
+    <div class="snippet-header">
+      <div>
+        <div class="page-title">⚖️ Legal Rights</div>
+        <div class="page-url">legal-rights.html</div>
+      </div>
+      <button class="copy-btn" onclick="copySnippet(this, 'legal')">Copy</button>
+    </div>
+    <pre id="legal">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are my rights if police arrest me in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under Article 22 of the Constitution and the Bharatiya Nagarik Suraksha Sanhita (BNSS) 2023, you have these rights upon arrest: the right to be told the reason for arrest, the right to inform one family member or friend, the right to consult a lawyer before any interrogation, the right to free legal aid if you cannot afford a lawyer, the right to be produced before a magistrate within 24 hours, and the right against self-incrimination under Article 20(3). You can say: 'I want to speak to a lawyer before answering any questions.'"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get free legal aid in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free legal aid is available to SC/ST communities, all women and children regardless of income, persons with disabilities, industrial workmen, persons in custody, and anyone with annual income below ₹1 lakh (the threshold varies by state). Call the National Legal Services Authority (NALSA) helpline at 15100 — it is free and available 24/7. You can also visit your nearest District Legal Services Authority (DLSA), located at every district headquarters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can police refuse to register my FIR in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Police are legally required to register an FIR if you report a cognizable offence such as robbery, assault, rape, or murder. If police refuse, send a written complaint to the Superintendent of Police (SP) by registered post — this acts as a deemed FIR. You can also file a complaint directly before a Judicial Magistrate under Section 175 of the BNSS 2023. Always ask for a free copy of your FIR — police must provide it at no cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Zero FIR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Zero FIR is an FIR that can be filed at any police station, regardless of where the crime occurred. The station must register the FIR and transfer it to the police station with jurisdiction over the crime location. You cannot be turned away from any police station on the ground that the crime did not happen in their jurisdiction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I complain against police misconduct in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can file a complaint against police misconduct in these ways: write to the Superintendent of Police (SP) of your district, file a complaint with the State Human Rights Commission, file with the National Human Rights Commission (NHRC) at nhrc.nic.in or call 14433 (free), file an FIR against the police officer for criminal acts like assault or wrongful confinement, or file a writ petition in the High Court for serious violations of fundamental rights."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+    <div class="mobile-hint" id="hint-legal">📋 Text selected — long-press and tap Copy to copy it.</div>
+  </div>
+
+  <!-- ── MGNREGA ── -->
+  <div class="snippet-block">
+    <div class="snippet-header">
+      <div>
+        <div class="page-title">👷 MGNREGA</div>
+        <div class="page-url">mgnrega.html</div>
+      </div>
+      <button class="copy-btn" onclick="copySnippet(this, 'mgnrega')">Copy</button>
+    </div>
+    <pre id="mgnrega">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is MGNREGA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MGNREGA (Mahatma Gandhi National Rural Employment Guarantee Act) is a law that guarantees 100 days of paid work per year to every adult member of a rural household in India. It is a legal right, not a charity. If the government cannot provide work within 15 days of your application, you are entitled to an unemployment allowance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get an MGNREGA Job Card and apply for work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visit your Gram Panchayat and request a Job Card — it is issued free of charge. Once you have a Job Card, submit a written demand for work to the Gram Panchayat. Work must be provided within 15 days. You can check your Job Card details and payment status online at nrega.nic.in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the MGNREGA daily wage rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MGNREGA wage rates are fixed by the Central Government and vary by state. For 2025-26, the notified daily wage rates range from ₹247 per day (in some states) to ₹386 per day (in states like Haryana). Wages are paid directly to the worker's bank or post office account within 15 days of completing work. Check nrega.nic.in for your state's current rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I do if my MGNREGA wages are delayed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your MGNREGA wages are not paid within 15 days of completing work, you are legally entitled to a compensation payment of 0.05% of the unpaid wages for each day of delay. File a written complaint with your Gram Panchayat or contact the Programme Officer at your Block office. You can also file a complaint at pgportal.gov.in or call the MGNREGA helpline at 1800-345-2244 (free)."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+    <div class="mobile-hint" id="hint-mgnrega">📋 Text selected — long-press and tap Copy to copy it.</div>
+  </div>
+
+</div><!-- end .snippets -->
+
+<script>
+  function copySnippet(btn, id) {
+    const pre = document.getElementById(id);
+    const hint = document.getElementById('hint-' + id);
+    // innerText on <pre> decodes HTML entities, giving actual usable code
+    const text = pre.innerText;
+
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        if (hint) hint.classList.remove('visible');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2500);
+      })
+      .catch(() => {
+        // Fallback: select text so user can long-press → Copy on mobile
+        btn.textContent = '✗ Select & Copy';
+        btn.classList.add('error');
+        if (hint) hint.classList.add('visible');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('error');
+        }, 4000);
+        const range = document.createRange();
+        range.selectNodeContents(pre);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+      });
+  }
+</script>
+</body>
+</html>
