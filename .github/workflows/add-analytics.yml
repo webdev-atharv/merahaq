@@ -8,20 +8,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Add GA to all HTML files
         run: |
-          GA_CODE='<script async src="https://www.googletagmanager.com/gtag/js?id=G-KE845KJ8TC"></script>\n<script>\nwindow.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag("js", new Date());\ngtag("config", "G-KE845KJ8TC");\n</script>'
-
           for file in *.html; do
             if grep -q "G-KE845KJ8TC" "$file"; then
-              echo "Skipped (already has GA): $file"
+              echo "Skipped: $file"
             elif grep -q "</head>" "$file"; then
-              sed -i "s|</head>|${GA_CODE}\n</head>|" "$file"
+              python3 -c "
+import sys
+content = open('$file').read()
+tag = '<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-KE845KJ8TC\"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag(\"js\",new Date());gtag(\"config\",\"G-KE845KJ8TC\");</script>'
+content = content.replace('</head>', tag + '</head>', 1)
+open('$file', 'w').write(content)
+"
               echo "Updated: $file"
-            else
-              echo "No </head> found: $file"
             fi
           done
 
