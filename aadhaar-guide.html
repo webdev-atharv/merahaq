@@ -9,20 +9,20 @@
 <link rel="icon" type="image/png" href="/favicon.png"/>
 <meta name="keywords" content="aadhaar update online, download aadhaar card, aadhaar link bank account, aadhaar mobile update, UIDAI"/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://merahaq.in/aadhaar-guide"/>
+<link rel="canonical" href="https://merahaq.online/aadhaar-guide"/>
 <meta property="og:type" content="article"/>
-<meta property="og:url" content="https://merahaq.in/aadhaar-guide"/>
+<meta property="og:url" content="https://merahaq.online/aadhaar-guide"/>
 <meta property="og:title" content="Aadhaar Card Complete Guide – Update, Download & Link"/>
 <meta property="og:description" content="How to update, download and link your Aadhaar card. Official UIDAI process explained simply."/>
 <meta property="og:site_name" content="MeraHaq"/>
-<meta property="og:image" content="https://merahaq.in/og-image.png"/>
+<meta property="og:image" content="https://merahaq.online/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://merahaq.in/aadhaar-guide"/>
+<meta name="twitter:url" content="https://merahaq.online/aadhaar-guide"/>
 <meta name="twitter:title" content="Aadhaar Card Guide – Update, Download &amp; Link"/>
 <meta name="twitter:description" content="How to update, download, and link your Aadhaar card. Official UIDAI process explained simply."/>
-<meta name="twitter:image" content="https://merahaq.in/og-image.png"/>
+<meta name="twitter:image" content="https://merahaq.online/og-image.png"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -30,7 +30,7 @@
   "headline": "Aadhaar Card Guide – Update, Download & Link",
   "description": "Complete guide to updating, downloading and linking your Aadhaar card in India.",
   "author": {"@type": "Organization", "name": "MeraHaq"},
-  "publisher": {"@type": "Organization", "name": "MeraHaq", "url": "https://merahaq.in"},
+  "publisher": {"@type": "Organization", "name": "MeraHaq", "url": "https://merahaq.online"},
   "datePublished": "2026-03-20",
   "dateModified": "2026-03-20",
   "inLanguage": "en-IN"
@@ -91,6 +91,18 @@ footer{background:#1a1a2e;padding:2.5rem 2rem;text-align:center}
 footer p{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.3);line-height:1.9}
 footer a{color:#f2a900;text-decoration:none}
 @media(max-width:600px){.nav-links{display:none}.info-grid{grid-template-columns:1fr 1fr}}
+
+/* ── MOBILE HAMBURGER NAV ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#1a1a2e;border-top:2px solid #e05c1a;z-index:998;padding:1rem 1.5rem;flex-direction:column;gap:0.75rem;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:700;cursor:pointer;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none}
+.mobile-menu a:hover{color:#f2a900}
+@media(max-width:768px){.hamburger{display:flex}}
 </style>
 
 <script type="application/ld+json">
@@ -98,8 +110,8 @@ footer a{color:#f2a900;text-decoration:none}
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://merahaq.in"},
-    {"@type": "ListItem", "position": 2, "name": "Aadhaar Card Guide", "item": "https://merahaq.in/aadhaar-guide"}
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://merahaq.online"},
+    {"@type": "ListItem", "position": 2, "name": "Aadhaar Card Guide", "item": "https://merahaq.online/aadhaar-guide"}
   ]
 }
 </script>
@@ -109,11 +121,26 @@ footer a{color:#f2a900;text-decoration:none}
   <a class="logo" href="/">🇮🇳 Mera<span>Haq</span></a>
   <div class="nav-links">
     <a href="/">Home</a>
+    <a href="blog">Blog</a>
     <a href="about">About</a>
     <a href="contact">Contact</a>
     <a href="privacy-policy">Privacy</a>
   </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="/">🏠 Home</a>
+  <a href="blog">📖 Blog</a>
+  <a href="about">ℹ️ About</a>
+  <a href="contact">✉️ Contact</a>
+  <a href="privacy-policy">🔒 Privacy Policy</a>
+  <a href="terms">📋 Terms</a>
+  <a href="disclaimer">⚠️ Disclaimer</a>
+</div>
 
 <div class="hero">
   <div class="hero-badge">🪪 Aadhaar Guide</div>
@@ -217,7 +244,7 @@ footer a{color:#f2a900;text-decoration:none}
       <li><strong>Official portal:</strong> <a href="https://myaadhaar.uidai.gov.in" target="_blank" rel="noopener noreferrer" style="color:#e05c1a;font-weight:700">myaadhaar.uidai.gov.in</a></li>
       <li><strong>Enrolment centre locator:</strong> <a href="https://appointments.uidai.gov.in" target="_blank" rel="noopener noreferrer" style="color:#e05c1a;font-weight:700">appointments.uidai.gov.in</a></li>
       <li><strong>Bank-Aadhaar link status:</strong> <a href="https://resident.uidai.gov.in" target="_blank" rel="noopener noreferrer" style="color:#e05c1a;font-weight:700">resident.uidai.gov.in</a></li>
-      <li><strong>Email complaints:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6b030e071b2b1e020f0a02450c041d450205">[email&#160;protected]</a></li>
+      <li><strong>Email complaints:</strong> help@uidai.gov.in</li>
     </ul>
     <div class="warn-box">
       <p>⚠️ <strong>Beware of fraud!</strong> UIDAI never calls you asking for your Aadhaar OTP. Never share your OTP with anyone. Official website is only uidai.gov.in — all other sites are unofficial.</p>
@@ -243,6 +270,12 @@ footer a{color:#f2a900;text-decoration:none}
     <a href="about">About</a> &nbsp;·&nbsp;
     <a href="contact">Contact</a> &nbsp;·&nbsp;
     <a href="privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="terms">Terms</a>
+    <a href="terms">Terms</a> &nbsp;·&nbsp;
+    <a href="disclaimer">Disclaimer</a> &nbsp;·&nbsp;
+    <a href="cookie-policy">Cookie Policy</a>
   </p>
-  <p style="margin-top:0.5rem">Not affiliated with any government body &nbsp;·&nbsp; Data from uidai.gov
+  <p style="margin-top:0.5rem">Not affiliated with any government body &nbsp;·&nbsp; Data from uidai.gov.inn
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

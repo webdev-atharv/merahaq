@@ -9,18 +9,18 @@
 <meta name="keywords" content="legal rights India arrest, rights against police India, free legal aid India, bail rights India, FIR complaint rights"/>
 <meta name="robots" content="index, follow"/>
 <link rel="icon" type="image/png" href="/favicon.png"/>
-<link rel="canonical" href="https://merahaq.in/legal-rights"/>
+<link rel="canonical" href="https://merahaq.online/legal-rights"/>
 <meta property="og:type" content="article"/>
-<meta property="og:url" content="https://merahaq.in/legal-rights"/>
+<meta property="og:url" content="https://merahaq.online/legal-rights"/>
 <meta property="og:title" content="Your Legal Rights in India – Know Before You Need Them"/>
 <meta property="og:description" content="What police can and cannot do. Your rights if arrested. Right to free legal aid. How to file a complaint against police. All in plain language."/>
 <meta property="og:site_name" content="MeraHaq"/>
-<meta property="og:image" content="https://merahaq.in/og-image.png"/>
+<meta property="og:image" content="https://merahaq.online/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://merahaq.in/legal-rights"/>
-<meta name="twitter:image" content="https://merahaq.in/og-image.png"/>
+<meta name="twitter:url" content="https://merahaq.online/legal-rights"/>
+<meta name="twitter:image" content="https://merahaq.online/og-image.png"/>
 <meta name="twitter:title" content="Your Legal Rights in India – Know Before You Need Them"/>
 <meta name="twitter:description" content="Police rights, arrest rights, free legal aid, bail rights explained in plain simple language for every Indian."/>
 <script type="application/ld+json">
@@ -30,7 +30,7 @@
   "headline": "Your Legal Rights in India – What Police Can and Cannot Do",
   "description": "Know your rights if police stop, question, or arrest you in India. Right to free legal aid, bail, and how to file a complaint against police misconduct.",
   "author": {"@type": "Organization", "name": "MeraHaq"},
-  "publisher": {"@type": "Organization", "name": "MeraHaq", "url": "https://merahaq.in"},
+  "publisher": {"@type": "Organization", "name": "MeraHaq", "url": "https://merahaq.online"},
   "datePublished": "2026-03-20",
   "dateModified": "2026-03-20",
   "inLanguage": "en-IN"
@@ -89,6 +89,18 @@ footer{background:#1a1a2e;padding:2.5rem 2rem;text-align:center}
 footer p{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.3);line-height:1.9}
 footer a{color:#f2a900;text-decoration:none}
 @media(max-width:600px){.nav-links{display:none}.rights-grid{grid-template-columns:1fr}}
+
+/* ── MOBILE HAMBURGER NAV ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#1a1a2e;border-top:2px solid #e05c1a;z-index:998;padding:1rem 1.5rem;flex-direction:column;gap:0.75rem;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:700;cursor:pointer;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none}
+.mobile-menu a:hover{color:#f2a900}
+@media(max-width:768px){.hamburger{display:flex}}
 </style>
 
 <script type="application/ld+json">
@@ -96,8 +108,8 @@ footer a{color:#f2a900;text-decoration:none}
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://merahaq.in"},
-    {"@type": "ListItem", "position": 2, "name": "Legal Rights Guide", "item": "https://merahaq.in/legal-rights"}
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://merahaq.online"},
+    {"@type": "ListItem", "position": 2, "name": "Legal Rights Guide", "item": "https://merahaq.online/legal-rights"}
   ]
 }
 </script>
@@ -107,11 +119,26 @@ footer a{color:#f2a900;text-decoration:none}
   <a class="logo" href="/">🇮🇳 Mera<span>Haq</span></a>
   <div class="nav-links">
     <a href="/">Home</a>
+    <a href="blog">Blog</a>
     <a href="about">About</a>
     <a href="contact">Contact</a>
     <a href="privacy-policy">Privacy</a>
   </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="/">🏠 Home</a>
+  <a href="blog">📖 Blog</a>
+  <a href="about">ℹ️ About</a>
+  <a href="contact">✉️ Contact</a>
+  <a href="privacy-policy">🔒 Privacy Policy</a>
+  <a href="terms">📋 Terms</a>
+  <a href="disclaimer">⚠️ Disclaimer</a>
+</div>
 
 <div class="hero">
   <div class="hero-badge">⚖️ Legal Rights Guide</div>
@@ -243,10 +270,32 @@ footer a{color:#f2a900;text-decoration:none}
     <a href="about">About</a> &nbsp;·&nbsp;
     <a href="contact">Contact</a> &nbsp;·&nbsp;
     <a href="privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="terms">Terms</a>
+    <a href="terms">Terms</a> &nbsp;·&nbsp;
+    <a href="disclaimer">Disclaimer</a> &nbsp;·&nbsp;
+    <a href="cookie-policy">Cookie Policy</a>
   </p>
   <p style="margin-top:0.5rem">Not affiliated with any government body &nbsp;·&nbsp; General information only — not legal advice</p>
 </footer>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+<script>
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobile-menu');
+  var btn=document.getElementById('hamburger-btn');
+  if(!menu||!btn)return;
+  var open=menu.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  btn.setAttribute('aria-expanded',String(open));
+}
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('mobile-menu');
+  var btn=document.getElementById('hamburger-btn');
+  if(menu&&menu.classList.contains('open')&&!menu.contains(e.target)&&btn&&!btn.contains(e.target)){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+});
+</script>
 </body>
 </html>

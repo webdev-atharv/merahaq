@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /schema-markup-final
 
-Sitemap: https://merahaq.in/sitemap.xml
+Sitemap: https://merahaq.online/sitemap.xml

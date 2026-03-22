@@ -8,21 +8,21 @@
   <title>Contact MeraHaq – RTI Help &amp; Support</title>
   <meta name="description" content="Contact MeraHaq for RTI help, scheme questions, error reports or suggestions. Anonymous messages welcome."/>
   <meta name="keywords" content="contact MeraHaq, RTI help India, government scheme questions, MeraHaq support"/>
-  <link rel="canonical" href="https://merahaq.in/contact"/>
+  <link rel="canonical" href="https://merahaq.online/contact"/>
   <link rel="icon" type="image/png" href="/favicon.png"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://merahaq.in/contact"/>
+  <meta property="og:url" content="https://merahaq.online/contact"/>
   <meta property="og:title" content="Contact MeraHaq – RTI Help &amp; Support"/>
   <meta property="og:description" content="Contact MeraHaq for RTI help, scheme questions, error reports or suggestions. Anonymous messages welcome."/>
   <meta property="og:site_name" content="MeraHaq"/>
-  <meta property="og:image" content="https://merahaq.in/og-image.png"/>
+  <meta property="og:image" content="https://merahaq.online/og-image.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:url" content="https://merahaq.in/contact"/>
+  <meta name="twitter:url" content="https://merahaq.online/contact"/>
   <meta name="twitter:title" content="Contact MeraHaq – RTI Help &amp; Support"/>
   <meta name="twitter:description" content="Contact MeraHaq for RTI help, scheme questions, error reports or suggestions. Anonymous messages welcome."/>
-  <meta name="twitter:image" content="https://merahaq.in/og-image.png"/>
+  <meta name="twitter:image" content="https://merahaq.online/og-image.png"/>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP7DL5SNJW"></script>
   <script>
@@ -98,16 +98,28 @@
     footer{background:#1a1a2e;color:rgba(255,255,255,.4);text-align:center;padding:2.5rem 2rem;font-size:.8rem}
 footer p{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.3);line-height:1.9}
     footer a{color:#f2a900;text-decoration:none}
-  </style>
+  
+/* ── MOBILE HAMBURGER NAV ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#1a1a2e;border-top:2px solid #e05c1a;z-index:998;padding:1rem 1.5rem;flex-direction:column;gap:0.75rem;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:700;cursor:pointer;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none}
+.mobile-menu a:hover{color:#f2a900}
+@media(max-width:768px){.hamburger{display:flex}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "name": "Contact MeraHaq",
-  "url": "https://merahaq.in/contact",
+  "url": "https://merahaq.online/contact",
   "description": "Contact MeraHaq for RTI help, scheme questions, error reports or suggestions.",
   "inLanguage": "en-IN",
-  "isPartOf": {"@type": "WebSite", "name": "MeraHaq", "url": "https://merahaq.in"}
+  "isPartOf": {"@type": "WebSite", "name": "MeraHaq", "url": "https://merahaq.online"}
 }
 </script>
 </head>
@@ -117,11 +129,26 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255
   <a class="logo" href="/">🇮🇳 Mera<span>Haq</span></a>
   <div class="nav-links">
     <a href="/">Home</a>
+    <a href="blog">Blog</a>
     <a href="about">About</a>
     <a href="contact" aria-current="page">Contact</a>
     <a href="privacy-policy">Privacy</a>
   </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="/">🏠 Home</a>
+  <a href="blog">📖 Blog</a>
+  <a href="about">ℹ️ About</a>
+  <a href="contact">✉️ Contact</a>
+  <a href="privacy-policy">🔒 Privacy Policy</a>
+  <a href="terms">📋 Terms</a>
+  <a href="disclaimer">⚠️ Disclaimer</a>
+</div>
 
 <div class="hero">
   <div class="hero-badge">✉️ Get In Touch</div>
@@ -230,7 +257,9 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255
     <a href="about">About</a> &nbsp;·&nbsp;
     <a href="contact" aria-current="page">Contact</a> &nbsp;·&nbsp;
     <a href="privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="terms">Terms</a>
+    <a href="terms">Terms</a> &nbsp;·&nbsp;
+    <a href="disclaimer">Disclaimer</a> &nbsp;·&nbsp;
+    <a href="cookie-policy">Cookie Policy</a>
   </p>
   <p style="margin-top:0.4rem;font-size:0.7rem;color:rgba(255,255,255,0.2)">Not affiliated with any government body &nbsp;·&nbsp; For informational purposes only</p>
 </footer>
@@ -300,6 +329,26 @@ function sendMessage() {
   }
 
   document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+<script>
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobile-menu');
+  var btn=document.getElementById('hamburger-btn');
+  if(!menu||!btn)return;
+  var open=menu.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  btn.setAttribute('aria-expanded',String(open));
+}
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('mobile-menu');
+  var btn=document.getElementById('hamburger-btn');
+  if(menu&&menu.classList.contains('open')&&!menu.contains(e.target)&&btn&&!btn.contains(e.target)){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+});
 </script>
 </body>
 </html>
