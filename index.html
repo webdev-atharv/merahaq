@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="google-site-verification" content="google6f5d78cf560f6e86"/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://api.telegram.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"/>
 <title>MeraHaq – Government Schemes &amp; Rights for Indians</title>
 <meta name="description" content="Find government schemes you qualify for, know your legal rights, save emergency helplines, and generate RTI letters — free, no login needed."/>
 <meta name="keywords" content="government schemes India, RTI application, PM Kisan, Ayushman Bharat, BPL schemes, Indian citizen rights, legal rights India, free government benefits"/>
@@ -55,6 +55,8 @@
 }
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -169,7 +171,7 @@ nav{background:#1a1a2e;position:sticky;top:0;z-index:999;border-bottom:3px solid
 .help-bg .sec-mono{color:#f2a900}
 .help-bg .sec-desc{color:rgba(255,255,255,0.55)}
 .hl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0.85rem}
-.hl-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.1rem;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all 0.2s}
+.hl-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.1rem;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all 0.2s;text-decoration:none}
 .hl-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.22)}
 .hl-ico{font-size:1.8rem;flex-shrink:0}
 .hl-name{font-size:0.82rem;font-weight:700;color:#fff;margin-bottom:3px}
@@ -310,8 +312,9 @@ footer{background:#1a1a2e;padding:3rem 2rem}
   </div>
 </noscript>
 <main>
+<div id="main-content" role="main">
 <!-- NAV -->
-<nav>
+<nav role="navigation" aria-label="Site navigation">
   <a class="logo" href="/" onclick="showPage('home');return false;" aria-label="MeraHaq home page">🇮🇳 Mera<span>Haq</span></a>
   <div class="nav-links" role="navigation" aria-label="Main navigation">
     <a href="javascript:void(0)" onclick="showPage('schemes')" aria-label="View all government schemes">All Schemes</a>
@@ -321,17 +324,17 @@ footer{background:#1a1a2e;padding:3rem 2rem}
     <a href="blog" aria-label="Read guides and articles">Blog</a>
     <button class="nav-btn" onclick="showPage('home')" aria-label="Find government schemes for my profile">Find My Benefits</button>
   </div>
-  <button class="hamburger" id="hamburger-btn" aria-label="Open menu" onclick="toggleMobileMenu()">
+  <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <a onclick="showPage('home');closeMobileMenu()">🔍 Find My Benefits</a>
-  <a onclick="showPage('schemes');closeMobileMenu()">📋 All Schemes</a>
-  <a onclick="showPage('rights');closeMobileMenu()">⚖️ Your Rights</a>
-  <a onclick="showPage('helplines');closeMobileMenu()">📞 Helplines</a>
-  <a onclick="showPage('rti');closeMobileMenu()">📝 RTI Tool</a>
+  <a href="javascript:void(0)" onclick="showPage('home');closeMobileMenu()">🔍 Find My Benefits</a>
+  <a href="javascript:void(0)" onclick="showPage('schemes');closeMobileMenu()">📋 All Schemes</a>
+  <a href="javascript:void(0)" onclick="showPage('rights');closeMobileMenu()">⚖️ Your Rights</a>
+  <a href="javascript:void(0)" onclick="showPage('helplines');closeMobileMenu()">📞 Helplines</a>
+  <a href="javascript:void(0)" onclick="showPage('rti');closeMobileMenu()">📝 RTI Tool</a>
   <a href="blog">📖 Blog</a>
 </div>
 
@@ -860,10 +863,10 @@ footer{background:#1a1a2e;padding:3rem 2rem}
     </div>
     <div class="foot-col">
       <h5>Tools</h5>
-      <a onclick="showPage('home')">Scheme Finder</a>
-      <a onclick="showPage('rights')">Rights Library</a>
-      <a onclick="showPage('rti')">RTI Letter Tool</a>
-      <a onclick="showPage('helplines')">All Helplines</a>
+      <a href="javascript:void(0)" onclick="showPage('home')">Scheme Finder</a>
+      <a href="javascript:void(0)" onclick="showPage('rights')">Rights Library</a>
+      <a href="javascript:void(0)" onclick="showPage('rti')">RTI Letter Tool</a>
+      <a href="javascript:void(0)" onclick="showPage('helplines')">All Helplines</a>
       <a href="#articles">Guides &amp; Articles</a>
       <a href="about">About MeraHaq</a>
       <a href="contact">Contact Us</a>
@@ -1318,13 +1321,13 @@ function rightCardHTML(r) {
 }
 
 function hlCardHTML(h) {
-  return '<div class="hl-card">' +
+  return '<a class="hl-card" href="tel:' + esc(h.number) + '" aria-label="Call ' + esc(h.name) + ': ' + esc(h.number) + '">' +
     '<div class="hl-ico">' + esc(h.icon) + '</div>' +
     '<div class="hl-info">' +
     '<div class="hl-name">' + esc(h.name) + '</div>' +
     '<div class="hl-num">' + esc(h.number) + '</div>' +
     '<div class="hl-avail">' + esc(h.avail) + '</div>' +
-    '</div><span class="free-tag">FREE</span></div>';
+    '</div><span class="free-tag">FREE</span></a>';
 }
 
 /* ════════════════════════════════════════
@@ -1778,7 +1781,11 @@ function openSchemeModal(schemeId) {
 function closeModal() {
   document.getElementById('scheme-modal').classList.remove('open');
   document.body.style.overflow = '';
+  // Return focus to the card that opened the modal
+  if (lastFocusedCard) { lastFocusedCard.focus(); lastFocusedCard = null; }
 }
+
+let lastFocusedCard = null;
 
 // Close on overlay click (outside modal box)
 document.getElementById('scheme-modal').addEventListener('click', function(e) {

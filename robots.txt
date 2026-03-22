@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /schema-markup-final
+Disallow: /jan-dhan-yojana-1
 
 Sitemap: https://merahaq.online/sitemap.xml

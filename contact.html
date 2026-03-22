@@ -31,7 +31,9 @@
     gtag('js', new Date());
     gtag('config', 'G-SP7DL5SNJW');
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -202,7 +204,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255
 
       <div class="field">
         <label for="replyto">How can we reach you back? <span class="opt">(optional)</span></label>
-        <input type="text" id="replyto" placeholder="e.g. @yourtelegram or leave blank"/>
+        <input type="text" id="replyto" placeholder="e.g. your@email.com or @twitter handle (optional)"/>
       </div>
 
       <button class="submit-btn" id="submit-btn" onclick="sendMessage()">
@@ -299,6 +301,16 @@ function sendMessage() {
     btn.disabled = true;
     btn.classList.add('loading');
 
+    // Compose a mailto: fallback so the form always works, even without a backend API
+    var subject = encodeURIComponent('[MeraHaq] ' + topic);
+    var body = encodeURIComponent(
+      'Topic: ' + topic + '\n' +
+      'Name: ' + (name || 'Not provided') + '\n' +
+      'Reply-to: ' + (replyto || 'Not provided') + '\n\n' +
+      'Message:\n' + message
+    );
+    var mailtoLink = 'mailto:contact@merahaq.online?subject=' + subject + '&body=' + body;
+
     fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -308,7 +320,7 @@ function sendMessage() {
     .then(function(data) {
       btn.disabled = false;
       btn.classList.remove('loading');
-      if (data.success) {
+      if (data && data.success) {
         status.className = 'status success';
         status.textContent = '✅ Message sent! We will respond within 24–48 hours.';
         document.getElementById('topic').selectedIndex = 0;
@@ -316,15 +328,17 @@ function sendMessage() {
         document.getElementById('message').value = '';
         document.getElementById('replyto').value = '';
       } else {
-        status.className = 'status error';
-        status.textContent = '❌ Could not send. Please try again in a moment.';
+        // Backend responded but indicated failure — open mailto as fallback
+        window.location.href = mailtoLink;
       }
     })
     .catch(function() {
       btn.disabled = false;
       btn.classList.remove('loading');
-      status.className = 'status error';
-      status.textContent = '❌ Network error. Please check your connection and try again.';
+      // Network/API not available — open the user's mail client as a reliable fallback
+      status.className = 'status success';
+      status.textContent = '📧 Opening your email app to send this message...';
+      setTimeout(function() { window.location.href = mailtoLink; }, 600);
     });
   }
 
