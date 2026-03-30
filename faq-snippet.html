@@ -1,0 +1,231 @@
+<!--
+══════════════════════════════════════════════════════
+  FAQ SNIPPET — Paste into every guide page
+  Instructions below for EACH guide
+══════════════════════════════════════════════════════
+
+STEP 1: Add these styles inside your <style> block (once per file):
+-->
+
+<style>
+/* ── LAST UPDATED META BAR ── */
+.page-meta{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem 1.2rem;background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:0.75rem 1.25rem;margin-bottom:2rem;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#aaa}
+.page-meta span{display:flex;align-items:center;gap:5px}
+.page-meta .dot{color:#e8e0d5}
+
+/* ── FAQ SECTION ── */
+.faq-section{margin-top:3rem;border-top:2px solid #e8e0d5;padding-top:2.5rem}
+.faq-section .sec-mono{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#e05c1a;margin-bottom:0.4rem}
+.faq-section h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#1a1a2e;margin-bottom:1.5rem}
+.faq-section h2 em{color:#e05c1a;font-style:italic}
+.faq-item{border:1px solid #e8e0d5;border-radius:12px;overflow:hidden;margin-bottom:0.75rem}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;cursor:pointer;background:#fff;font-weight:700;font-size:0.9rem;color:#1a1a2e;gap:1rem;transition:background 0.18s;list-style:none;user-select:none}
+.faq-q:hover{background:#fdf6f0}
+.faq-q::-webkit-details-marker{display:none}
+.faq-icon{font-size:1rem;color:#e05c1a;flex-shrink:0;transition:transform 0.2s}
+details[open] .faq-icon{transform:rotate(45deg)}
+.faq-a{padding:0 1.25rem 1rem;font-size:0.87rem;color:#555;line-height:1.75;border-top:1px solid #f0e8de}
+.faq-a p{margin-top:0.75rem}
+.faq-a ul{margin:0.75rem 0 0 1.1rem}
+.faq-a li{margin-bottom:0.4rem}
+.faq-a strong{color:#1a1a2e}
+.faq-a a{color:#e05c1a;text-decoration:none;font-weight:700}
+.faq-a a:hover{text-decoration:underline}
+
+/* Schema.org FAQ — hidden visually but readable by Google */
+.schema-faq{display:none}
+</style>
+
+<!--
+══════════════════════════════════════════════════════
+STEP 2: Add this LAST UPDATED bar right after your hero/intro section.
+Change the date and author for each guide.
+══════════════════════════════════════════════════════
+-->
+
+<div class="page-meta">
+  <span>🕐 Last Updated: <strong style="color:#1a1a2e">March 2026</strong></span>
+  <span class="dot">·</span>
+  <span>✍️ Author: <strong style="color:#1a1a2e">MeraHaq Editorial Team</strong></span>
+  <span class="dot">·</span>
+  <span>🔍 Source: <strong style="color:#1a1a2e">Official .gov.in portals</strong></span>
+  <span class="dot">·</span>
+  <span>📋 Verified: <strong style="color:#22a876">Fact-checked</strong></span>
+</div>
+
+
+<!--
+══════════════════════════════════════════════════════
+STEP 3: Add the FAQ section just before "Official Source" section.
+Replace the questions/answers below with guide-specific ones.
+The RTI guide FAQ is shown as a TEMPLATE — swap content for each guide.
+══════════════════════════════════════════════════════
+-->
+
+<!-- FAQ SECTION — RTI GUIDE (replace Q&A for other guides) -->
+<div class="faq-section">
+  <div class="sec-mono">Frequently Asked Questions</div>
+  <h2>Common Questions About <em>RTI</em></h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">Can I file an RTI for a state government department? <span class="faq-icon">+</span></summary>
+    <div class="faq-a"><p>Yes. RTI applies to all public authorities — central, state, and local government. For state government departments, you cannot use rtionline.gov.in. Instead, search for your state's RTI portal (e.g., "Maharashtra RTI portal") or submit your application by post/in person to the Public Information Officer of that department.</p></div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What if the government does not reply to my RTI within 30 days? <span class="faq-icon">+</span></summary>
+    <div class="faq-a"><p>If you receive no reply within 30 days, you can file a <strong>First Appeal</strong> with the First Appellate Authority of the same department — this is free and must be done within 30 days of the missed deadline. If the First Appeal also fails, you can file a <strong>Second Appeal</strong> with the Central Information Commission (CIC) or State Information Commission. They can impose a penalty of ₹250 per day (up to ₹25,000) on the PIO for non-compliance.</p></div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Do I need to give a reason for my RTI application? <span class="faq-icon">+</span></summary>
+    <div class="faq-a"><p>No. Under the RTI Act, you are <strong>not required</strong> to give any reason for requesting information. The government cannot reject your RTI application because you did not explain why you want the information. However, providing context can sometimes help get a more specific response.</p></div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What information cannot be obtained through RTI? <span class="faq-icon">+</span></summary>
+    <div class="faq-a">
+      <p>Some information is exempt from disclosure under Section 8 of the RTI Act:</p>
+      <ul>
+        <li>Information that would affect national security or sovereignty</li>
+        <li>Cabinet papers and Council of Ministers deliberations</li>
+        <li>Personal information where disclosure would cause unwarranted invasion of privacy</li>
+        <li>Information received in confidence from a foreign government</li>
+        <li>Information that would prejudice ongoing investigations or proceedings</li>
+      </ul>
+      <p>However, even exempt information can be disclosed if public interest outweighs the harm.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Can I file an RTI to know why my PM Kisan / ration card / scheme application was rejected? <span class="faq-icon">+</span></summary>
+    <div class="faq-a"><p>Yes — this is one of the most common and effective uses of RTI. File an application asking for "certified copies of the documents or orders on the basis of which my application for [scheme name] was rejected, along with the grounds for rejection." Address it to the Public Information Officer of the concerned department. They must reply within 30 days with the reason and supporting documents.</p></div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Is the RTI process free for BPL card holders? <span class="faq-icon">+</span></summary>
+    <div class="faq-a"><p>Yes. BPL (Below Poverty Line) card holders are completely exempt from the ₹10 application fee and any additional fees for documents. You simply need to attach a photocopy of your BPL ration card with your RTI application. The government cannot charge you any fee if you are a BPL card holder.</p></div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Can I write my RTI application in Hindi? <span class="faq-icon">+</span></summary>
+    <div class="faq-a"><p>Yes. You can write your RTI application in Hindi, English, or any official language of the area where the public authority is located. For central government departments, Hindi and English are both fully accepted. For state departments, you can also use the official language of that state.</p></div>
+  </details>
+
+</div><!-- end .faq-section -->
+
+
+<!-- FAQ Schema Markup for Google Rich Results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I file an RTI for a state government department?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. RTI applies to all public authorities — central, state, and local government. For state government departments, search for your state's RTI portal or submit your application by post/in person to the Public Information Officer of that department."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the government does not reply to my RTI within 30 days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you receive no reply within 30 days, you can file a First Appeal with the First Appellate Authority of the same department — free, within 30 days of missed deadline. If that fails, file a Second Appeal with the Central or State Information Commission. They can impose a penalty of ₹250 per day (up to ₹25,000) on the PIO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to give a reason for my RTI application?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Under the RTI Act, you are not required to give any reason for requesting information. The government cannot reject your application because you did not explain why you want the information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I file an RTI to know why my PM Kisan or ration card application was rejected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. File an RTI asking for 'certified copies of the documents on which my application was rejected, along with the grounds for rejection.' Address it to the PIO of the concerned department. They must reply within 30 days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the RTI process free for BPL card holders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. BPL card holders are completely exempt from the ₹10 application fee. Attach a photocopy of your BPL ration card with your RTI application. No fee can be charged to BPL card holders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I write my RTI application in Hindi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can write your RTI application in Hindi, English, or the official language of the area. For central government departments, Hindi and English are both fully accepted."
+      }
+    }
+  ]
+}
+</script>
+
+<!--
+══════════════════════════════════════════════════════
+FAQ TEMPLATES FOR OTHER GUIDES
+(Copy and swap into each guide's faq-section)
+══════════════════════════════════════════════════════
+
+── PM KISAN FAQ ──────────────────────────────────────
+Q: How do I check my PM Kisan beneficiary status?
+A: Go to pmkisan.gov.in → click "Beneficiary Status" → enter your Aadhaar number, bank account number, or registered mobile number. Your status and payment history will show instantly.
+
+Q: Why is my PM Kisan installment stuck?
+A: Common reasons: incomplete e-KYC, Aadhaar not linked to bank account, incorrect bank account details, land ownership issues, or name mismatch. Visit your nearest CSC center or Gram Panchayat to fix e-KYC. Contact helpline: 155261.
+
+Q: I am a farmer but my name is not on the PM Kisan list. What should I do?
+A: Visit your Gram Panchayat or nearest Common Service Centre (CSC). Fill the PM Kisan registration form with your Aadhaar, bank passbook, and land records. New registrations are accepted continuously.
+
+Q: Does PM Kisan apply to tenant farmers?
+A: No. PM Kisan is only for landowner farmers whose names appear in land records. Tenant and sharecropping farmers are not currently eligible under the central scheme, though some states have their own schemes for them.
+
+── AYUSHMAN BHARAT FAQ ──────────────────────────────
+Q: How do I check if I am eligible for Ayushman Bharat?
+A: Call the helpline 14555, visit pmjay.gov.in, or go to your nearest CSC/hospital. Enter your name and Aadhaar. Eligibility is based on the SECC 2011 database — not income or occupation currently.
+
+Q: Which hospitals accept Ayushman Bharat?
+A: Over 25,000 government and private hospitals are empanelled. Search at pmjay.gov.in → "Find Hospital". Just walk in — no prior registration needed. Show your Aadhaar or Ayushman card.
+
+Q: What does Ayushman Bharat NOT cover?
+A: OPD (outpatient) treatment, medicines bought outside hospital, cosmetic surgery, fertility treatments, and organ transplants (except kidney) are not covered. It covers hospitalization costs only.
+
+Q: My name is on the list but the hospital is refusing. What do I do?
+A: Call helpline 14555 immediately. Empanelled hospitals are legally required to treat Ayushman Bharat beneficiaries. You can also file a complaint on the official portal.
+
+── RATION CARD FAQ ──────────────────────────────────
+Q: What is the difference between PHH and AAY ration card?
+A: PHH (Priority Household) cards are for families above the destitution line but still poor — they get 5 kg/person/month. AAY (Antyodaya Anna Yojana) cards are for the poorest of the poor families — they get 35 kg/family/month at ₹2-3/kg.
+
+Q: My ration card application was rejected. What are my options?
+A: You can appeal to the District Food and Supply Officer. Also file an RTI asking for the specific grounds of rejection. If the rejection is incorrect, you can approach the District Grievance Redressal Officer or the State Food Commission.
+
+Q: Can I use my ration card in another state?
+A: Yes. Under One Nation One Ration Card (ONORC), you can buy subsidised grain from any Fair Price Shop in India using your Aadhaar and ration card. This is especially useful for migrant workers.
+
+── MGNREGA FAQ ──────────────────────────────────────
+Q: Who is eligible for a MGNREGA Job Card?
+A: Any adult member (18+) of a rural household can apply. There is no income limit. Urban areas are not covered. You apply at your Gram Panchayat — it is free and must be issued within 15 days.
+
+Q: What do I do if I am not given work within 15 days of applying?
+A: You are legally entitled to an unemployment allowance — at least ¼ of your daily wage for the first 30 days and ½ thereafter, paid by the state government. Submit a written complaint to your Gram Panchayat and keep a copy.
+
+Q: What is the current MGNREGA wage rate?
+A: Wages vary by state — between ₹247 (Bihar, Jharkhand) and ₹386 (Haryana) per day as of 2025-26. Wages must be paid within 15 days of work completion directly to your bank account.
+
+══════════════════════════════════════════════════════
+END OF FAQ TEMPLATES
+══════════════════════════════════════════════════════
+-->

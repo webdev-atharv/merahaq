@@ -301,15 +301,224 @@ footer{background:#1a1a2e;padding:3rem 2rem}
 </style>
 </head>
 <body>
-<noscript>
-  <div style="background:#1a1a2e;color:#fff;padding:2rem;text-align:center;font-family:sans-serif">
-    <h2 style="color:#e05c1a;margin-bottom:1rem">🇮🇳 MeraHaq — Important Helplines</h2>
-    <p style="margin-bottom:1rem">This site requires JavaScript. Here are key emergency numbers:</p>
-    <p>🚨 Police: <strong>100</strong> &nbsp;|&nbsp; 🚑 Ambulance: <strong>108</strong> &nbsp;|&nbsp; 🔥 Fire: <strong>101</strong></p>
-    <p>⚖️ Free Legal Aid (NALSA): <strong>15100</strong> &nbsp;|&nbsp; 👩 Women Helpline: <strong>1091</strong> &nbsp;|&nbsp; 🧒 Child Helpline: <strong>1098</strong></p>
-    <p>🏥 Ayushman Bharat: <strong>14555</strong> &nbsp;|&nbsp; 📋 Consumer: <strong>1915</strong> &nbsp;|&nbsp; 🍚 Ration: <strong>1967</strong></p>
-    <p style="margin-top:1rem;font-size:0.85rem;opacity:0.6">Please enable JavaScript to use the full site.</p>
+<!-- ═══════════════════════════════════════════════════════
+     STATIC SEO SECTION — visible to Google crawler & noscript
+     Hidden from JS users via the script below
+     ═══════════════════════════════════════════════════════ -->
+<div id="static-seo-content">
+<style>
+#static-seo-content{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#1a1a2e}
+.ssc-hero{background:linear-gradient(135deg,#1a1a2e 0%,#2d2d5e 60%,#1a1a2e 100%);padding:3.5rem 2rem 3rem;text-align:center}
+.ssc-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);color:#fff;font-weight:900;line-height:1.2;margin-bottom:1rem}
+.ssc-hero h1 em{color:#e05c1a;font-style:italic}
+.ssc-hero p{font-size:1rem;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto 1.5rem;line-height:1.8}
+.ssc-trust{display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem}
+.ssc-trust span{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.8);font-size:0.78rem;font-weight:700;padding:6px 14px;border-radius:50px}
+.ssc-cta{display:inline-block;background:#e05c1a;color:#fff;font-weight:800;font-size:0.95rem;padding:13px 32px;border-radius:10px;text-decoration:none;transition:background 0.2s}
+.ssc-cta:hover{background:#ff6b35}
+.ssc-section{max-width:1100px;margin:0 auto;padding:3rem 2rem}
+.ssc-section-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:#1a1a2e;margin-bottom:0.4rem}
+.ssc-section-title em{color:#e05c1a;font-style:italic}
+.ssc-section-sub{font-size:0.85rem;color:#888;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;margin-bottom:2rem;text-transform:uppercase}
+.ssc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-bottom:1rem}
+.ssc-card{background:#fff;border:2px solid #e8e0d5;border-radius:16px;padding:1.5rem;text-decoration:none;color:inherit;display:block;transition:box-shadow 0.2s}
+.ssc-card:hover{box-shadow:0 8px 28px rgba(26,26,46,0.1);border-color:#e05c1a}
+.ssc-card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:0.75rem}
+.ssc-icon{font-size:2rem;flex-shrink:0}
+.ssc-badge{font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;color:#888}
+.ssc-card h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1a1a2e;margin:0.2rem 0 0.5rem;line-height:1.35}
+.ssc-card p{font-size:0.84rem;color:#555;line-height:1.6;margin-bottom:0.75rem}
+.ssc-benefit{background:#fdf6e3;border:1px solid rgba(242,169,0,0.3);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.82rem;font-weight:800;color:#7a4f00;margin-bottom:0.75rem}
+.ssc-link{font-size:0.8rem;font-weight:800;color:#e05c1a;font-family:'JetBrains Mono',monospace}
+.ssc-helplines{background:#1a1a2e;padding:3rem 2rem}
+.ssc-helplines-inner{max-width:1100px;margin:0 auto}
+.ssc-helplines h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:0.3rem}
+.ssc-helplines h2 em{color:#e05c1a;font-style:italic}
+.ssc-helplines p{font-size:0.82rem;color:rgba(255,255,255,0.45);font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem}
+.ssc-hl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:0.85rem}
+.ssc-hl{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.1rem;display:flex;align-items:center;gap:10px;text-decoration:none}
+.ssc-hl:hover{background:rgba(255,255,255,0.1)}
+.ssc-hl-ico{font-size:1.6rem;flex-shrink:0}
+.ssc-hl-name{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.8)}
+.ssc-hl-num{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:700;color:#f2a900}
+.ssc-why{background:#f8f3eb;padding:3rem 2rem}
+.ssc-why-inner{max-width:1100px;margin:0 auto}
+.ssc-why h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#1a1a2e;margin-bottom:0.3rem}
+.ssc-why h2 em{color:#e05c1a;font-style:italic}
+.ssc-why-sub{font-size:0.82rem;color:#888;font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem}
+.ssc-why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}
+.ssc-why-card{background:#fff;border:2px solid #e8e0d5;border-radius:14px;padding:1.5rem}
+.ssc-why-card .wi{font-size:2rem;margin-bottom:0.6rem}
+.ssc-why-card h4{font-family:'Playfair Display',serif;font-weight:700;font-size:0.95rem;color:#1a1a2e;margin-bottom:0.4rem}
+.ssc-why-card p{font-size:0.83rem;color:#666;line-height:1.65}
+.ssc-guides{background:#fff;padding:3rem 2rem;border-top:2px solid #e8e0d5}
+.ssc-guides-inner{max-width:1100px;margin:0 auto}
+.ssc-guides h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#1a1a2e;margin-bottom:0.3rem}
+.ssc-guides h2 em{color:#e05c1a;font-style:italic}
+.ssc-guides-sub{font-size:0.82rem;color:#888;font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem}
+.ssc-guides-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.ssc-guide-item{border:1px solid #e8e0d5;border-radius:12px;padding:1.1rem 1.25rem;text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px;transition:border-color 0.2s}
+.ssc-guide-item:hover{border-color:#e05c1a}
+.ssc-guide-item .gi{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.ssc-guide-item h4{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;color:#1a1a2e;margin-bottom:0.2rem}
+.ssc-guide-item p{font-size:0.79rem;color:#777;line-height:1.5}
+@media(max-width:640px){
+  .ssc-grid,.ssc-hl-grid,.ssc-why-grid,.ssc-guides-list{grid-template-columns:1fr}
+}
+</style>
+
+<!-- STATIC HERO -->
+<div class="ssc-hero">
+  <h1>Know Your <em>Rights &amp; Benefits</em><br/>as an Indian Citizen</h1>
+  <p>Find government schemes you qualify for, know your legal rights, save important helplines, and generate RTI letters — all free, no login needed.</p>
+  <div class="ssc-trust">
+    <span>✅ Official .gov.in Sources</span>
+    <span>🔒 No Data Stored</span>
+    <span>🆓 100% Free Forever</span>
   </div>
+  <a href="#main-content" class="ssc-cta" onclick="document.getElementById('static-seo-content').style.display='none';return true;">🔍 Find My Benefits — Free</a>
+</div>
+
+<!-- SCHEMES SECTION -->
+<div class="ssc-section">
+  <p class="ssc-section-sub">Government Schemes Database · Official .gov.in Sources</p>
+  <h2 class="ssc-section-title">Government <em>Schemes</em> You May Qualify For</h2>
+  <div class="ssc-grid">
+
+    <a href="/ayushman-bharat" class="ssc-card">
+      <div class="ssc-card-top"><div class="ssc-icon">🏥</div><div><div class="ssc-badge">AB-PMJAY · Health</div></div></div>
+      <h3>Ayushman Bharat — Free ₹5 Lakh Health Insurance</h3>
+      <p>Free hospital treatment for over 50 crore Indians. Covers 1,929 procedures including cancer, heart surgery and dialysis. No premium, no cash.</p>
+      <div class="ssc-benefit">💰 ₹5 lakh per year, per family — completely free</div>
+      <span class="ssc-link">Read Full Guide →</span>
+    </a>
+
+    <a href="/pm-kisan" class="ssc-card">
+      <div class="ssc-card-top"><div class="ssc-icon">🌾</div><div><div class="ssc-badge">PM-KISAN · Farmers</div></div></div>
+      <h3>PM Kisan — ₹6,000/Year for Farmers</h3>
+      <p>₹6,000 per year in 3 instalments of ₹2,000 directly to farmer bank accounts. Millions of eligible farmers are missing payments due to registration errors.</p>
+      <div class="ssc-benefit">💰 ₹2,000 every 4 months — direct to bank account</div>
+      <span class="ssc-link">Read Full Guide →</span>
+    </a>
+
+    <a href="/ration-card" class="ssc-card">
+      <div class="ssc-card-top"><div class="ssc-icon">🍚</div><div><div class="ssc-badge">NFSA · Food Security</div></div></div>
+      <h3>Ration Card — Free Food for 80 Crore Indians</h3>
+      <p>5 kg of free food grains per person per month under PMGKAY. Includes One Nation One Ration Card for migrants. Apply at your state Food Department portal.</p>
+      <div class="ssc-benefit">💰 5 kg free grain/month per person — zero cost</div>
+      <span class="ssc-link">Read Full Guide →</span>
+    </a>
+
+    <a href="/pmay" class="ssc-card">
+      <div class="ssc-card-top"><div class="ssc-icon">🏠</div><div><div class="ssc-badge">PMAY-G · PMAY-U · Housing</div></div></div>
+      <h3>PMAY — Free House for Rural &amp; Urban Poor</h3>
+      <p>₹1.20–1.30 lakh grant for rural house construction. Credit-linked subsidies for urban EWS/LIG families. Must not own a pucca house anywhere in India.</p>
+      <div class="ssc-benefit">💰 Up to ₹1.30 lakh grant for house construction</div>
+      <span class="ssc-link">Read Full Guide →</span>
+    </a>
+
+    <a href="/mgnrega" class="ssc-card">
+      <div class="ssc-card-top"><div class="ssc-icon">👷</div><div><div class="ssc-badge">MGNREGA · Employment</div></div></div>
+      <h3>MGNREGA — 100 Days Guaranteed Work</h3>
+      <p>Every adult in a rural household has a legal right to 100 days of paid work per year. Wages ₹247–₹386/day (state-wise) paid directly to bank account.</p>
+      <div class="ssc-benefit">💰 100 days/year guaranteed employment — your legal right</div>
+      <span class="ssc-link">Read Full Guide →</span>
+    </a>
+
+    <a href="/ujjwala-yojana" class="ssc-card">
+      <div class="ssc-card-top"><div class="ssc-icon">🔥</div><div><div class="ssc-badge">PMUY · Ujjwala 2.0</div></div></div>
+      <h3>Ujjwala Yojana — Free LPG for BPL Women</h3>
+      <p>Free LPG gas connection, cylinder, regulator and pipe to BPL women. Connection is in the woman's name. First refill is also free. Subsidy via DBT to bank.</p>
+      <div class="ssc-benefit">💰 Free connection + first cylinder — zero cost</div>
+      <span class="ssc-link">Read Full Guide →</span>
+    </a>
+
+    <a href="/sukanya-samriddhi" class="ssc-card">
+      <div class="ssc-card-top"><div class="ssc-icon">👧</div><div><div class="ssc-badge">SSY · Beti Bachao</div></div></div>
+      <h3>Sukanya Samriddhi — 8.2% Tax-Free Savings for Girls</h3>
+      <p>Highest interest of any government savings scheme — 8.2% per year, fully tax-free. Open for girls below 10 years. Start with just ₹250 at any Post Office.</p>
+      <div class="ssc-benefit">💰 8.2% per year — guaranteed by Government of India</div>
+      <span class="ssc-link">Read Full Guide →</span>
+    </a>
+
+    <a href="/scholarships" class="ssc-card">
+      <div class="ssc-card-top"><div class="ssc-icon">🎓</div><div><div class="ssc-badge">NSP · Education</div></div></div>
+      <h3>Government Scholarships for Indian Students</h3>
+      <p>120+ scholarships for SC, ST, OBC, minority and disabled students from Class 9 to PhD on the National Scholarship Portal. Lakhs go unclaimed every year.</p>
+      <div class="ssc-benefit">💰 Free scholarships — apply at scholarships.gov.in</div>
+      <span class="ssc-link">Read Full Guide →</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- HELPLINES SECTION -->
+<div class="ssc-helplines">
+  <div class="ssc-helplines-inner">
+    <h2>Emergency &amp; Important <em>Helplines</em></h2>
+    <p>All free from any mobile in India · Sourced from official government portals</p>
+    <div class="ssc-hl-grid">
+      <a href="tel:100" class="ssc-hl"><div class="ssc-hl-ico">🚨</div><div><div class="ssc-hl-name">Police</div><div class="ssc-hl-num">100</div></div></a>
+      <a href="tel:108" class="ssc-hl"><div class="ssc-hl-ico">🚑</div><div><div class="ssc-hl-name">Ambulance</div><div class="ssc-hl-num">108</div></div></a>
+      <a href="tel:101" class="ssc-hl"><div class="ssc-hl-ico">🔥</div><div><div class="ssc-hl-name">Fire Brigade</div><div class="ssc-hl-num">101</div></div></a>
+      <a href="tel:1091" class="ssc-hl"><div class="ssc-hl-ico">👩</div><div><div class="ssc-hl-name">Women Helpline</div><div class="ssc-hl-num">1091</div></div></a>
+      <a href="tel:1098" class="ssc-hl"><div class="ssc-hl-ico">🧒</div><div><div class="ssc-hl-name">Child Helpline</div><div class="ssc-hl-num">1098</div></div></a>
+      <a href="tel:15100" class="ssc-hl"><div class="ssc-hl-ico">⚖️</div><div><div class="ssc-hl-name">Free Legal Aid (NALSA)</div><div class="ssc-hl-num">15100</div></div></a>
+      <a href="tel:14555" class="ssc-hl"><div class="ssc-hl-ico">🏥</div><div><div class="ssc-hl-name">Ayushman Bharat</div><div class="ssc-hl-num">14555</div></div></a>
+      <a href="tel:1967" class="ssc-hl"><div class="ssc-hl-ico">🍚</div><div><div class="ssc-hl-name">Ration / PDS</div><div class="ssc-hl-num">1967</div></div></a>
+      <a href="tel:155261" class="ssc-hl"><div class="ssc-hl-ico">🌾</div><div><div class="ssc-hl-name">PM Kisan</div><div class="ssc-hl-num">155261</div></div></a>
+      <a href="tel:1915" class="ssc-hl"><div class="ssc-hl-ico">📋</div><div><div class="ssc-hl-name">Consumer Helpline</div><div class="ssc-hl-num">1915</div></div></a>
+      <a href="tel:14445" class="ssc-hl"><div class="ssc-hl-ico">🏠</div><div><div class="ssc-hl-name">PMAY / Housing</div><div class="ssc-hl-num">14445</div></div></a>
+      <a href="tel:1947" class="ssc-hl"><div class="ssc-hl-ico">🪪</div><div><div class="ssc-hl-name">Aadhaar (UIDAI)</div><div class="ssc-hl-num">1947</div></div></a>
+    </div>
+  </div>
+</div>
+
+<!-- WHY MERAHAQ -->
+<div class="ssc-why">
+  <div class="ssc-why-inner">
+    <h2>Most Indians Never Claim <em>What Is Already Theirs</em></h2>
+    <p class="ssc-why-sub">These are not charities — these are rights guaranteed by the Constitution of India</p>
+    <div class="ssc-why-grid">
+      <div class="ssc-why-card"><div class="wi">📋</div><h4>Hundreds of Schemes</h4><p>India has hundreds of central and state welfare schemes. The average family qualifies for many but claims only 1–2.</p></div>
+      <div class="ssc-why-card"><div class="wi">💬</div><h4>Nobody Tells You</h4><p>Scheme information is buried in government PDFs and ministry portals that most people cannot navigate easily.</p></div>
+      <div class="ssc-why-card"><div class="wi">⚖️</div><h4>These Are Your Rights</h4><p>Free legal aid, worker protections, emergency hospital treatment — these are constitutional rights, not charity.</p></div>
+      <div class="ssc-why-card"><div class="wi">💰</div><h4>Real Money Is Waiting</h4><p>Between PM Kisan, crop insurance, scholarships and food security — eligible families can access significant benefits they legally miss.</p></div>
+      <div class="ssc-why-card"><div class="wi">🔍</div><h4>Official Sources Only</h4><p>Every scheme links to its official government source. All information is from .gov.in portals only — always verify before applying.</p></div>
+      <div class="ssc-why-card"><div class="wi">🆓</div><h4>Always Free</h4><p>No registration, no fees, no personal data collection. This site is a public service — every Indian deserves to know their rights.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- GUIDES / BLOG LINKS -->
+<div class="ssc-guides">
+  <div class="ssc-guides-inner">
+    <h2>Guides for Every <em>Indian Citizen</em></h2>
+    <p class="ssc-guides-sub">Plain-language guides · Sourced from official .gov.in portals</p>
+    <div class="ssc-guides-list">
+      <a href="/rti-guide" class="ssc-guide-item"><div class="gi">📝</div><div><h4>How to File an RTI Application</h4><p>Any Indian can ask any government office for information. Costs ₹10, reply in 30 days.</p></div></a>
+      <a href="/legal-rights" class="ssc-guide-item"><div class="gi">⚖️</div><div><h4>Your Legal Rights — Police, Arrest &amp; Free Aid</h4><p>Rights you have if police stop, question or arrest you. Free legal aid: NALSA 15100.</p></div></a>
+      <a href="/aadhaar-guide" class="ssc-guide-item"><div class="gi">🪪</div><div><h4>Aadhaar — Download, Update &amp; Link Guide</h4><p>Download e-Aadhaar free, update address, link mobile, use mAadhaar app.</p></div></a>
+      <a href="/pan-card-guide" class="ssc-guide-item"><div class="gi">💳</div><div><h4>PAN Card — Apply, Download &amp; Link Aadhaar</h4><p>Get instant e-PAN free, link PAN with Aadhaar, correct mistakes online.</p></div></a>
+      <a href="/voter-id-guide" class="ssc-guide-item"><div class="gi">🗳️</div><div><h4>Voter ID — Apply, Download &amp; Correct Guide</h4><p>Apply free at voters.eci.gov.in, download e-EPIC, correct errors using Form 8.</p></div></a>
+      <a href="/labour-rights-india" class="ssc-guide-item"><div class="gi">💼</div><div><h4>Labour Rights in India — Worker Protections</h4><p>Minimum wage, PF, gratuity, maternity leave — every worker's legal rights.</p></div></a>
+      <a href="/blog" class="ssc-guide-item" style="border-color:#e05c1a"><div class="gi">📖</div><div><h4>View All Guides →</h4><p>Browse all plain-language guides on government schemes and citizen rights.</p></div></a>
+    </div>
+  </div>
+</div>
+
+</div><!-- end #static-seo-content -->
+
+<script>
+// Hide static content instantly for JS users — they get the full interactive app
+(function(){
+  var el = document.getElementById('static-seo-content');
+  if(el) el.style.display = 'none';
+})();
+</script>
+
+<noscript>
+<style>#static-seo-content{display:block!important}</style>
 </noscript>
 <main>
 <div id="main-content" role="main">

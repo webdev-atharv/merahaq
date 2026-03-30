@@ -4,9 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Blog – Government Schemes & Rights Guides | MeraHaq</title>
-<meta name="description" content="Plain-language guides on Indian government schemes, legal rights, RTI, Aadhaar, Voter ID, PM Kisan, Ayushman Bharat and more. Free for every Indian."/>
+<meta name="description" content="Plain-language guides to Indian government schemes, citizen rights, and legal entitlements. Updated regularly from official .gov.in sources. Free for every Indian."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://merahaq.online/blog"/>
+<meta property="og:title" content="Blog – Government Schemes & Rights Guides | MeraHaq"/>
+<meta property="og:description" content="Plain-language guides to government schemes, citizen rights, and legal entitlements for every Indian."/>
+<meta property="og:url" content="https://merahaq.online/blog"/>
+<meta property="og:type" content="website"/>
 <link rel="icon" type="image/png" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -14,226 +18,558 @@
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE845KJ8TC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-KE845KJ8TC');
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KE845KJ8TC');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "MeraHaq Blog",
+  "url": "https://merahaq.online/blog",
+  "description": "Plain-language guides to Indian government schemes and citizen rights",
+  "publisher": { "@type": "Organization", "name": "MeraHaq", "url": "https://merahaq.online" },
+  "inLanguage": "en-IN"
+}
 </script>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#1a1a2e}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#1a1a2e;-webkit-font-smoothing:antialiased}
+
+/* NAV */
 nav{background:#1a1a2e;position:sticky;top:0;z-index:999;border-bottom:3px solid #e05c1a;padding:0 2rem;height:58px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:#fff;text-decoration:none;display:flex;align-items:center;gap:6px}
 .logo span{color:#e05c1a}
-.nav-links{display:flex;gap:1.2rem;align-items:center}
+.nav-links{display:flex;gap:1.4rem;align-items:center}
 .nav-links a{color:rgba(255,255,255,0.65);font-size:0.85rem;font-weight:700;text-decoration:none;transition:color 0.2s}
-.nav-links a:hover{color:#f2a900}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.nav-links a:hover,.nav-links a.active{color:#f2a900}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
-.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#1a1a2e;border-top:2px solid #e05c1a;z-index:998;padding:1rem 1.5rem;flex-direction:column;gap:0.75rem}
+.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#1a1a2e;border-bottom:3px solid #e05c1a;z-index:998;padding:1rem 2rem;flex-direction:column;gap:0.75rem}
 .mobile-menu.open{display:flex}
-.mobile-menu a{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:700;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none}
-@media(max-width:768px){.hamburger{display:flex}.nav-links{display:none}}
+.mobile-menu a{color:rgba(255,255,255,0.8);font-size:0.9rem;font-weight:700;text-decoration:none;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
 
-.hero{background:linear-gradient(135deg,#1a1a2e 0%,#2d2d5e 100%);padding:3rem 2rem;text-align:center}
-.hero .mono{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#f2a900;margin-bottom:0.75rem}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;font-weight:900;line-height:1.2}
-.hero p{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;max-width:560px;margin-left:auto;margin-right:auto}
+/* HERO */
+.blog-hero{background:linear-gradient(135deg,#1a1a2e 0%,#2d2d5e 60%,#1a1a2e 100%);padding:3.5rem 2rem 3rem;text-align:center}
+.blog-hero-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#f2a900;margin-bottom:0.75rem}
+.blog-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;font-weight:900;line-height:1.2;margin-bottom:0.75rem}
+.blog-hero h1 em{color:#e05c1a;font-style:italic}
+.blog-hero p{font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:560px;margin:0 auto}
 
-.sec{padding:3rem 2rem}
-.sec-inner{max-width:1200px;margin:0 auto}
-.sec-header{margin-bottom:2rem}
-.sec-mono{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#e05c1a;margin-bottom:0.5rem}
-.sec-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(1.5rem,3vw,2rem);color:#1a1a2e;margin-bottom:0.5rem}
-.sec-desc{font-size:0.95rem;color:#666;line-height:1.7;max-width:560px}
+/* FILTER BAR */
+.filter-bar{background:#fff;border-bottom:2px solid #e8e0d5;padding:0.85rem 2rem;display:flex;gap:0.5rem;overflow-x:auto;scrollbar-width:none;position:sticky;top:58px;z-index:90}
+.filter-bar::-webkit-scrollbar{display:none}
+.ftab{flex-shrink:0;padding:6px 16px;border-radius:100px;border:2px solid #ddd;background:#fff;font-size:0.82rem;font-weight:700;cursor:pointer;color:#666;transition:all 0.18s;font-family:'Nunito',sans-serif}
+.ftab:hover{border-color:#e05c1a;color:#e05c1a}
+.ftab.on{background:#e05c1a;border-color:#e05c1a;color:#fff}
 
-.tabs{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem}
-.tab{padding:7px 16px;background:#fff;border:2px solid #ddd;border-radius:100px;cursor:pointer;font-size:0.82rem;font-weight:700;color:#666;transition:all 0.18s;text-decoration:none}
-.tab:hover,.tab.active{background:#e05c1a;color:#fff;border-color:#e05c1a}
+/* GRID */
+.blog-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
+.section-mono{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:#e05c1a;margin-bottom:0.4rem}
+.section-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#1a1a2e;margin-bottom:0.3rem}
+.section-title em{color:#e05c1a;font-style:italic}
+.section-desc{font-size:0.85rem;color:#888;margin-bottom:1.75rem;line-height:1.65}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.25rem}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem}
-.card{background:#fff;border:2px solid #e8e0d5;border-radius:16px;overflow:hidden;transition:all 0.22s;display:flex;flex-direction:column;text-decoration:none;color:inherit}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(26,26,46,0.1);border-color:#e05c1a}
-.card-top{padding:1.25rem 1.5rem 0.75rem;display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid #f0e8de}
-.card-icon{font-size:2rem;flex-shrink:0}
-.card-info{flex:1}
-.card-cat{font-family:'JetBrains Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:1.5px;color:#e05c1a;margin-bottom:4px}
-.card-name{font-family:'Playfair Display',serif;font-weight:700;font-size:0.98rem;color:#1a1a2e;line-height:1.35}
-.card-body{padding:1rem 1.5rem;flex:1}
-.card-desc{font-size:0.86rem;color:#555;line-height:1.7;margin-bottom:0.75rem}
-.card-key{background:#fdf6e3;border:1px solid rgba(242,169,0,0.3);border-radius:8px;padding:0.6rem 0.75rem;font-size:0.82rem;font-weight:700;color:#7a4f00}
-.card-foot{padding:0.75rem 1.5rem;border-top:1px solid #f0e8de;display:flex;justify-content:space-between;align-items:center}
-.card-src{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#bbb}
-.read-more{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;color:#e05c1a}
+/* CARD */
+.bcard{background:#fff;border:2px solid #e8e0d5;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:all 0.22s;text-decoration:none;color:inherit}
+.bcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(26,26,46,0.1);border-color:#e05c1a}
+.bcard-top{padding:1.25rem 1.5rem 0.75rem;display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid #f0e8de}
+.bcard-icon{font-size:2rem;flex-shrink:0}
+.bcard-badge{font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#aaa;margin-bottom:4px}
+.bcard-cat{display:inline-block;font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;padding:2px 8px;border-radius:4px;margin-bottom:0}
+.cat-health{background:#e8f5e9;color:#2e7d32}
+.cat-farmers{background:#fff8e1;color:#e65100}
+.cat-rights{background:#e8eaf6;color:#3949ab}
+.cat-docs{background:#fce4ec;color:#c62828}
+.cat-finance{background:#e0f2f1;color:#00695c}
+.cat-housing{background:#f3e5f5;color:#6a1b9a}
+.cat-women{background:#fce4ec;color:#ad1457}
+.cat-education{background:#e3f2fd;color:#1565c0}
+.cat-employment{background:#fff3e0;color:#bf360c}
+.bcard-body{padding:1rem 1.5rem;flex:1}
+.bcard-body h2{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:0.5rem;line-height:1.4}
+.bcard-body p{font-size:0.84rem;color:#666;line-height:1.6}
+.bcard-meta{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#bbb;margin-top:0.6rem}
+.bcard-foot{padding:0.85rem 1.5rem;border-top:1px solid #f0e8de;display:flex;justify-content:space-between;align-items:center}
+.bcard-src{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#ccc}
+.bcard-link{font-size:0.78rem;font-weight:800;color:#e05c1a;text-decoration:none;font-family:'JetBrains Mono',monospace}
 
-.stats-bar{background:#1a1a2e;padding:2rem}
-.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#f2a900}
-.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+/* FOOTER */
+footer{background:#1a1a2e;padding:2.5rem 2rem;text-align:center}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:0.4rem 1.2rem;margin-bottom:1rem}
+.foot-links a{color:rgba(255,255,255,0.35);font-family:'JetBrains Mono',monospace;font-size:0.68rem;text-decoration:none;transition:color 0.2s}
+.foot-links a:hover{color:#f2a900}
+.foot-copy{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.2)}
+.foot-note{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.15);margin-top:0.4rem}
 
-footer{background:#1a1a2e;padding:2rem;text-align:center}
-.foot-bottom{font-family:'JetBrains Mono',monospace;font-size:0.64rem;color:rgba(255,255,255,0.3);line-height:2}
-.foot-bottom a{color:rgba(255,255,255,0.4);text-decoration:none;margin:0 0.4rem}
-.foot-bottom a:hover{color:#f2a900}
-
-@media(max-width:768px){.grid{grid-template-columns:1fr}.stats-inner{gap:1.5rem}}
+@media(max-width:768px){
+  nav .nav-links{display:none}
+  .hamburger{display:flex}
+  .blog-wrap{padding:2rem 1rem 4rem}
+  .filter-bar{padding:0.75rem 1rem}
+}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a class="logo" href="https://merahaq.online/">🇮🇳 Mera<span>Haq</span></a>
   <div class="nav-links">
     <a href="https://merahaq.online/">Home</a>
-    <a href="https://merahaq.online/blog">Blog</a>
+    <a href="https://merahaq.online/blog" class="active">Blog</a>
     <a href="https://merahaq.online/about">About</a>
     <a href="https://merahaq.online/contact">Contact</a>
     <a href="https://merahaq.online/privacy-policy">Privacy</a>
   </div>
-  <button class="hamburger" onclick="this.classList.toggle('open');document.getElementById('mmenu').classList.toggle('open')" aria-label="Menu">
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="mobile-menu" id="mmenu">
+<div class="mobile-menu" id="mm">
   <a href="https://merahaq.online/">🏠 Home</a>
   <a href="https://merahaq.online/blog">📖 Blog</a>
   <a href="https://merahaq.online/about">ℹ️ About</a>
   <a href="https://merahaq.online/contact">✉️ Contact</a>
   <a href="https://merahaq.online/privacy-policy">🔒 Privacy Policy</a>
   <a href="https://merahaq.online/terms">📋 Terms</a>
-  <a href="https://merahaq.online/disclaimer">⚠️ Disclaimer</a>
 </div>
 
-<div class="hero">
-  <div class="mono">📖 MeraHaq Blog</div>
-  <h1>Guides for Every Indian Citizen</h1>
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="blog-hero-label">📖 MeraHaq Blog</div>
+  <h1>Guides for Every <em>Indian Citizen</em></h1>
   <p>Plain-language explanations of your rights and government benefits — written so anyone can understand and act on them.</p>
 </div>
 
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat"><div class="stat-num">19+</div><div class="stat-label">Guides Published</div></div>
-    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Official Sources</div></div>
-    <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Always & Forever</div></div>
-  </div>
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="ftab on" onclick="filterCards('all',this)">All Guides</button>
+  <button class="ftab" onclick="filterCards('health',this)">🏥 Health</button>
+  <button class="ftab" onclick="filterCards('farmers',this)">🌾 Farmers</button>
+  <button class="ftab" onclick="filterCards('rights',this)">⚖️ Rights</button>
+  <button class="ftab" onclick="filterCards('docs',this)">🪪 Documents</button>
+  <button class="ftab" onclick="filterCards('finance',this)">🏦 Finance</button>
+  <button class="ftab" onclick="filterCards('housing',this)">🏠 Housing</button>
+  <button class="ftab" onclick="filterCards('women',this)">👩 Women</button>
+  <button class="ftab" onclick="filterCards('education',this)">🎓 Education</button>
+  <button class="ftab" onclick="filterCards('employment',this)">💼 Employment</button>
 </div>
 
-<div class="sec">
-  <div class="sec-inner">
-    <div class="sec-header">
-      <div class="sec-mono">All Guides</div>
-      <h2 class="sec-title">Find the <em style="color:#e05c1a;font-style:italic">Guide You Need</em></h2>
-      <p class="sec-desc">Every guide is sourced from official .gov.in portals, written in plain language, and kept up to date. Last updated: March 2026.</p>
-    </div>
+<!-- MAIN GRID -->
+<div class="blog-wrap">
+  <div class="section-mono">Government Schemes & Citizen Rights</div>
+  <h2 class="section-title">Find the <em>Guide You Need</em></h2>
+  <p class="section-desc">Every guide is sourced from official .gov.in portals and written in plain language. Last updated March 2026.</p>
 
-    <div class="tabs">
-      <a class="tab active" href="#all">All</a>
-      <a class="tab" href="#health">🏥 Health</a>
-      <a class="tab" href="#farmers">🌾 Farmers</a>
-      <a class="tab" href="#rights">⚖️ Rights</a>
-      <a class="tab" href="#documents">🪪 Documents</a>
-      <a class="tab" href="#finance">🏦 Finance</a>
-      <a class="tab" href="#housing">🏠 Housing</a>
-      <a class="tab" href="#women">👩 Women</a>
-      <a class="tab" href="#education">🎓 Education</a>
-    </div>
+  <div class="blog-grid" id="blog-grid">
 
-    <!-- STATIC ARTICLE CARDS — visible without JavaScript -->
-    <div class="grid" id="all">
+    <!-- HEALTH -->
+    <a href="/ayushman-bharat" class="bcard" data-cat="health">
+      <div class="bcard-top"><div class="bcard-icon">🏥</div><div><div class="bcard-badge">AB-PMJAY</div><span class="bcard-cat cat-health">Health</span></div></div>
+      <div class="bcard-body">
+        <h2>Ayushman Bharat — Free ₹5 Lakh Health Insurance</h2>
+        <p>Free hospital treatment for over 50 crore Indians. Covers 1,929 procedures including cancer, heart surgery and dialysis. No premium required.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmjay.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/ayushman-bharat">
-        <div class="card-top"><div class="card-icon">🏥</div><div class="card-info"><div class="card-cat">Health · AB-PMJAY</div><div class="card-name">Ayushman Bharat – Free ₹5 Lakh Health Insurance</div></div></div>
-        <div class="card-body"><div class="card-desc">India's largest health scheme covers 50+ crore citizens. Walk into any empanelled hospital with Aadhaar — get free treatment for 1,929 procedures including cancer, heart surgery, dialysis.</div><div class="card-key">₹5 lakh/year · No premium · No cash at hospital</div></div>
-        <div class="card-foot"><div class="card-src">pmjay.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- HEALTH 2 -->
+    <a href="/ayushman-card-not-received" class="bcard" data-cat="health">
+      <div class="bcard-top"><div class="bcard-icon">🃏</div><div><div class="bcard-badge">AB-PMJAY</div><span class="bcard-cat cat-health">Health</span></div></div>
+      <div class="bcard-body">
+        <h2>Ayushman Card Not Received? Here's What to Do</h2>
+        <p>Step-by-step guide to track your Ayushman Bharat card, re-apply if lost, and get it issued at your nearest CSC or empanelled hospital.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmjay.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/pm-kisan">
-        <div class="card-top"><div class="card-icon">🌾</div><div class="card-info"><div class="card-cat">Farmers · PM-KISAN</div><div class="card-name">PM Kisan – ₹6,000/Year for Farmers</div></div></div>
-        <div class="card-body"><div class="card-desc">PM Kisan Samman Nidhi gives ₹6,000 per year in 3 instalments of ₹2,000 directly to farmer bank accounts. Millions of eligible farmers are missing payments due to registration errors.</div><div class="card-key">₹6,000/year · Direct to bank · e-KYC required</div></div>
-        <div class="card-foot"><div class="card-src">pmkisan.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- FARMERS -->
+    <a href="/pm-kisan" class="bcard" data-cat="farmers">
+      <div class="bcard-top"><div class="bcard-icon">🌾</div><div><div class="bcard-badge">PM-KISAN</div><span class="bcard-cat cat-farmers">Farmers</span></div></div>
+      <div class="bcard-body">
+        <h2>PM Kisan — ₹6,000/Year for Farmers</h2>
+        <p>₹2,000 every 4 months direct to farmer bank accounts. Millions are missing payments due to e-KYC or registration errors — here's how to fix it.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmkisan.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/rti-guide">
-        <div class="card-top"><div class="card-icon">📋</div><div class="card-info"><div class="card-cat">Rights · RTI Act 2005</div><div class="card-name">How to File an RTI Application in India</div></div></div>
-        <div class="card-body"><div class="card-desc">The Right to Information Act 2005 gives every Indian the right to request information from any government department. Pay ₹10, get a reply in 30 days. Free for BPL card holders.</div><div class="card-key">₹10 fee · 30 day reply · Any govt department</div></div>
-        <div class="card-foot"><div class="card-src">rtionline.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- FARMERS 2 -->
+    <a href="/pm-kisan-installment-not-received" class="bcard" data-cat="farmers">
+      <div class="bcard-top"><div class="bcard-icon">💸</div><div><div class="bcard-badge">PM-KISAN</div><span class="bcard-cat cat-farmers">Farmers</span></div></div>
+      <div class="bcard-body">
+        <h2>PM Kisan Instalment Not Received — How to Fix</h2>
+        <p>Your PM Kisan instalment is stuck? Here are the exact steps to check status, complete e-KYC, correct bank/Aadhaar errors, and get your money.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmkisan.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/mgnrega">
-        <div class="card-top"><div class="card-icon">👷</div><div class="card-info"><div class="card-cat">Employment · MGNREGA</div><div class="card-name">MGNREGA – 100 Days Guaranteed Work for Rural Families</div></div></div>
-        <div class="card-body"><div class="card-desc">Every adult in a rural household has a legal right to 100 days of paid work per year. If the government cannot provide work within 15 days, you are entitled to an unemployment allowance.</div><div class="card-key">100 days/year · ₹247–₹386/day · Legal right</div></div>
-        <div class="card-foot"><div class="card-src">nrega.nic.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- FARMERS 3 -->
+    <a href="/fasal-bima-yojana" class="bcard" data-cat="farmers">
+      <div class="bcard-top"><div class="bcard-icon">🌱</div><div><div class="bcard-badge">PMFBY</div><span class="bcard-cat cat-farmers">Farmers</span></div></div>
+      <div class="bcard-body">
+        <h2>Fasal Bima Yojana — Crop Insurance for Farmers</h2>
+        <p>Pradhan Mantri Fasal Bima Yojana insures your crops against drought, flood, pest attack and other losses. Premium is just 1.5–2% for most crops.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmfby.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/ration-card">
-        <div class="card-top"><div class="card-icon">🍚</div><div class="card-info"><div class="card-cat">Food · NFSA 2013</div><div class="card-name">Ration Card – Free & Subsidised Food for Your Family</div></div></div>
-        <div class="card-body"><div class="card-desc">Over 80 crore Indians are entitled to free food grains under PMGKAY — 5 kg per person per month at zero cost. Includes One Nation One Ration Card for migrants.</div><div class="card-key">5 kg/person/month · Free · 80 crore beneficiaries</div></div>
-        <div class="card-foot"><div class="card-src">nfsa.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- FOOD / RATION -->
+    <a href="/ration-card" class="bcard" data-cat="housing">
+      <div class="bcard-top"><div class="bcard-icon">🍚</div><div><div class="bcard-badge">NFSA 2013</div><span class="bcard-cat cat-housing">Food Security</span></div></div>
+      <div class="bcard-body">
+        <h2>Ration Card — Free & Subsidised Food for Your Family</h2>
+        <p>Over 80 crore Indians get free food grains under PMGKAY. A ration card is your key. Includes One Nation One Ration Card for migrants.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">nfsa.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/pmay">
-        <div class="card-top"><div class="card-icon">🏠</div><div class="card-info"><div class="card-cat">Housing · PMAY</div><div class="card-name">PMAY – Free House for Rural & Urban Poor</div></div></div>
-        <div class="card-body"><div class="card-desc">Pradhan Mantri Awas Yojana gives ₹1.20–1.30 lakh grants to rural families for house construction and credit-linked subsidies to urban EWS/LIG families. Must not own a pucca house.</div><div class="card-key">₹1.2–1.3 lakh grant · Rural & Urban · Free to apply</div></div>
-        <div class="card-foot"><div class="card-src">pmayg.nic.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- RATION NEW APPLY -->
+    <a href="/how-to-apply-new-ration-card" class="bcard" data-cat="housing">
+      <div class="bcard-top"><div class="bcard-icon">📋</div><div><div class="bcard-badge">NFSA 2013</div><span class="bcard-cat cat-housing">Food Security</span></div></div>
+      <div class="bcard-body">
+        <h2>How to Apply for a New Ration Card Online</h2>
+        <p>Step-by-step guide to apply for a new ration card on your state's portal. Documents needed, eligibility, and what to do if your application is rejected.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">nfsa.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/ujjwala-yojana">
-        <div class="card-top"><div class="card-icon">🔥</div><div class="card-info"><div class="card-cat">Women · PMUY</div><div class="card-name">Ujjwala Yojana – Free LPG Connection for BPL Women</div></div></div>
-        <div class="card-body"><div class="card-desc">PM Ujjwala Yojana gives free LPG gas connection, cylinder, regulator, and pipe to BPL women. Connection is in the woman's name. First refill is also free. Subsidy via DBT.</div><div class="card-key">Free connection · First refill free · BPL women</div></div>
-        <div class="card-foot"><div class="card-src">pmuy.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- HOUSING -->
+    <a href="/pmay" class="bcard" data-cat="housing">
+      <div class="bcard-top"><div class="bcard-icon">🏠</div><div><div class="bcard-badge">PMAY-G · PMAY-U</div><span class="bcard-cat cat-housing">Housing</span></div></div>
+      <div class="bcard-body">
+        <h2>PMAY — Free House for Rural & Urban Poor</h2>
+        <p>₹1.20–1.30 lakh grant for rural house construction. Credit-linked subsidies for urban EWS/LIG. Must not own a pucca house anywhere in India.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmayg.nic.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/scholarships">
-        <div class="card-top"><div class="card-icon">🎓</div><div class="card-info"><div class="card-cat">Education · NSP</div><div class="card-name">Government Scholarships for Indian Students</div></div></div>
-        <div class="card-body"><div class="card-desc">India's National Scholarship Portal has 120+ scholarships for SC, ST, OBC, minority, and disabled students from Class 9 to PhD. Lakhs go unclaimed every year.</div><div class="card-key">120+ scholarships · Class 9 to PhD · Free to apply</div></div>
-        <div class="card-foot"><div class="card-src">scholarships.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- PMAY APPLY -->
+    <a href="/pmay-housing-scheme-apply" class="bcard" data-cat="housing">
+      <div class="bcard-top"><div class="bcard-icon">🔑</div><div><div class="bcard-badge">PMAY</div><span class="bcard-cat cat-housing">Housing</span></div></div>
+      <div class="bcard-body">
+        <h2>How to Apply for PMAY Housing Scheme</h2>
+        <p>Complete application guide for Pradhan Mantri Awas Yojana — rural and urban. Eligibility criteria, documents needed, and how to check your name on the list.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmaymis.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/legal-rights">
-        <div class="card-top"><div class="card-icon">⚖️</div><div class="card-info"><div class="card-cat">Rights · Constitution</div><div class="card-name">Your Legal Rights in India – Police, Arrest & Free Aid</div></div></div>
-        <div class="card-body"><div class="card-desc">If police stop, question, or arrest you — you have constitutional rights they cannot violate. Right to lawyer, right to bail, right to free legal aid, right to be produced before magistrate in 24 hours.</div><div class="card-key">Free legal aid · 24hr magistrate · Right to lawyer</div></div>
-        <div class="card-foot"><div class="card-src">nalsa.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- EMPLOYMENT -->
+    <a href="/mgnrega" class="bcard" data-cat="employment">
+      <div class="bcard-top"><div class="bcard-icon">👷</div><div><div class="bcard-badge">MGNREGA Act</div><span class="bcard-cat cat-employment">Employment</span></div></div>
+      <div class="bcard-body">
+        <h2>MGNREGA — 100 Days Guaranteed Work for Rural Families</h2>
+        <p>Every adult in a rural household has a legal right to 100 days of paid work per year. Wages paid directly to bank account within 15 days.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">nrega.nic.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/sukanya-samriddhi">
-        <div class="card-top"><div class="card-icon">👧</div><div class="card-info"><div class="card-cat">Finance · SSY</div><div class="card-name">Sukanya Samriddhi Yojana – 8.2% Tax-Free Savings for Girls</div></div></div>
-        <div class="card-body"><div class="card-desc">The highest interest rate of any government savings scheme — 8.2% per year, fully tax-free, guaranteed by the Government of India. Open for girls below 10 years. Start with just ₹250.</div><div class="card-key">8.2% interest · Tax-free · Girls under 10</div></div>
-        <div class="card-foot"><div class="card-src">indiapost.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- MGNREGA JOB CARD -->
+    <a href="/mgnrega-job-card-how-to-apply" class="bcard" data-cat="employment">
+      <div class="bcard-top"><div class="bcard-icon">🪪</div><div><div class="bcard-badge">MGNREGA</div><span class="bcard-cat cat-employment">Employment</span></div></div>
+      <div class="bcard-body">
+        <h2>MGNREGA Job Card — How to Apply & Download</h2>
+        <p>A Job Card is your proof of registration under MGNREGA. Learn how to get it from your Gram Panchayat, download it online, and use it to demand work.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">nrega.nic.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/aadhaar-guide">
-        <div class="card-top"><div class="card-icon">🪪</div><div class="card-info"><div class="card-cat">Documents · UIDAI</div><div class="card-name">Aadhaar Card – Download, Update & Link Guide</div></div></div>
-        <div class="card-body"><div class="card-desc">Download your e-Aadhaar free, update your address, link with mobile, and use the mAadhaar app. Lock biometrics to prevent misuse. Everything you need to know about Aadhaar.</div><div class="card-key">Free download · Online update · Helpline: 1947</div></div>
-        <div class="card-foot"><div class="card-src">uidai.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- EPF WITHDRAWAL -->
+    <a href="/epf-withdrawal-how-to" class="bcard" data-cat="employment">
+      <div class="bcard-top"><div class="bcard-icon">🏦</div><div><div class="bcard-badge">EPFO</div><span class="bcard-cat cat-employment">Employment</span></div></div>
+      <div class="bcard-body">
+        <h2>EPF Withdrawal — How to Withdraw PF Online</h2>
+        <p>Step-by-step guide to withdraw your EPF (Provident Fund) online via EPFO portal. Partial withdrawal rules, tax implications, and how to track your claim.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">epfindia.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/voter-id-guide">
-        <div class="card-top"><div class="card-icon">🗳️</div><div class="card-info"><div class="card-cat">Documents · ECI</div><div class="card-name">Voter ID Card – Apply, Download & Correct Guide</div></div></div>
-        <div class="card-body"><div class="card-desc">Apply online, download your e-EPIC (digital Voter ID), check your name on the voter list, and correct mistakes. Every Indian citizen aged 18+ has the right to vote.</div><div class="card-key">Free e-EPIC · Online apply · Helpline: 1950</div></div>
-        <div class="card-foot"><div class="card-src">voters.eci.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- RIGHTS - RTI -->
+    <a href="/rti-guide" class="bcard" data-cat="rights">
+      <div class="bcard-top"><div class="bcard-icon">📝</div><div><div class="bcard-badge">RTI Act 2005</div><span class="bcard-cat cat-rights">Rights</span></div></div>
+      <div class="bcard-body">
+        <h2>How to File an RTI Application in India</h2>
+        <p>Every Indian can ask any government office for information. Costs ₹10, reply within 30 days. Free for BPL card holders. Use our free RTI letter generator.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">rtionline.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/pan-card-guide">
-        <div class="card-top"><div class="card-icon">💳</div><div class="card-info"><div class="card-cat">Documents · Income Tax</div><div class="card-name">PAN Card – Apply, Download e-PAN & Link Aadhaar</div></div></div>
-        <div class="card-body"><div class="card-desc">Get instant e-PAN free via Aadhaar, link PAN with Aadhaar, apply new PAN, and correct mistakes. PAN card is mandatory for income tax, bank accounts, and high-value transactions.</div><div class="card-key">Instant e-PAN free · Link Aadhaar · Online apply</div></div>
-        <div class="card-foot"><div class="card-src">incometax.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- RIGHTS - HOW TO FILE RTI ONLINE -->
+    <a href="/how-to-file-rti-online" class="bcard" data-cat="rights">
+      <div class="bcard-top"><div class="bcard-icon">💻</div><div><div class="bcard-badge">RTI Act 2005</div><span class="bcard-cat cat-rights">Rights</span></div></div>
+      <div class="bcard-body">
+        <h2>How to File RTI Online — Step-by-Step (2025)</h2>
+        <p>Complete guide to filing an RTI application online at rtionline.gov.in. Screenshots, tips on writing a good request, and how to track your application.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">rtionline.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/labour-rights-india">
-        <div class="card-top"><div class="card-icon">💼</div><div class="card-info"><div class="card-cat">Rights · Labour Ministry</div><div class="card-name">Labour Rights in India – Worker Rights & Laws</div></div></div>
-        <div class="card-body"><div class="card-desc">Every Indian worker has legal rights — minimum wage, limited working hours, EPF provident fund, gratuity after 5 years, ESI health insurance, and maternity leave.</div><div class="card-key">Minimum wage · EPF · ESI · Gratuity</div></div>
-        <div class="card-foot"><div class="card-src">labour.gov.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- RIGHTS - LEGAL -->
+    <a href="/legal-rights" class="bcard" data-cat="rights">
+      <div class="bcard-top"><div class="bcard-icon">⚖️</div><div><div class="bcard-badge">Constitution · BNSS 2023</div><span class="bcard-cat cat-rights">Rights</span></div></div>
+      <div class="bcard-body">
+        <h2>Your Legal Rights in India — Police, Arrest & Free Aid</h2>
+        <p>If police stop, question or arrest you — you have constitutional rights they cannot violate. Right to lawyer, right to bail, right to free legal aid.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">nalsa.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/women-rights-india">
-        <div class="card-top"><div class="card-icon">👩</div><div class="card-info"><div class="card-cat">Women · WCD Ministry</div><div class="card-name">Women's Rights in India – Laws, Schemes & Helplines</div></div></div>
-        <div class="card-body"><div class="card-desc">Strong legal protections against domestic violence, workplace harassment, and property discrimination. Plus government schemes like Ujjwala, Sukanya Samriddhi, and 26 weeks maternity leave.</div><div class="card-key">DV Act · POSH · Maternity leave · Helpline: 1091</div></div>
-        <div class="card-foot"><div class="card-src">wcd.nic.in</div><div class="read-more">Read Guide →</div></div>
-      </a>
+    <!-- RIGHTS - FREE LEGAL AID -->
+    <a href="/free-legal-aid-india" class="bcard" data-cat="rights">
+      <div class="bcard-top"><div class="bcard-icon">🏛️</div><div><div class="bcard-badge">NALSA · Legal Services</div><span class="bcard-cat cat-rights">Rights</span></div></div>
+      <div class="bcard-body">
+        <h2>Free Legal Aid in India — Who Qualifies & How to Get It</h2>
+        <p>Every Indian below a certain income is entitled to free legal representation. Learn who qualifies, how to apply, and how to reach NALSA at 15100.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">nalsa.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
 
-      <a class="card" href="https://merahaq.online/jan-dhan-yojana">
-        <div class="card-top"><div class="card-icon">🏦</div><div class="card-info"><div class="card-cat">Finance · PMJDY</div><div class="card-name">Jan Dhan Yojana – Zero Balance Account & Benefits</div></div></div>
-        <div class="card-body"><div c
+    <!-- CONSUMER RIGHTS -->
+    <a href="/consumer-rights-india-complaint" class="bcard" data-cat="rights">
+      <div class="bcard-top"><div class="bcard-icon">🛒</div><div><div class="bcard-badge">Consumer Protection Act</div><span class="bcard-cat cat-rights">Rights</span></div></div>
+      <div class="bcard-body">
+        <h2>Consumer Rights in India — How to File a Complaint</h2>
+        <p>You have the right to refund, replacement or compensation for defective goods and deficient services. File a complaint at consumerhelpline.gov.in or call 1915.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">consumerhelpline.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- DOMESTIC VIOLENCE -->
+    <a href="/domestic-violence-rights-india" class="bcard" data-cat="rights">
+      <div class="bcard-top"><div class="bcard-icon">🛡️</div><div><div class="bcard-badge">PWDVA 2005</div><span class="bcard-cat cat-rights">Rights</span></div></div>
+      <div class="bcard-body">
+        <h2>Domestic Violence — Legal Rights & How to Get Help</h2>
+        <p>The Protection of Women from Domestic Violence Act gives you the right to protection orders, residence rights, monetary relief and custody. Help: 181.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">wcd.nic.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- LABOUR RIGHTS -->
+    <a href="/labour-rights-india" class="bcard" data-cat="employment">
+      <div class="bcard-top"><div class="bcard-icon">💼</div><div><div class="bcard-badge">Labour Ministry</div><span class="bcard-cat cat-employment">Employment</span></div></div>
+      <div class="bcard-body">
+        <h2>Labour Rights in India — Worker Rights & Laws</h2>
+        <p>Minimum wage, PF, gratuity, maternity leave, ESI — every Indian worker's legal entitlements. Know what your employer must provide by law.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">labour.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- DOCUMENTS - AADHAAR -->
+    <a href="/aadhaar-guide" class="bcard" data-cat="docs">
+      <div class="bcard-top"><div class="bcard-icon">🪪</div><div><div class="bcard-badge">UIDAI</div><span class="bcard-cat cat-docs">Documents</span></div></div>
+      <div class="bcard-body">
+        <h2>Aadhaar — Download, Update & Link Guide</h2>
+        <p>Download e-Aadhaar free, update address online for ₹50, get PVC card for ₹50, lock biometrics to prevent misuse. Everything about your Aadhaar.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">uidai.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- AADHAAR UPDATE ADDRESS -->
+    <a href="/aadhaar-update-address-online" class="bcard" data-cat="docs">
+      <div class="bcard-top"><div class="bcard-icon">📬</div><div><div class="bcard-badge">UIDAI</div><span class="bcard-cat cat-docs">Documents</span></div></div>
+      <div class="bcard-body">
+        <h2>How to Update Aadhaar Address Online</h2>
+        <p>Step-by-step guide to update your Aadhaar address online at myaadhaar.uidai.gov.in. Documents needed, fee of ₹50, and how to track your request.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">myaadhaar.uidai.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- DOCUMENTS - VOTER ID -->
+    <a href="/voter-id-guide" class="bcard" data-cat="docs">
+      <div class="bcard-top"><div class="bcard-icon">🗳️</div><div><div class="bcard-badge">Election Commission</div><span class="bcard-cat cat-docs">Documents</span></div></div>
+      <div class="bcard-body">
+        <h2>Voter ID — Apply, Download & Correct Guide</h2>
+        <p>Apply free at voters.eci.gov.in. Download e-EPIC (digital Voter ID). Correct mistakes using Form 8. Check voter list online. Helpline: 1950.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">voters.eci.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- DOCUMENTS - PAN CARD -->
+    <a href="/pan-card-guide" class="bcard" data-cat="docs">
+      <div class="bcard-top"><div class="bcard-icon">💳</div><div><div class="bcard-badge">Income Tax Dept</div><span class="bcard-cat cat-docs">Documents</span></div></div>
+      <div class="bcard-body">
+        <h2>PAN Card — Apply, Download e-PAN & Link Aadhaar</h2>
+        <p>Get instant e-PAN free via Aadhaar. Link PAN with Aadhaar (₹1,000 fee). Apply new PAN at NSDL. Download e-PAN anytime free. Do not have two PANs.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">incometax.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- FINANCE - JAN DHAN -->
+    <a href="/jan-dhan-yojana" class="bcard" data-cat="finance">
+      <div class="bcard-top"><div class="bcard-icon">🏦</div><div><div class="bcard-badge">PMJDY</div><span class="bcard-cat cat-finance">Finance</span></div></div>
+      <div class="bcard-body">
+        <h2>Jan Dhan Yojana — Free Zero-Balance Bank Account</h2>
+        <p>Any Indian can open a zero-balance bank account under PMJDY. Comes with RuPay debit card, ₹2 lakh accident cover, and ₹30,000 life insurance.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmjdy.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- JAN DHAN BENEFITS -->
+    <a href="/jan-dhan-account-benefits" class="bcard" data-cat="finance">
+      <div class="bcard-top"><div class="bcard-icon">💰</div><div><div class="bcard-badge">PMJDY</div><span class="bcard-cat cat-finance">Finance</span></div></div>
+      <div class="bcard-body">
+        <h2>Jan Dhan Account Benefits You May Not Know About</h2>
+        <p>Your Jan Dhan account comes with benefits most people miss — overdraft facility, accident insurance, life cover, and direct benefit transfers. Check yours.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmjdy.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- FINANCE - MUDRA LOAN -->
+    <a href="/pm-mudra-yojana" class="bcard" data-cat="finance">
+      <div class="bcard-top"><div class="bcard-icon">💼</div><div><div class="bcard-badge">MUDRA · PM SVANidhi</div><span class="bcard-cat cat-finance">Finance</span></div></div>
+      <div class="bcard-body">
+        <h2>PM Mudra Yojana — Loans up to ₹10 Lakh for Small Business</h2>
+        <p>Loans from ₹50,000 to ₹10 lakh for small and micro businesses with no collateral required. Three categories: Shishu, Kishore, and Tarun.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">mudra.org.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- MUDRA HOW TO APPLY -->
+    <a href="/mudra-loan-how-to-apply" class="bcard" data-cat="finance">
+      <div class="bcard-top"><div class="bcard-icon">📑</div><div><div class="bcard-badge">MUDRA</div><span class="bcard-cat cat-finance">Finance</span></div></div>
+      <div class="bcard-body">
+        <h2>Mudra Loan — How to Apply Online & Offline</h2>
+        <p>Step-by-step guide to applying for a Mudra loan from any bank or NBFC. Documents needed, eligibility, and what to do if your application is rejected.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">mudra.org.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- FINANCE - ATAL PENSION -->
+    <a href="/atal-pension-yojana" class="bcard" data-cat="finance">
+      <div class="bcard-top"><div class="bcard-icon">👴</div><div><div class="bcard-badge">APY · NPS</div><span class="bcard-cat cat-finance">Finance</span></div></div>
+      <div class="bcard-body">
+        <h2>Atal Pension Yojana — Guaranteed Pension for All Indians</h2>
+        <p>Guaranteed pension of ₹1,000 to ₹5,000/month after age 60. Open to anyone aged 18–40 with a bank account. Government co-contributes for eligible members.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">npscra.nsdl.co.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- WOMEN - UJJWALA -->
+    <a href="/ujjwala-yojana" class="bcard" data-cat="women">
+      <div class="bcard-top"><div class="bcard-icon">🔥</div><div><div class="bcard-badge">PMUY · Ujjwala 2.0</div><span class="bcard-cat cat-women">Women</span></div></div>
+      <div class="bcard-body">
+        <h2>Ujjwala Yojana — Free LPG Connection for BPL Women</h2>
+        <p>Free LPG gas connection, cylinder, regulator and pipe to BPL women. First refill is also free. Apply at any Indane, HP Gas, or Bharat Gas agency.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">pmuy.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- WOMEN - SUKANYA SAMRIDDHI -->
+    <a href="/sukanya-samriddhi" class="bcard" data-cat="women">
+      <div class="bcard-top"><div class="bcard-icon">👧</div><div><div class="bcard-badge">SSY · Beti Bachao</div><span class="bcard-cat cat-women">Women</span></div></div>
+      <div class="bcard-body">
+        <h2>Sukanya Samriddhi — 8.2% Tax-Free Savings for Girls</h2>
+        <p>Highest interest of any government scheme — 8.2% per year, fully tax-free. Open for girls below 10 years. Start with just ₹250 at any Post Office or bank.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">indiapost.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- SUKANYA COMPLETE -->
+    <a href="/sukanya-samriddhi-complete-guide" class="bcard" data-cat="women">
+      <div class="bcard-top"><div class="bcard-icon">📘</div><div><div class="bcard-badge">SSY</div><span class="bcard-cat cat-women">Women</span></div></div>
+      <div class="bcard-body">
+        <h2>Sukanya Samriddhi Yojana — Complete 2026 Guide</h2>
+        <p>Detailed guide covering interest rates, deposit limits, withdrawal rules, tax benefits under 80C, account maturity and how to transfer between banks.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">indiapost.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- WOMEN RIGHTS -->
+    <a href="/women-rights-india" class="bcard" data-cat="women">
+      <div class="bcard-top"><div class="bcard-icon">👩‍⚖️</div><div><div class="bcard-badge">Women's Rights</div><span class="bcard-cat cat-women">Women</span></div></div>
+      <div class="bcard-body">
+        <h2>Women's Rights in India — Complete Legal Guide</h2>
+        <p>Property rights, maternity benefits, workplace protections, domestic violence law, divorce rights — every Indian woman's legal entitlements explained clearly.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">wcd.nic.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- EDUCATION - SCHOLARSHIPS -->
+    <a href="/scholarships" class="bcard" data-cat="education">
+      <div class="bcard-top"><div class="bcard-icon">🎓</div><div><div class="bcard-badge">NSP · scholarships.gov.in</div><span class="bcard-cat cat-education">Education</span></div></div>
+      <div class="bcard-body">
+        <h2>Government Scholarships for Indian Students</h2>
+        <p>120+ scholarships for SC, ST, OBC, minority and disabled students from Class 9 to PhD. Applications open July–November. Apply free at scholarships.gov.in.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">scholarships.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+    <!-- NSP GUIDE -->
+    <a href="/national-scholarship-portal-guide" class="bcard" data-cat="education">
+      <div class="bcard-top"><div class="bcard-icon">🖥️</div><div><div class="bcard-badge">NSP</div><span class="bcard-cat cat-education">Education</span></div></div>
+      <div class="bcard-body">
+        <h2>National Scholarship Portal — How to Apply Step by Step</h2>
+        <p>Complete guide to registering on scholarships.gov.in, uploading documents, selecting the right scholarship, and tracking your application status.</p>
+        <div class="bcard-meta">Updated: March 2026 · Author: MeraHaq Editorial</div>
+      </div>
+      <div class="bcard-foot"><span class="bcard-src">scholarships.gov.in</span><span class="bcard-link">Read Guide →</span></div>
+    </a>
+
+  </div><!-- end blog-grid -->
+</div><!-- end blog-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-links">
+    <a href="https://merahaq.online/">Home</a>
+    <a href="https://merahaq.online/blog">Blog</a>
+    <a href="https://merahaq.online/about">About</a>
+    <a href="https://merahaq.online/contact">Contact</a>
+    <a href="https://merahaq.online/privacy-policy">Privacy Policy</a>
+    <a href="https://merahaq.online/terms">Terms</a>
+    <a href="https://merahaq.online/disclaimer">Disclaimer</a>
+    <a href="https://merahaq.online/cookie-policy">Cookie Policy</a>
+  </div>
+  <div class="foot-copy">© <span id="yr"></span> MeraHaq · merahaq.online</div>
+  <div class="foot-note">Not affiliated with any government body · For informational purposes only · Data from official .gov.in portals</div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+function filterCards(cat, btn) {
+  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.bcard').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
