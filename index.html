@@ -10,7 +10,7 @@
 <meta name="author" content="MeraHaq"/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://merahaq.online/"/>
-<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231a1a2e' rx='12'/%3E%3Cpath d='M32 10 L46 17 L46 32 Q46 44 32 50 Q18 44 18 32 L18 17 Z' fill='%23e05c1a'/%3E%3Cpath d='M24 31 L29 37 L40 25' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"/>
 
 <!-- Open Graph / Social -->
 <meta property="og:type" content="website"/>
@@ -524,7 +524,22 @@ footer{background:#1a1a2e;padding:3rem 2rem}
 <div id="main-content" role="main">
 <!-- NAV -->
 <nav role="navigation" aria-label="Site navigation">
-  <a class="logo" href="/" onclick="showPage('home');return false;" aria-label="MeraHaq home page">🇮🇳 Mera<span>Haq</span></a>
+  <a class="logo" href="/" onclick="showPage('home');return false;" aria-label="MeraHaq home page" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Shield shape -->
+      <path d="M32 6 L54 15 L54 34 Q54 50 32 58 Q10 50 10 34 L10 15 Z" fill="#e05c1a"/>
+      <!-- Inner shield highlight -->
+      <path d="M32 13 L48 20 L48 34 Q48 46 32 52 Q16 46 16 34 L16 20 Z" fill="#c94e14"/>
+      <!-- Checkmark -->
+      <path d="M22 33 L28 40 L42 24" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Gold top dot -->
+      <circle cx="32" cy="10" r="3" fill="#f2a900"/>
+    </svg>
+    <span style="display:flex;flex-direction:column;line-height:1;gap:2px;">
+      <span style="font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;color:#fff;letter-spacing:0.01em;">Mera<span style="color:#e05c1a;">Haq</span></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;color:rgba(255,255,255,0.35);font-weight:400;text-transform:uppercase;">Your Rights · Your Voice</span>
+    </span>
+  </a>
   <div class="nav-links" role="navigation" aria-label="Main navigation">
     <a href="javascript:void(0)" onclick="showPage('schemes')" aria-label="View all government schemes">All Schemes</a>
     <a href="javascript:void(0)" onclick="showPage('rights')" aria-label="View your legal rights">Your Rights</a>
@@ -1067,7 +1082,15 @@ footer{background:#1a1a2e;padding:3rem 2rem}
 <footer>
   <div class="foot-inner">
     <div>
-      <div class="foot-logo">🇮🇳 Mera<span>Haq</span></div>
+      <div class="foot-logo" style="display:flex;align-items:center;gap:10px;">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M32 6 L54 15 L54 34 Q54 50 32 58 Q10 50 10 34 L10 15 Z" fill="#e05c1a"/>
+          <path d="M32 13 L48 20 L48 34 Q48 46 32 52 Q16 46 16 34 L16 20 Z" fill="#c94e14"/>
+          <path d="M22 33 L28 40 L42 24" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="32" cy="10" r="3" fill="#f2a900"/>
+        </svg>
+        Mera<span>Haq</span>
+      </div>
       <div class="foot-tag">मेरा हक़ — Your Rights. Your Schemes. Your Country.<br/>Data from official govt portals only. Free always.<br/>Not affiliated with any government body or party.</div>
     </div>
     <div class="foot-col">
