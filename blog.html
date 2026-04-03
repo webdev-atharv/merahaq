@@ -47,7 +47,7 @@
   gtag('config','G-KE845KJ8TC');
 </script>
 
-<!-- Google AdSense — REPLACE ca-pub-7633997088146449 with your Publisher ID -->
+<!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7633997088146449" crossorigin="anonymous"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -55,383 +55,181 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 
 <style>
-/* ══════════════════════════════════════════
-   CSS VARIABLES — light & dark themes
-   ══════════════════════════════════════════ */
-:root {
-  --bg:         #f8f3eb;
-  --bg2:        #ffffff;
-  --text:       #1a1a2e;
-  --text2:      #555555;
-  --text3:      #888888;
-  --border:     #e8e0d5;
-  --border2:    #dddddd;
-  --card-bg:    #ffffff;
-  --card-div:   #f0e8de;
-  --nav-bg:     #1a1a2e;
-  --hero-fade:  #f8f3eb;
-  --green-bg:   #f0faf6;
-  --green-txt:  #1a7f5a;
-  --green-bdr:  #b8e8d4;
-  --accent:     #e05c1a;
-  --accent2:    #ff6b35;
-  --gold:       #f2a900;
-  --shadow:     0 16px 40px rgba(26,26,46,0.10);
-  --radius:     16px;
-  --trans:      all 0.22s ease;
-  --font-sans:  'Nunito', sans-serif;
-  --font-serif: 'Playfair Display', serif;
-  --font-mono:  'JetBrains Mono', monospace;
-}
-[data-theme="dark"] {
-  --bg:         #0f0f1a;
-  --bg2:        #1a1a2e;
-  --text:       #f0ece4;
-  --text2:      #a8a4b8;
-  --text3:      #666680;
-  --border:     #2d2d4e;
-  --border2:    #2d2d4e;
-  --card-bg:    #1a1a2e;
-  --card-div:   #12122a;
-  --green-bg:   #0a1f16;
-  --green-txt:  #4dd4a0;
-  --green-bdr:  #1a4d38;
-  --hero-fade:  #0f0f1a;
-}
-
-/* ══════════════════════════════════════════
-   RESET
-   ══════════════════════════════════════════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* ══ RESET ══ */
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+body{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#1a1a2e;-webkit-font-smoothing:antialiased}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
-/* ══════════════════════════════════════════
-   NAV
-   ══════════════════════════════════════════ */
-nav.main-nav{
-  background:var(--nav-bg);
-  position:sticky;top:0;z-index:999;
-  border-bottom:3px solid var(--accent);
-  padding:0 2rem;height:58px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.logo{
-  font-family:var(--font-serif);font-size:1.5rem;font-weight:900;
-  color:#fff;text-decoration:none;
-  display:flex;align-items:center;gap:8px;
-}
-.logo span{color:var(--accent)}
+/* ══ NAV — identical to index.html ══ */
+nav{background:#1a1a2e;position:sticky;top:0;z-index:999;border-bottom:3px solid #e05c1a;padding:0 2rem;height:58px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo span{color:#e05c1a}
 .nav-links{display:flex;gap:1.2rem;align-items:center}
-.nav-links a{
-  color:rgba(255,255,255,.65);font-size:.85rem;font-weight:700;
-  text-decoration:none;transition:color .2s;
-}
-.nav-links a:hover,
-.nav-links a[aria-current="page"]{color:var(--gold)}
-.nav-right{display:flex;align-items:center;gap:.75rem}
-.nav-btn{
-  background:var(--accent);color:#fff;border:none;
-  padding:8px 18px;border-radius:6px;
-  font-weight:800;font-size:.82rem;cursor:pointer;
-  font-family:var(--font-sans);text-decoration:none;
-  transition:background .2s;white-space:nowrap;
-}
-.nav-btn:hover{background:var(--accent2)}
-.theme-btn{
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-  color:rgba(255,255,255,.85);width:34px;height:34px;border-radius:50%;
-  cursor:pointer;font-size:1rem;
-  display:flex;align-items:center;justify-content:center;
-  transition:var(--trans);flex-shrink:0;
-}
-.theme-btn:hover{background:rgba(255,255,255,.2)}
+.nav-links a{color:rgba(255,255,255,0.65);font-size:0.85rem;font-weight:700;cursor:pointer;transition:color 0.2s;text-decoration:none}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:#f2a900}
+.nav-btn{background:#e05c1a;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:800;font-size:0.82rem;cursor:pointer;transition:background 0.2s;font-family:'Nunito',sans-serif;text-decoration:none;white-space:nowrap}
+.nav-btn:hover{background:#ff6b35}
 
-/* Mobile nav */
-nav.mob-nav{
-  display:none;background:var(--nav-bg);
-  border-top:1px solid rgba(255,255,255,.1);
-  padding:.75rem 1.5rem;flex-wrap:wrap;gap:.5rem;
-}
-nav.mob-nav a{color:rgba(255,255,255,.7);font-size:.8rem;font-weight:700;text-decoration:none;padding:4px 0}
-nav.mob-nav a:hover{color:var(--gold)}
+/* ══ HAMBURGER MOBILE NAV — identical to index.html ══ */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#1a1a2e;border-top:2px solid #e05c1a;z-index:998;padding:1rem 1.5rem;flex-direction:column;gap:0.75rem;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:700;cursor:pointer;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none}
+.mobile-menu a:hover{color:#f2a900}
+@media(max-width:768px){.hamburger{display:flex}.nav-links{display:none}}
 
-/* ══════════════════════════════════════════
-   BREADCRUMB
-   ══════════════════════════════════════════ */
-.breadcrumb{
-  background:var(--bg2);border-bottom:1px solid var(--border);
-  padding:.6rem 2rem;font-size:.74rem;font-family:var(--font-mono);
-  color:var(--text3);
-}
-.breadcrumb a{color:var(--accent);text-decoration:none}
+/* ══ BREADCRUMB ══ */
+.breadcrumb{background:#fff;border-bottom:1px solid #e8e0d5;padding:0.6rem 2rem;font-size:0.74rem;font-family:'JetBrains Mono',monospace;color:#888}
+.breadcrumb a{color:#e05c1a;text-decoration:none}
 .breadcrumb a:hover{text-decoration:underline}
 .breadcrumb span{margin:0 6px}
 
-/* ══════════════════════════════════════════
-   HERO
-   ══════════════════════════════════════════ */
-.hero{
-  background:linear-gradient(135deg,#1a1a2e 0%,#2d2d5e 60%,#1a1a2e 100%);
-  padding:3rem 2rem 3.5rem;text-align:center;
-  position:relative;overflow:hidden;
-}
-.hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
-  background:linear-gradient(to bottom,transparent,var(--hero-fade));
-  pointer-events:none;
-}
-.hero-mono{
-  font-family:var(--font-mono);font-size:.7rem;letter-spacing:3px;
-  text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;
-}
-.hero h1{
-  font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,2.8rem);
-  color:#fff;font-weight:900;line-height:1.2;margin-bottom:.75rem;
-}
-.hero h1 em{color:var(--accent);font-style:italic}
-.hero-sub{font-size:.95rem;color:rgba(255,255,255,.65);max-width:540px;margin:0 auto 1.5rem;line-height:1.7}
-.hero-stats{
-  display:inline-flex;gap:2rem;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  border-radius:100px;padding:.6rem 2rem;position:relative;z-index:1;
-}
-.hero-stat{font-family:var(--font-mono);font-size:.68rem;color:rgba(255,255,255,.7);letter-spacing:.5px}
-.hero-stat strong{display:block;font-size:1rem;color:var(--gold);font-family:var(--font-sans);font-weight:800}
+/* ══ HERO — same gradient as index.html ══ */
+.hero{background:linear-gradient(135deg,#1a1a2e 0%,#2d2d5e 60%,#1a1a2e 100%);padding:3rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to bottom,transparent,#f8f3eb);pointer-events:none}
+.hero-mono{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#e05c1a;margin-bottom:0.75rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;font-weight:900;line-height:1.2;margin-bottom:0.75rem}
+.hero h1 em{color:#e05c1a;font-style:italic}
+.hero-sub{font-size:0.95rem;color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto 1.5rem;line-height:1.7}
+.hero-stats{display:inline-flex;gap:2rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:0.6rem 2rem;position:relative;z-index:1}
+.hero-stat{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.7);letter-spacing:0.5px}
+.hero-stat strong{display:block;font-size:1rem;color:#f2a900;font-family:'Nunito',sans-serif;font-weight:800}
 
-/* ══════════════════════════════════════════
-   STICKY CONTROLS BAR
-   ══════════════════════════════════════════ */
-.controls-bar{
-  position:sticky;top:58px;z-index:98;
-  background:var(--bg);border-bottom:1px solid var(--border);
-  padding:.75rem 2rem;
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-}
-.stats-count{font-family:var(--font-mono);font-size:.72rem;color:var(--text3);white-space:nowrap}
-.stats-count strong{color:var(--text)}
-.sort-select{
-  padding:6px 12px;border:2px solid var(--border2);border-radius:8px;
-  font-family:var(--font-sans);font-size:.8rem;font-weight:700;
-  color:var(--text);background:var(--bg2);
-  cursor:pointer;outline:none;transition:border-color .2s;flex-shrink:0;
-}
-.sort-select:focus{border-color:var(--accent)}
+/* ══ CONTROLS BAR ══ */
+.controls-bar{position:sticky;top:58px;z-index:98;background:#f8f3eb;border-bottom:1px solid #e8e0d5;padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.stats-count{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#888;white-space:nowrap}
+.stats-count strong{color:#1a1a2e}
+.sort-select{padding:6px 12px;border:2px solid #ddd;border-radius:8px;font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:700;color:#1a1a2e;background:#fff;cursor:pointer;outline:none;transition:border-color 0.2s;flex-shrink:0}
+.sort-select:focus{border-color:#e05c1a}
 
-/* ══════════════════════════════════════════
-   MAIN
-   ══════════════════════════════════════════ */
+/* ══ MAIN ══ */
 .main{max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem}
 
-/* ══════════════════════════════════════════
-   SEARCH
-   ══════════════════════════════════════════ */
+/* ══ SEARCH — same as index.html searchbar ══ */
 .search-wrap{margin-bottom:1.5rem;position:relative}
-.search-input{
-  width:100%;padding:13px 44px 13px 46px;
-  border:2px solid var(--border2);border-radius:10px;
-  font-size:.95rem;font-family:var(--font-sans);outline:none;
-  background:var(--bg2);color:var(--text);
-  transition:border-color .2s,box-shadow .2s;
-}
-.search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(224,92,26,.1)}
-.search-input::placeholder{color:var(--text3)}
+.search-input{width:100%;padding:11px 44px 11px 46px;border:2px solid #ddd;border-radius:10px;font-size:0.95rem;font-family:'Nunito',sans-serif;outline:none;background:#fff;color:#1a1a2e;transition:border-color 0.2s}
+.search-input:focus{border-color:#e05c1a}
+.search-input::placeholder{color:#999}
 .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1rem;pointer-events:none}
-.search-clear{
-  position:absolute;right:14px;top:50%;transform:translateY(-50%);
-  background:var(--text3);color:#fff;border:none;
-  width:20px;height:20px;border-radius:50%;font-size:.62rem;
-  cursor:pointer;display:none;align-items:center;justify-content:center;
-  font-weight:800;transition:background .15s;line-height:1;
-}
-.search-clear:hover{background:var(--accent)}
+.search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:#bbb;color:#fff;border:none;width:20px;height:20px;border-radius:50%;font-size:0.62rem;cursor:pointer;display:none;align-items:center;justify-content:center;font-weight:800;transition:background 0.15s;line-height:1}
+.search-clear:hover{background:#e05c1a}
 .search-clear.show{display:flex}
 
-/* ══════════════════════════════════════════
-   TABS
-   ══════════════════════════════════════════ */
+/* ══ TABS — identical to index.html ══ */
 .tabs-wrap{margin-bottom:1.5rem}
-.tabs-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:.75rem}
-.tabs{display:flex;flex-wrap:wrap;gap:.5rem}
-.tab{
-  padding:7px 16px;background:var(--bg2);border:2px solid var(--border2);
-  border-radius:100px;cursor:pointer;font-size:.82rem;font-weight:700;
-  color:var(--text3);transition:var(--trans);font-family:var(--font-sans);
-}
-.tab:hover{border-color:var(--accent);color:var(--accent)}
-.tab.on{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 4px 12px rgba(224,92,26,.3)}
-.tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.tabs-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:0.75rem}
+.tabs{display:flex;flex-wrap:wrap;gap:0.5rem}
+.tab{padding:7px 16px;background:#fff;border:2px solid #ddd;border-radius:100px;cursor:pointer;font-size:0.82rem;font-weight:700;color:#666;transition:all 0.18s;font-family:'Nunito',sans-serif}
+.tab:hover{border-color:#e05c1a;color:#e05c1a}
+.tab.on{background:#e05c1a;color:#fff;border-color:#e05c1a;box-shadow:0 4px 12px rgba(224,92,26,0.3)}
+.tab:focus-visible{outline:3px solid #f2a900;outline-offset:2px}
 
-/* ══════════════════════════════════════════
-   ARTICLES GRID
-   ══════════════════════════════════════════ */
+/* ══ GRID + CARDS — same structure as index.html scheme cards ══ */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem}
 
-/* ── Card ── */
-.card{
-  background:var(--card-bg);border:2px solid var(--border);border-radius:var(--radius);
-  overflow:hidden;display:flex;flex-direction:column;
-  text-decoration:none;color:inherit;
-  opacity:0;transform:translateY(16px);
-  animation:cardIn .35s ease forwards;
-  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
-}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--accent)}
+.card{background:#fff;border:2px solid #e8e0d5;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;opacity:0;transform:translateY(16px);animation:cardIn 0.35s ease forwards;transition:all 0.22s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(26,26,46,0.1);border-color:#e05c1a}
 @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.card{animation:none;opacity:1;transform:none}}
 
-.card-top{padding:1.25rem 1.5rem .75rem;border-bottom:1px solid var(--card-div);display:flex;align-items:flex-start;gap:12px}
+.card-top{padding:1.25rem 1.5rem 0.75rem;border-bottom:1px solid #f0e8de;display:flex;align-items:flex-start;gap:12px}
 .card-icon{font-size:2rem;flex-shrink:0;line-height:1}
 .card-meta{flex:1;min-width:0}
-.card-cat{font-family:var(--font-mono);font-size:.62rem;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;font-weight:600}
-.card-title{font-family:var(--font-serif);font-weight:700;font-size:.98rem;color:var(--text);line-height:1.35}
+.card-cat{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#e05c1a;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;font-weight:600}
+.card-title{font-family:'Playfair Display',serif;font-weight:700;font-size:0.98rem;color:#1a1a2e;line-height:1.35}
 .card-body{padding:1rem 1.5rem;flex:1}
-.card-desc{font-size:.84rem;color:var(--text2);line-height:1.65}
-.card-foot{
-  padding:.75rem 1.5rem;border-top:1px solid var(--card-div);
-  display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;
-}
-.card-read{font-size:.72rem;font-weight:800;color:var(--accent);font-family:var(--font-mono)}
-.card-time{font-size:.67rem;color:var(--text3);font-family:var(--font-mono)}
-.badge{font-size:.67rem;border-radius:100px;padding:3px 10px;font-weight:700;white-space:nowrap;border:1px solid}
-.badge-mostread{background:var(--green-bg);color:var(--green-txt);border-color:var(--green-bdr)}
-.badge-popular {background:#fdf3e3;color:#92400e;border-color:#fde68a}
-.badge-new     {background:#eef4ff;color:#2563eb;border-color:#bfdbfe}
-.badge-essential{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
-.badge-important{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
+.card-desc{font-size:0.84rem;color:#555;line-height:1.65}
+.card-foot{padding:0.75rem 1.5rem;border-top:1px solid #f0e8de;display:flex;justify-content:space-between;align-items:center;gap:0.5rem;flex-wrap:wrap}
+.card-read{font-size:0.72rem;font-weight:800;color:#e05c1a;font-family:'JetBrains Mono',monospace}
+.card-time{font-size:0.67rem;color:#bbb;font-family:'JetBrains Mono',monospace}
+.badge{font-size:0.67rem;border-radius:100px;padding:3px 10px;font-weight:700;white-space:nowrap;border:1px solid}
+.badge-mostread{background:#f0faf6;color:#1a7f5a;border-color:#b8e8d4}
+.badge-popular{background:#fdf3e3;color:#92400e;border-color:#fde68a}
+.badge-new{background:#eef4ff;color:#2563eb;border-color:#bfdbfe}
+.badge-essential,.badge-important{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
 
-/* ── Featured card ── */
-.card.featured{
-  grid-column:1/-1;
-  background:linear-gradient(135deg,#1a1a2e,#2d2d5e);
-  border-color:rgba(224,92,26,.4);
-  flex-direction:row;align-items:stretch;
-}
-.card.featured .card-top  {border-bottom-color:rgba(255,255,255,.08);flex:0 0 auto;max-width:360px}
+/* ══ FEATURED CARD — same dark style as index.html ══ */
+.card.featured{grid-column:1/-1;background:linear-gradient(135deg,#1a1a2e,#2d2d5e);border-color:rgba(224,92,26,0.4);flex-direction:row;align-items:stretch}
+.card.featured .card-top{border-bottom-color:rgba(255,255,255,0.08);flex:0 0 auto;max-width:360px}
 .card.featured .card-title{color:#fff;font-size:1.08rem}
-.card.featured .card-cat  {color:var(--gold)}
-.card.featured .card-body {flex:1}
-.card.featured .card-desc {color:rgba(255,255,255,.7)}
-.card.featured .card-foot {border-top-color:rgba(255,255,255,.08)}
-.card.featured .card-read {color:var(--gold)}
-.card.featured:hover      {border-color:var(--accent)}
-.feat-label{
-  font-family:var(--font-mono);font-size:.6rem;
-  background:var(--accent);color:#fff;
-  border-radius:4px;padding:2px 7px;margin-left:8px;vertical-align:middle;
-}
-/* Featured collapses to column on narrow screens */
-@media(max-width:680px){
-  .card.featured{grid-column:1;flex-direction:column}
-  .card.featured .card-top{max-width:none}
-}
+.card.featured .card-cat{color:#f2a900}
+.card.featured .card-body{flex:1}
+.card.featured .card-desc{color:rgba(255,255,255,0.7)}
+.card.featured .card-foot{border-top-color:rgba(255,255,255,0.08)}
+.card.featured .card-read{color:#f2a900}
+.card.featured:hover{border-color:#e05c1a}
+.feat-label{font-family:'JetBrains Mono',monospace;font-size:0.6rem;background:#e05c1a;color:#fff;border-radius:4px;padding:2px 7px;margin-left:8px;vertical-align:middle}
+@media(max-width:680px){.card.featured{grid-column:1;flex-direction:column}.card.featured .card-top{max-width:none}}
 
-/* ── Ad slot ── */
-.ad-slot{
-  grid-column:1/-1;background:var(--bg2);
-  border:2px dashed var(--border2);border-radius:var(--radius);
-  padding:1rem;text-align:center;min-height:100px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
-.ad-label{font-family:var(--font-mono);font-size:.6rem;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.5rem}
+/* ══ AD SLOT ══ */
+.ad-slot{grid-column:1/-1;background:#fff;border:2px dashed #ddd;border-radius:16px;padding:1rem;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ad-label{font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#bbb;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.5rem}
 
-/* ── Empty state ── */
-.empty{grid-column:1/-1;text-align:center;padding:4rem 2rem;color:var(--text3)}
+/* ══ EMPTY STATE ══ */
+.empty{grid-column:1/-1;text-align:center;padding:4rem 2rem;color:#888}
 .empty .big{font-size:3rem;margin-bottom:1rem}
-.empty p{font-size:.95rem;line-height:1.7;margin-bottom:1.5rem}
-.empty-tags{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
-.empty-tag{
-  padding:6px 14px;background:var(--bg2);border:2px solid var(--border2);
-  border-radius:100px;font-size:.8rem;font-weight:700;color:var(--text2);
-  cursor:pointer;font-family:var(--font-sans);transition:var(--trans);
-}
-.empty-tag:hover{border-color:var(--accent);color:var(--accent)}
+.empty p{font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem}
+.empty-tags{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center}
+.empty-tag{padding:6px 14px;background:#fff;border:2px solid #ddd;border-radius:100px;font-size:0.8rem;font-weight:700;color:#555;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.18s}
+.empty-tag:hover{border-color:#e05c1a;color:#e05c1a}
 
-/* ── Load More ── */
+/* ══ LOAD MORE ══ */
 .load-more-wrap{grid-column:1/-1;text-align:center;padding:2rem 0 0}
-.load-more-btn{
-  padding:13px 40px;background:var(--text);color:var(--bg2);
-  border:none;border-radius:10px;font-weight:800;font-size:.95rem;
-  font-family:var(--font-sans);cursor:pointer;transition:var(--trans);
-}
-.load-more-btn:hover{background:var(--accent)}
-.load-more-btn:disabled{background:var(--border2);color:var(--text3);cursor:not-allowed}
-.load-more-info{margin-top:.6rem;font-family:var(--font-mono);font-size:.67rem;color:var(--text3)}
+.load-more-btn{padding:13px 40px;background:#1a1a2e;color:#fff;border:none;border-radius:10px;font-weight:800;font-size:0.95rem;font-family:'Nunito',sans-serif;cursor:pointer;transition:all 0.2s}
+.load-more-btn:hover{background:#e05c1a}
+.load-more-btn:disabled{background:#ddd;color:#999;cursor:not-allowed}
+.load-more-info{margin-top:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.67rem;color:#bbb}
 
-/* ══════════════════════════════════════════
-   BACK TO TOP
-   ══════════════════════════════════════════ */
-#btt{
-  position:fixed;bottom:2rem;right:2rem;
-  width:44px;height:44px;background:var(--accent);color:#fff;
-  border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;
-  box-shadow:0 4px 16px rgba(224,92,26,.4);z-index:500;
-  opacity:0;transform:translateY(20px);
-  transition:opacity .3s,transform .3s;
-  pointer-events:none;
-  display:flex;align-items:center;justify-content:center;
-}
+/* ══ BACK TO TOP ══ */
+#btt{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:#e05c1a;color:#fff;border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(224,92,26,0.4);z-index:500;opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;display:flex;align-items:center;justify-content:center}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
-#btt:hover{background:var(--accent2)}
+#btt:hover{background:#ff6b35}
 
-/* ══════════════════════════════════════════
-   FOOTER
-   ══════════════════════════════════════════ */
-footer{
-  background:#1a1a2e;color:rgba(255,255,255,.6);
-  text-align:center;padding:2rem;font-size:.8rem;line-height:1.8;
-  border-top:3px solid var(--accent);
-}
-footer a{color:rgba(255,255,255,.5);text-decoration:none;margin:0 6px}
-footer a:hover{color:var(--gold)}
-.footer-brand{font-family:var(--font-serif);color:#fff;font-size:1rem;font-weight:700;margin-bottom:.25rem}
-.footer-brand span{color:var(--accent)}
+/* ══ FOOTER — identical 4-column structure to index.html ══ */
+footer{background:#1a1a2e;padding:3rem 2rem}
+.foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:0.75rem}
+.foot-logo span{color:#e05c1a}
+.foot-tag{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.8}
+.foot-col h5{font-size:0.85rem;font-weight:800;color:rgba(255,255,255,0.7);margin-bottom:1rem}
+.foot-col a{display:block;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.35);margin-bottom:0.5rem;cursor:pointer;transition:color 0.2s;text-decoration:none}
+.foot-col a:hover{color:#f2a900}
+.foot-bottom{max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;font-family:'JetBrains Mono',monospace;font-size:0.64rem;color:rgba(255,255,255,0.25)}
+.foot-bottom .green{color:#4ade80}
 
-/* ══════════════════════════════════════════
-   COOKIE BANNER
-   ══════════════════════════════════════════ */
-#cookie{
-  display:none;   /* shown by JS only — prevents flicker */
-  position:fixed;bottom:0;left:0;right:0;
-  background:#1a1a2e;color:#fff;
-  padding:1rem 1.5rem;z-index:9999;
-  align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:1rem;
-  border-top:3px solid var(--accent);
-  font-family:var(--font-sans);font-size:.85rem;
-  box-shadow:0 -4px 24px rgba(0,0,0,.3);
-}
+/* ══ DISCLAIMER STRIP ══ */
+.disclaimer{background:#fff;border-top:2px solid #e8e0d5;padding:1rem 2rem;text-align:center}
+.disc{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#aaa;line-height:1.9;max-width:900px;margin:0 auto}
+
+/* ══ COOKIE BANNER — same as index.html ══ */
+#cookie{display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#fff;padding:1rem 1.5rem;z-index:9999;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:3px solid #e05c1a;font-family:'Nunito',sans-serif;font-size:0.85rem;box-shadow:0 -4px 24px rgba(0,0,0,0.3)}
 #cookie.show{display:flex}
-.cookie-ok{
-  background:var(--accent);color:#fff;border:none;
-  padding:8px 22px;border-radius:6px;font-weight:800;
-  cursor:pointer;font-family:var(--font-sans);flex-shrink:0;
-}
-.cookie-ok:hover{background:var(--accent2)}
+.cookie-ok{background:#e05c1a;color:#fff;border:none;padding:8px 22px;border-radius:6px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;flex-shrink:0}
+.cookie-ok:hover{background:#ff6b35}
 
-/* ══════════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════════ */
+/* ══ RESPONSIVE ══ */
 @media(max-width:768px){
-  .hero-stats{gap:1rem;padding:.6rem 1rem;flex-wrap:wrap;justify-content:center}
+  .foot-inner{grid-template-columns:1fr}
+  .hero-stats{gap:1rem;padding:0.6rem 1rem;flex-wrap:wrap;justify-content:center}
 }
 @media(max-width:640px){
-  .main-nav .nav-links,
-  .main-nav .nav-right .nav-btn{display:none}
-  .mob-nav{display:flex}
   .hero{padding:2.5rem 1.25rem 3rem}
   .main{padding:1.5rem 1rem 4rem}
   .grid{grid-template-columns:1fr}
-  .breadcrumb,.controls-bar{padding:.6rem 1rem}
+  .breadcrumb,.controls-bar{padding:0.6rem 1rem}
   #btt{bottom:1.25rem;right:1.25rem}
 }
 </style>
 </head>
 <body>
 
-<!-- ══ MAIN NAV ══ -->
-<nav class="main-nav" role="navigation" aria-label="Main navigation">
+<!-- ══ NAV ══ -->
+<nav role="navigation" aria-label="Site navigation">
   <a class="logo" href="https://merahaq.online/" aria-label="MeraHaq – Home">🇮🇳 Mera<span>Haq</span></a>
   <div class="nav-links">
     <a href="https://merahaq.online/">Home</a>
@@ -439,23 +237,23 @@ footer a:hover{color:var(--gold)}
     <a href="https://merahaq.online/about">About</a>
     <a href="https://merahaq.online/contact">Contact</a>
     <a href="https://merahaq.online/privacy-policy">Privacy</a>
-  </div>
-  <div class="nav-right">
-    <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     <a class="nav-btn" href="https://merahaq.online/">🔍 Find My Benefits</a>
   </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- Mobile nav (≤640 px) -->
-<nav class="mob-nav" aria-label="Mobile navigation">
-  <a href="https://merahaq.online/">🏠 Home</a>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="https://merahaq.online/">🔍 Find My Benefits</a>
   <a href="https://merahaq.online/blog">📖 Blog</a>
   <a href="https://merahaq.online/about">ℹ️ About</a>
   <a href="https://merahaq.online/contact">✉️ Contact</a>
   <a href="https://merahaq.online/privacy-policy">🔒 Privacy</a>
   <a href="https://merahaq.online/terms">📋 Terms</a>
   <a href="https://merahaq.online/disclaimer">⚠️ Disclaimer</a>
-</nav>
+</div>
 
 <!-- ══ BREADCRUMB ══ -->
 <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -489,7 +287,7 @@ footer a:hover{color:var(--gold)}
   </select>
 </div>
 
-<!-- ══ MAIN ══ -->
+<!-- ══ MAIN CONTENT ══ -->
 <main class="main" id="main-content">
 
   <!-- Search -->
@@ -511,67 +309,103 @@ footer a:hover{color:var(--gold)}
   <section class="tabs-wrap" aria-label="Filter by category">
     <div class="tabs-label" id="tabs-lbl">Filter by category</div>
     <div class="tabs" id="tabs" role="tablist" aria-labelledby="tabs-lbl">
-      <button class="tab on" role="tab" aria-selected="true"  data-cat="all"       tabindex="0" >All Guides</button>
-      <button class="tab"    role="tab" aria-selected="false" data-cat="health"     tabindex="-1">🏥 Health</button>
-      <button class="tab"    role="tab" aria-selected="false" data-cat="farmers"    tabindex="-1">🌾 Farmers</button>
-      <button class="tab"    role="tab" aria-selected="false" data-cat="rights"     tabindex="-1">⚖️ Rights</button>
-      <button class="tab"    role="tab" aria-selected="false" data-cat="documents"  tabindex="-1">🪪 Documents</button>
-      <button class="tab"    role="tab" aria-selected="false" data-cat="finance"    tabindex="-1">🏦 Finance</button>
-      <button class="tab"    role="tab" aria-selected="false" data-cat="housing"    tabindex="-1">🏠 Housing</button>
-      <button class="tab"    role="tab" aria-selected="false" data-cat="women"      tabindex="-1">👩 Women</button>
-      <button class="tab"    role="tab" aria-selected="false" data-cat="education"  tabindex="-1">🎓 Education</button>
+      <button class="tab on"  role="tab" aria-selected="true"  data-cat="all"       tabindex="0">All Guides</button>
+      <button class="tab"     role="tab" aria-selected="false" data-cat="health"     tabindex="-1">🏥 Health</button>
+      <button class="tab"     role="tab" aria-selected="false" data-cat="farmers"    tabindex="-1">🌾 Farmers</button>
+      <button class="tab"     role="tab" aria-selected="false" data-cat="rights"     tabindex="-1">⚖️ Rights</button>
+      <button class="tab"     role="tab" aria-selected="false" data-cat="documents"  tabindex="-1">🪪 Documents</button>
+      <button class="tab"     role="tab" aria-selected="false" data-cat="finance"    tabindex="-1">🏦 Finance</button>
+      <button class="tab"     role="tab" aria-selected="false" data-cat="housing"    tabindex="-1">🏠 Housing</button>
+      <button class="tab"     role="tab" aria-selected="false" data-cat="women"      tabindex="-1">👩 Women</button>
+      <button class="tab"     role="tab" aria-selected="false" data-cat="education"  tabindex="-1">🎓 Education</button>
     </div>
   </section>
 
-  <!-- Grid — populated by JS -->
+  <!-- Articles Grid — populated by JS -->
   <section id="grid" class="grid" aria-label="Articles" aria-live="polite"></section>
 
 </main>
 
-<!-- ══ FOOTER ══ -->
-<footer role="contentinfo">
-  <div class="footer-brand">🇮🇳 Mera<span>Haq</span></div>
-  <div>मेरा हक़ — Your Rights. Your Schemes. Your Country.</div>
-  <div style="margin-top:.5rem">
-    <a href="https://merahaq.online/">Home</a> ·
-    <a href="https://merahaq.online/blog">Blog</a> ·
-    <a href="https://merahaq.online/about">About</a> ·
-    <a href="https://merahaq.online/contact">Contact</a> ·
-    <a href="https://merahaq.online/privacy-policy">Privacy Policy</a> ·
-    <a href="https://merahaq.online/terms">Terms</a> ·
-    <a href="https://merahaq.online/disclaimer">Disclaimer</a> ·
-    <a href="https://merahaq.online/cookie-policy">Cookie Policy</a>
+<!-- ══ DISCLAIMER ══ -->
+<div class="disclaimer">
+  <p class="disc"><strong>Disclaimer:</strong> MeraHaq is an independent informational platform. All scheme and rights data is sourced from official .gov.in government portals. This site is not affiliated with any government body or political party. Information is provided for educational purposes only. Please verify details at official portals before taking action.</p>
+</div>
+
+<!-- ══ FOOTER — matches index.html 4-column layout ══ -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-logo">🇮🇳 Mera<span>Haq</span></div>
+      <div class="foot-tag">मेरा हक़ — Your Rights. Your Schemes. Your Country.<br/>Data from official govt portals only. Free always.<br/>Not affiliated with any government body or party.</div>
+    </div>
+    <div class="foot-col">
+      <h5>Tools</h5>
+      <a href="https://merahaq.online/">Scheme Finder</a>
+      <a href="https://merahaq.online/#rights">Rights Library</a>
+      <a href="https://merahaq.online/#rti">RTI Letter Tool</a>
+      <a href="https://merahaq.online/#helplines">All Helplines</a>
+      <a href="https://merahaq.online/blog">Guides &amp; Articles</a>
+      <a href="https://merahaq.online/about">About MeraHaq</a>
+      <a href="https://merahaq.online/contact">Contact Us</a>
+      <a href="https://merahaq.online/privacy-policy">Privacy Policy</a>
+      <a href="https://merahaq.online/terms">Terms of Use</a>
+      <a href="https://merahaq.online/disclaimer">Disclaimer</a>
+      <a href="https://merahaq.online/cookie-policy">Cookie Policy</a>
+    </div>
+    <div class="foot-col">
+      <h5>Top Guides</h5>
+      <a href="https://merahaq.online/ayushman-bharat">Ayushman Bharat</a>
+      <a href="https://merahaq.online/pm-kisan">PM Kisan</a>
+      <a href="https://merahaq.online/rti-guide">RTI Guide</a>
+      <a href="https://merahaq.online/mgnrega">MGNREGA</a>
+      <a href="https://merahaq.online/ration-card">Ration Card</a>
+      <a href="https://merahaq.online/pmay">PMAY Housing</a>
+      <a href="https://merahaq.online/ujjwala-yojana">Ujjwala Yojana</a>
+      <a href="https://merahaq.online/scholarships">Scholarships</a>
+      <a href="https://merahaq.online/legal-rights">Legal Rights</a>
+      <a href="https://merahaq.online/aadhaar-guide">Aadhaar Guide</a>
+      <a href="https://merahaq.online/voter-id-guide">Voter ID Guide</a>
+      <a href="https://merahaq.online/pan-card-guide">PAN Card Guide</a>
+    </div>
+    <div class="foot-col">
+      <h5>More Guides</h5>
+      <a href="https://merahaq.online/labour-rights-india">Labour Rights</a>
+      <a href="https://merahaq.online/women-rights-india">Women's Rights</a>
+      <a href="https://merahaq.online/jan-dhan-yojana">Jan Dhan Yojana</a>
+      <a href="https://merahaq.online/sukanya-samriddhi">Sukanya Samriddhi</a>
+      <a href="https://merahaq.online/consumer-rights-india-complaint">Consumer Rights</a>
+      <a href="https://merahaq.online/epf-withdrawal-how-to">EPF Withdrawal</a>
+      <a href="https://merahaq.online/mudra-loan">MUDRA Loan</a>
+      <a href="https://merahaq.online/fasal-bima-yojana">Fasal Bima</a>
+      <a href="https://merahaq.online/free-legal-aid-india">Free Legal Aid</a>
+      <a href="https://merahaq.online/national-scholarship-portal-guide">NSP Guide</a>
+    </div>
   </div>
-  <div style="margin-top:.5rem">Not affiliated with any government body · For informational purposes only · Data from official .gov.in portals</div>
-  <div style="margin-top:.25rem">© <span id="yr"></span> MeraHaq</div>
+  <div class="foot-bottom">
+    <span>© <span id="yr"></span> MeraHaq · Not affiliated with any government body</span>
+    <span class="green">● All data from official .gov.in portals</span>
+  </div>
 </footer>
 
 <!-- Back to top -->
 <button id="btt" aria-label="Back to top" title="Back to top">↑</button>
 
-<!-- Cookie banner -->
+<!-- Cookie banner — same as index.html -->
 <div id="cookie" role="dialog" aria-label="Cookie consent" aria-live="polite">
   <span style="flex:1;min-width:200px">
     🍪 This site uses cookies for analytics and advertising.
-    <a href="/privacy-policy" style="color:var(--gold);font-weight:700;text-decoration:underline">Learn More</a>
+    <a href="/privacy-policy" style="color:#f2a900;font-weight:700;text-decoration:underline">Learn More</a>
   </span>
   <button class="cookie-ok" id="cookie-ok">Accept</button>
 </div>
 
-<!-- ════════════════════════════════════════════════════════════
+<!-- ════════════════════════════════════════════════
      JAVASCRIPT
-     ════════════════════════════════════════════════════════════ -->
+     ════════════════════════════════════════════════ -->
 <script>
 'use strict';
 
-/* ─────────────────────────────────────────
-   SECURITY: escapeHTML
-   All user-controlled strings (search query)
-   are escaped before being injected into innerHTML.
-   Our own ARTICLES data does NOT go through
-   innerHTML unsanitized — it is inserted via
-   textContent or carefully structured templates.
-   ───────────────────────────────────────── */
+/* ─── SECURITY: escapeHTML ─── */
 function escapeHTML(s) {
   return String(s)
     .replace(/&/g,'&amp;')
@@ -581,40 +415,27 @@ function escapeHTML(s) {
     .replace(/'/g,'&#39;');
 }
 
-/* ─────────────────────────────────────────
-   ARTICLES DATA
-   Each article object:
-     id        — unique slug (= URL path segment)
-     icon      — emoji (safe, no HTML)
-     cat       — matches tab data-cat
-     catLabel  — display category
-     title     — article title
-     desc      — short description
-     url       — full canonical URL
-     badge     — '' | 'New' | 'Popular' | 'Most Read' | 'Essential' | 'Important'
-     featured  — boolean (full-width dark card, only one)
-     words     — approx word count → read-time estimate
-   ───────────────────────────────────────── */
+/* ─── ARTICLES DATA ─── */
 const ARTICLES = [
-  /* ── FEATURED ─────────────────────────── */
+  /* ── FEATURED ── */
   {id:'ayushman-bharat',icon:'🏥',cat:'health',catLabel:'Health',
    title:'Ayushman Bharat – Free ₹5 Lakh Health Insurance for Every Eligible Family',
    desc:'India\'s largest health scheme covers 50+ crore citizens. Most eligible families don\'t know they qualify. Check eligibility in 2 minutes — free.',
    url:'https://merahaq.online/ayushman-bharat',badge:'Most Read',featured:true,words:1200},
 
-  /* ── HEALTH ───────────────────────────── */
+  /* ── HEALTH ── */
   {id:'ayushman-card-not-received',icon:'🏥',cat:'health',catLabel:'Health',
    title:'Ayushman Card Not Received? Here\'s How to Get It',
    desc:'Eligible but haven\'t received your Ayushman Bharat card? Step-by-step guide to download your e-card, get a physical card, and use it at any hospital.',
    url:'https://merahaq.online/ayushman-card-not-received',badge:'New',words:900},
 
-  /* ── RIGHTS ───────────────────────────── */
+  /* ── RIGHTS ── */
   {id:'free-legal-aid-india',icon:'⚖️',cat:'rights',catLabel:'Rights',
    title:'Free Legal Aid in India – How to Get a Free Lawyer',
    desc:'Every Indian has the right to free legal representation. Call NALSA at 15100. Complete guide to getting free legal aid from District Legal Services Authority.',
    url:'https://merahaq.online/free-legal-aid-india',badge:'Important',words:950},
 
-  /* ── FARMERS ──────────────────────────── */
+  /* ── FARMERS ── */
   {id:'pm-kisan',icon:'🌾',cat:'farmers',catLabel:'Farmers',
    title:'PM Kisan Samman Nidhi – ₹6,000/Year for Farmers',
    desc:'₹6,000 per year in 3 instalments directly to your bank account. Check your payment status, fix stuck payments, and complete e-KYC in minutes.',
@@ -640,7 +461,7 @@ const ARTICLES = [
    desc:'Protect your crops from drought, flood, and pest damage. Farmers pay only 1.5–2% premium, government pays the rest. How to enrol and claim compensation.',
    url:'https://merahaq.online/fasal-bima-yojana',badge:'',words:980},
 
-  /* ── RIGHTS (continued) ───────────────── */
+  /* ── RIGHTS (continued) ── */
   {id:'legal-rights',icon:'⚖️',cat:'rights',catLabel:'Rights',
    title:'Your Legal Rights in India – Police, Arrest & Free Legal Aid',
    desc:'If police stop, question, or arrest you — these are your constitutional rights they cannot violate. Free legal aid: call NALSA 15100 anytime.',
@@ -666,7 +487,7 @@ const ARTICLES = [
    desc:'File your RTI application online in under 10 minutes without visiting any office. Pay ₹10 by UPI. Track your application and appeal if ignored.',
    url:'https://merahaq.online/how-to-file-rti-online',badge:'New',words:820},
 
-  /* ── DOCUMENTS ────────────────────────── */
+  /* ── DOCUMENTS ── */
   {id:'aadhaar-guide',icon:'🪪',cat:'documents',catLabel:'Documents',
    title:'Aadhaar Card – Download, Update & Link Guide',
    desc:'Download e-Aadhaar free at myaadhaar.uidai.gov.in. Update your address for ₹50. Link mobile number, get PVC card, lock biometrics. Helpline: 1947.',
@@ -687,7 +508,7 @@ const ARTICLES = [
    desc:'Apply free at voters.eci.gov.in. Download digital e-EPIC anytime. Check your name on the voter list, correct mistakes using Form 8. Helpline: 1950.',
    url:'https://merahaq.online/voter-id-guide',badge:'',words:950},
 
-  /* ── HOUSING / FOOD ───────────────────── */
+  /* ── HOUSING / FOOD ── */
   {id:'ration-card',icon:'🍚',cat:'housing',catLabel:'Food Security',
    title:'Ration Card – Free Food for 80 Crore Indians Under PMGKAY',
    desc:'5 kg of free grain per person per month. One Nation One Ration Card for migrants. How to apply for a new ration card at your state Food Department portal.',
@@ -703,61 +524,36 @@ const ARTICLES = [
    desc:'₹1.20–1.30 lakh grant for rural house construction. Credit-linked subsidies for urban EWS/LIG. Must not own a pucca house anywhere in India.',
    url:'https://merahaq.online/pmay',badge:'',words:1050},
 
-  {id:'pmay-housing-scheme-apply',icon:'🏠',cat:'housing',catLabel:'Housing',
-   title:'How to Apply for PMAY Housing Scheme – Rural & Urban Guide',
-   desc:'Complete application guide for Pradhan Mantri Awas Yojana. Rural: apply at Gram Panchayat via pmayg.nic.in. Urban: apply at pmaymis.gov.in. Check status.',
-   url:'https://merahaq.online/pmay-housing-scheme-apply',badge:'New',words:870},
-
-  /* ── WOMEN ────────────────────────────── */
   {id:'ujjwala-yojana',icon:'🔥',cat:'women',catLabel:'Women',
-   title:'Ujjwala Yojana – Free LPG Connection for BPL Women',
-   desc:'Free gas connection, cylinder, regulator and pipe for BPL women. First refill also free. Apply at any LPG agency or online at pmuy.gov.in. Takes 3–7 days.',
+   title:'PM Ujjwala Yojana – Free LPG Connection for BPL Women',
+   desc:'Free LPG gas connection, cylinder and regulator for BPL women. Connection is in the woman\'s name. First refill free. Subsidy via DBT to your bank.',
    url:'https://merahaq.online/ujjwala-yojana',badge:'',words:950},
 
+  /* ── WOMEN ── */
   {id:'women-rights-india',icon:'👩',cat:'women',catLabel:'Women',
-   title:'Women\'s Rights in India – Laws, Schemes & Helplines',
-   desc:'Domestic Violence Act, POSH Act, equal inheritance rights, 26 weeks maternity leave, Ujjwala, Sukanya Samriddhi. Emergency: Women Helpline 1091.',
-   url:'https://merahaq.online/women-rights-india',badge:'',words:1200},
-
-  {id:'domestic-violence-rights-india',icon:'👩',cat:'women',catLabel:'Women',
-   title:'Domestic Violence Rights in India – Laws, Protection & Help',
-   desc:'The Protection of Women from Domestic Violence Act gives strong legal rights. Emergency helpline 181. How to file a complaint and get protection orders.',
-   url:'https://merahaq.online/domestic-violence-rights-india',badge:'New',words:1050},
+   title:'Women\'s Rights in India – Legal Protections Every Woman Must Know',
+   desc:'POSH Act, maternity leave, domestic violence protection, equal pay, property rights — a complete guide to every woman\'s legal rights in India.',
+   url:'https://merahaq.online/women-rights-india',badge:'Essential',words:1200},
 
   {id:'sukanya-samriddhi',icon:'👧',cat:'women',catLabel:'Women',
-   title:'Sukanya Samriddhi Yojana – 8.2% Tax-Free Savings for Your Daughter',
-   desc:'Highest interest of any government scheme — 8.2% per year, tax-free. Open for girls under 10 years. Start with ₹250. Open at any Post Office or bank.',
-   url:'https://merahaq.online/sukanya-samriddhi',badge:'Popular',words:1100},
+   title:'Sukanya Samriddhi Yojana – 8.2% Tax-Free Savings for Girls',
+   desc:'Highest interest rate of any government savings scheme — 8.2% per year, fully tax-free, guaranteed by GoI. Open for girls below 10 years. Start with ₹250.',
+   url:'https://merahaq.online/sukanya-samriddhi',badge:'Popular',words:1000},
 
-  {id:'sukanya-samriddhi-complete-guide',icon:'👧',cat:'women',catLabel:'Women',
-   title:'Sukanya Samriddhi Complete Guide – Open Account, Deposits & Rules',
-   desc:'Complete guide — how to open an account, minimum/maximum deposits, premature withdrawal rules, maturity amount, and tax benefits under Section 80C.',
-   url:'https://merahaq.online/sukanya-samriddhi-complete-guide',badge:'New',words:1300},
-
-  /* ── FINANCE ──────────────────────────── */
+  /* ── FINANCE ── */
   {id:'jan-dhan-yojana',icon:'🏦',cat:'finance',catLabel:'Finance',
-   title:'Jan Dhan Yojana – Zero Balance Bank Account & ₹2 Lakh Insurance',
-   desc:'Free zero-balance account with RuPay debit card, ₹10,000 overdraft after 6 months, and ₹2 lakh accident insurance. Open at any nationalised bank with Aadhaar.',
-   url:'https://merahaq.online/jan-dhan-yojana',badge:'',words:1000},
+   title:'PM Jan Dhan Yojana – Free Zero-Balance Bank Account',
+   desc:'Free bank account with zero balance, RuPay card, ₹2 lakh accident insurance, and ₹10,000 overdraft facility. Every Indian is eligible. No minimum balance.',
+   url:'https://merahaq.online/jan-dhan-yojana',badge:'',words:950},
 
-  {id:'jan-dhan-account-benefits',icon:'🏦',cat:'finance',catLabel:'Finance',
-   title:'Jan Dhan Account Benefits You May Not Know About',
-   desc:'Beyond zero balance — your Jan Dhan account gives ₹2 lakh accident cover, ₹30,000 life cover, ₹10,000 overdraft, and direct DBT from all government schemes.',
-   url:'https://merahaq.online/jan-dhan-account-benefits',badge:'New',words:820},
+  {id:'mudra-loan',icon:'💰',cat:'finance',catLabel:'Finance',
+   title:'MUDRA Loan – Up to ₹10 Lakh for Small Businesses',
+   desc:'PM MUDRA Yojana gives collateral-free business loans of ₹50,000 to ₹10 lakh to small entrepreneurs, artisans, shopkeepers, and self-employed individuals.',
+   url:'https://merahaq.online/mudra-loan',badge:'',words:1000},
 
-  {id:'atal-pension-yojana',icon:'👴',cat:'finance',catLabel:'Finance',
-   title:'Atal Pension Yojana – Guaranteed ₹5,000/Month Pension After 60',
-   desc:'Any Indian aged 18–40 in the unorganised sector gets guaranteed pension of ₹1,000–₹5,000/month after age 60. Start at just ₹42/month. Enrol via your bank.',
-   url:'https://merahaq.online/atal-pension-yojana',badge:'',words:980},
-
-  {id:'pm-mudra-yojana',icon:'💼',cat:'finance',catLabel:'Finance',
-   title:'PM Mudra Yojana – Collateral-Free Business Loan up to ₹20 Lakh',
-   desc:'Small business owners, vendors, and self-employed can get loans from ₹50,000 to ₹20 lakh with no guarantor. 68% of beneficiaries are women. Apply at any bank.',
-   url:'https://merahaq.online/pm-mudra-yojana',badge:'',words:1050},
-
-  {id:'mudra-loan-how-to-apply',icon:'💼',cat:'finance',catLabel:'Finance',
-   title:'How to Apply for Mudra Loan – Shishu, Kishore & Tarun Guide',
-   desc:'Step-by-step guide to applying for PM Mudra loan at a bank or online at udyamimitra.in. Which category to choose, documents needed, and what to do if rejected.',
+  {id:'mudra-loan-how-to-apply',icon:'💰',cat:'finance',catLabel:'Finance',
+   title:'How to Apply for MUDRA Loan – Step by Step at Any Bank',
+   desc:'No collateral, no guarantor needed for Shishu and Kishor loans. Eligibility, documents, and the exact steps to apply at your nearest bank or NBFC.',
    url:'https://merahaq.online/mudra-loan-how-to-apply',badge:'New',words:840},
 
   {id:'epf-withdrawal-how-to',icon:'🏦',cat:'finance',catLabel:'Finance',
@@ -765,7 +561,7 @@ const ARTICLES = [
    desc:'Withdraw your EPF provident fund money online in 3 days without visiting any office. UAN activation, KYC linking, and step-by-step claim submission guide.',
    url:'https://merahaq.online/epf-withdrawal-how-to',badge:'New',words:900},
 
-  /* ── EDUCATION ────────────────────────── */
+  /* ── EDUCATION ── */
   {id:'scholarships',icon:'🎓',cat:'education',catLabel:'Education',
    title:'Government Scholarships for Indian Students – 120+ Schemes',
    desc:'120+ scholarships for SC, ST, OBC, minority & disabled students from Class 9 to PhD on the National Scholarship Portal. Lakhs go unclaimed every year.',
@@ -777,31 +573,22 @@ const ARTICLES = [
    url:'https://merahaq.online/national-scholarship-portal-guide',badge:'New',words:900}
 ];
 
-/* ─────────────────────────────────────────
-   CONSTANTS
-   ───────────────────────────────────────── */
-const PAGE_SIZE = 9;     // cards per "page" before Load More
-const AD_EVERY  = 6;     // inject an AdSense slot after every N regular cards
-const WPM       = 220;   // avg reading speed → read-time estimate
+/* ─── CONSTANTS ─── */
+const PAGE_SIZE = 9;
+const AD_EVERY  = 6;
+const WPM       = 220;
 
-/* ─────────────────────────────────────────
-   STATE
-   ───────────────────────────────────────── */
+/* ─── STATE ─── */
 let activeCat    = 'all';
 let activeSort   = 'default';
 let visibleCount = PAGE_SIZE;
 let debounceId   = null;
 
-/* ─────────────────────────────────────────
-   HELPERS
-   ───────────────────────────────────────── */
-
-/** Estimated read time string */
+/* ─── HELPERS ─── */
 function readTime(words) {
   return Math.max(1, Math.round((words || 800) / WPM)) + ' min read';
 }
 
-/** CSS class for a badge label */
 function badgeCls(b) {
   return ({
     'New':       'badge badge-new',
@@ -812,10 +599,8 @@ function badgeCls(b) {
   })[b] || '';
 }
 
-/** Return current filtered + sorted article array */
 function getList() {
   const q = document.getElementById('search-inp').value.trim().toLowerCase();
-
   let list = ARTICLES.filter(a => {
     if (activeCat !== 'all' && a.cat !== activeCat) return false;
     if (!q) return true;
@@ -826,9 +611,8 @@ function getList() {
       a.id.replace(/-/g,' ').includes(q)
     );
   });
-
-  if (activeSort === 'az')      list = list.slice().sort((a,b) => a.title.localeCompare(b.title));
-  else if (activeSort === 'za') list = list.slice().sort((a,b) => b.title.localeCompare(a.title));
+  if (activeSort === 'az')           list = list.slice().sort((a,b) => a.title.localeCompare(b.title));
+  else if (activeSort === 'za')      list = list.slice().sort((a,b) => b.title.localeCompare(a.title));
   else if (activeSort === 'popular') {
     const w = {Popular:0,'Most Read':1,Essential:2,Important:3,New:4,'':5};
     list = list.slice().sort((a,b) => (w[a.badge]??5) - (w[b.badge]??5));
@@ -838,25 +622,18 @@ function getList() {
   return list;
 }
 
-/* ─────────────────────────────────────────
-   RENDER
-   Uses DocumentFragment → single DOM write
-   via requestAnimationFrame for smooth paint.
-   ───────────────────────────────────────── */
+/* ─── RENDER ─── */
 function render(resetPage) {
   if (resetPage) visibleCount = PAGE_SIZE;
-
   const list    = getList();
   const total   = list.length;
   const showing = Math.min(visibleCount, total);
   const grid    = document.getElementById('grid');
 
-  /* Update sticky stats bar */
   document.getElementById('stats-count').innerHTML =
     'Showing <strong>' + showing + '</strong> of <strong>' + total +
     '</strong> guide' + (total !== 1 ? 's' : '');
 
-  /* ── Empty state ── */
   if (total === 0) {
     const q = escapeHTML(document.getElementById('search-inp').value.trim());
     grid.innerHTML =
@@ -874,16 +651,14 @@ function render(resetPage) {
     return;
   }
 
-  /* ── Build fragment ── */
-  const frag     = document.createDocumentFragment();
-  const slice    = list.slice(0, showing);
-  let   cardIdx  = 0; // counts non-featured cards for ad placement
+  const frag    = document.createDocumentFragment();
+  const slice   = list.slice(0, showing);
+  let   cardIdx = 0;
 
   slice.forEach((a, i) => {
-    /* Ad slot every AD_EVERY non-featured cards */
     if (!a.featured && cardIdx > 0 && cardIdx % AD_EVERY === 0) {
       const ad = document.createElement('div');
-      ad.className     = 'ad-slot';
+      ad.className = 'ad-slot';
       ad.setAttribute('aria-hidden','true');
       ad.innerHTML =
         '<div class="ad-label">Advertisement</div>' +
@@ -897,12 +672,10 @@ function render(resetPage) {
       try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
     }
 
-    /* Card element */
     const el = document.createElement('a');
-    el.href         = a.url;
-    el.rel          = 'noopener';
-    el.className    = 'card' + (a.featured ? ' featured' : '');
-    /* Staggered animation delay (max 400ms so late cards don't feel sluggish) */
+    el.href      = a.url;
+    el.rel       = 'noopener';
+    el.className = 'card' + (a.featured ? ' featured' : '');
     el.style.animationDelay = Math.min(i * 50, 400) + 'ms';
 
     const featHtml  = a.featured ? '<span class="feat-label">⭐ Featured</span>' : '';
@@ -910,11 +683,6 @@ function render(resetPage) {
       ? '<span class="' + badgeCls(a.badge) + '">' + escapeHTML(a.badge) + '</span>'
       : '<span></span>';
 
-    /*
-      NOTE: a.title, a.desc, a.catLabel come from our own constant array —
-      NOT from user input — so template-literal injection is safe here.
-      escapeHTML() is used on any user-typed data (search query) only.
-    */
     el.innerHTML =
       '<div class="card-top">' +
         '<div class="card-icon" aria-hidden="true">' + a.icon + '</div>' +
@@ -937,7 +705,6 @@ function render(resetPage) {
     if (!a.featured) cardIdx++;
   });
 
-  /* Load More button */
   if (showing < total) {
     const lm = document.createElement('div');
     lm.className = 'load-more-wrap';
@@ -948,17 +715,13 @@ function render(resetPage) {
     frag.appendChild(lm);
   }
 
-  /* Single DOM write inside rAF for smooth paint */
   requestAnimationFrame(() => {
     grid.innerHTML = '';
     grid.appendChild(frag);
   });
 }
 
-/* ─────────────────────────────────────────
-   TABS — keyboard-accessible (ARIA tablist)
-   Arrow keys: navigate; Enter/Space: activate
-   ───────────────────────────────────────── */
+/* ─── TABS ─── */
 function setTab(cat) {
   activeCat    = cat;
   visibleCount = PAGE_SIZE;
@@ -991,9 +754,7 @@ document.getElementById('tabs').addEventListener('keydown', e => {
   setTab(tabs[next].dataset.cat);
 });
 
-/* ─────────────────────────────────────────
-   SEARCH — debounced 300 ms
-   ───────────────────────────────────────── */
+/* ─── SEARCH ─── */
 document.getElementById('search-inp').addEventListener('input', function() {
   clearTimeout(debounceId);
   document.getElementById('search-clr').classList.toggle('show', this.value.length > 0);
@@ -1008,17 +769,13 @@ document.getElementById('search-clr').addEventListener('click', () => {
   render(true);
 });
 
-/* ─────────────────────────────────────────
-   SORT
-   ───────────────────────────────────────── */
+/* ─── SORT ─── */
 document.getElementById('sort-sel').addEventListener('change', function() {
   activeSort = this.value;
   render(true);
 });
 
-/* ─────────────────────────────────────────
-   LOAD MORE — event delegation on grid
-   ───────────────────────────────────────── */
+/* ─── LOAD MORE ─── */
 document.getElementById('grid').addEventListener('click', e => {
   if (e.target.id === 'lm-btn') {
     e.target.disabled    = true;
@@ -1026,7 +783,6 @@ document.getElementById('grid').addEventListener('click', e => {
     visibleCount += PAGE_SIZE;
     render(false);
   }
-  /* Empty state suggestion buttons */
   const sug = e.target.closest('[data-suggest]');
   if (sug) {
     document.getElementById('search-inp').value = '';
@@ -1035,29 +791,16 @@ document.getElementById('grid').addEventListener('click', e => {
   }
 });
 
-/* ─────────────────────────────────────────
-   DARK MODE
-   Reads: localStorage → OS preference → light
-   Writes: localStorage on toggle
-   ───────────────────────────────────────── */
-function applyTheme(t) {
-  document.documentElement.setAttribute('data-theme', t);
-  document.getElementById('theme-btn').textContent = t === 'dark' ? '☀️' : '🌙';
-  localStorage.setItem('mh_theme', t);
+/* ─── HAMBURGER MOBILE MENU ─── */
+function toggleMobileMenu() {
+  const btn  = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('mobile-menu');
+  const open = menu.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', String(open));
 }
-/* Init theme before first paint */
-(function() {
-  const saved  = localStorage.getItem('mh_theme');
-  const sys    = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-  applyTheme(saved || sys);
-})();
-document.getElementById('theme-btn').addEventListener('click', () => {
-  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-});
 
-/* ─────────────────────────────────────────
-   BACK TO TOP — throttled scroll listener
-   ───────────────────────────────────────── */
+/* ─── BACK TO TOP ─── */
 let ticking = false;
 window.addEventListener('scroll', () => {
   if (!ticking) {
@@ -1072,10 +815,7 @@ document.getElementById('btt').addEventListener('click', () =>
   window.scrollTo({ top: 0, behavior: 'smooth' })
 );
 
-/* ─────────────────────────────────────────
-   COOKIE BANNER — no flicker
-   Uses its own localStorage key mh_ck
-   ───────────────────────────────────────── */
+/* ─── COOKIE BANNER ─── */
 (function() {
   if (!localStorage.getItem('mh_ck'))
     document.getElementById('cookie').classList.add('show');
@@ -1085,11 +825,7 @@ document.getElementById('cookie-ok').addEventListener('click', () => {
   document.getElementById('cookie').classList.remove('show');
 });
 
-/* ─────────────────────────────────────────
-   SEO: ItemList schema — injected after
-   ARTICLES is defined so it's always in sync.
-   Google uses this to index all guide URLs.
-   ───────────────────────────────────────── */
+/* ─── SEO: ItemList schema ─── */
 (function injectItemListSchema() {
   const schema = {
     '@context': 'https://schema.org',
@@ -1110,13 +846,10 @@ document.getElementById('cookie-ok').addEventListener('click', () => {
   document.head.appendChild(s);
 })();
 
-/* ─────────────────────────────────────────
-   INIT — runs after DOM is ready
-   (script is at bottom of body)
-   ───────────────────────────────────────── */
-document.getElementById('yr').textContent        = new Date().getFullYear();
+/* ─── INIT ─── */
+document.getElementById('yr').textContent         = new Date().getFullYear();
 document.getElementById('hero-total').textContent = ARTICLES.length;
-render(true); /* Initial render */
+render(true);
 </script>
 
 </body>
