@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MeraHaq — Auto Page Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#111;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+/* NAV */
+nav{background:#1a1a2e;position:sticky;top:0;z-index:999;border-bottom:3px solid #e05c1a;padding:0 2rem;height:58px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo span{color:#e05c1a}
+.nav-badge{background:rgba(242,169,0,0.15);border:1px solid rgba(242,169,0,0.4);color:#f2a900;padding:5px 14px;border-radius:100px;font-size:0.72rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+
+/* LAYOUT */
+.app{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 58px)}
+
+/* SIDEBAR */
+.sidebar{background:#1a1a2e;padding:1.5rem;border-right:1px solid rgba(255,255,255,0.08);overflow-y:auto;max-height:calc(100vh - 58px);position:sticky;top:58px}
+.sidebar-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:0.3rem}
+.sidebar-sub{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.4);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:1px}
+.topic-section{margin-bottom:1.5rem}
+.topic-section-title{font-size:0.68rem;font-weight:800;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:2px;font-family:'JetBrains Mono',monospace;margin-bottom:0.6rem;padding-bottom:0.4rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.topic-btn{width:100%;text-align:left;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);padding:8px 12px;border-radius:8px;font-size:0.82rem;font-weight:700;cursor:pointer;margin-bottom:5px;font-family:'Nunito',sans-serif;transition:all 0.18s;display:flex;align-items:center;gap:8px}
+.topic-btn:hover{background:rgba(224,92,26,0.15);border-color:rgba(224,92,26,0.35);color:#fff}
+.topic-btn.active{background:#e05c1a;border-color:#e05c1a;color:#fff}
+.topic-btn .ticon{font-size:1rem;flex-shrink:0}
+.custom-section{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1rem;margin-top:0.5rem}
+.custom-section label{font-size:0.68rem;font-weight:800;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:5px}
+.custom-input{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:8px 10px;border-radius:6px;font-family:'Nunito',sans-serif;font-size:0.85rem;outline:none;margin-bottom:8px}
+.custom-input:focus{border-color:#e05c1a}
+.custom-input::placeholder{color:rgba(255,255,255,0.3)}
+.gen-btn{width:100%;padding:11px;background:#e05c1a;color:#fff;font-weight:800;font-size:0.9rem;border:none;border-radius:8px;cursor:pointer;font-family:'Nunito',sans-serif;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.gen-btn:hover{background:#ff6b35}
+.gen-btn:disabled{background:#555;cursor:not-allowed}
+
+/* MAIN */
+.main{padding:2rem;overflow-y:auto}
+.main-header{margin-bottom:2rem}
+.main-header h1{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#1a1a2e;margin-bottom:0.3rem}
+.main-header h1 em{color:#e05c1a;font-style:italic}
+.main-header p{font-size:0.9rem;color:#666;line-height:1.7}
+.status-bar{background:#1a1a2e;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:10px;min-height:48px}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:pulse 1.5s infinite}
+.status-dot.loading{background:#f2a900;animation:pulse 0.7s infinite}
+.status-dot.idle{animation:none;background:#555}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+/* PREVIEW */
+.preview-wrap{background:#fff;border:2px solid #e8e0d5;border-radius:16px;overflow:hidden;margin-bottom:1.5rem}
+.preview-toolbar{background:#f8f3eb;border-bottom:2px solid #e8e0d5;padding:0.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem}
+.preview-toolbar-left{display:flex;align-items:center;gap:10px}
+.preview-label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#888;text-transform:uppercase;letter-spacing:1px}
+.preview-filename{font-family:'JetBrains Mono',monospace;font-size:0.72rem;background:#e8e0d5;color:#555;padding:3px 10px;border-radius:4px}
+.toolbar-btns{display:flex;gap:0.5rem;flex-wrap:wrap}
+.tbtn{padding:7px 14px;border:none;border-radius:6px;cursor:pointer;font-weight:800;font-size:0.78rem;font-family:'Nunito',sans-serif;transition:all 0.18s;display:flex;align-items:center;gap:5px}
+.tbtn-copy{background:#1a1a2e;color:#fff}
+.tbtn-copy:hover{background:#2d2d5e}
+.tbtn-dl{background:#e05c1a;color:#fff}
+.tbtn-dl:hover{background:#ff6b35}
+.tbtn-preview{background:#22a876;color:#fff}
+.tbtn-preview:hover{background:#1a8c63}
+.tbtn-github{background:#6e40c9;color:#fff}
+.tbtn-github:hover{background:#5a33a8}
+
+.preview-frame{position:relative;background:#f8f3eb}
+.preview-frame iframe{width:100%;height:600px;border:none;display:block}
+.code-view{display:none;background:#0d1117;border-radius:0;max-height:600px;overflow-y:auto;padding:1.5rem}
+.code-view pre{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#e6edf3;line-height:1.8;white-space:pre-wrap;word-break:break-word}
+
+/* PLACEHOLDER */
+.placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5rem 2rem;text-align:center;background:#f8f3eb}
+.placeholder-icon{font-size:4rem;margin-bottom:1rem}
+.placeholder h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#1a1a2e;margin-bottom:0.5rem}
+.placeholder p{font-size:0.9rem;color:#888;line-height:1.7;max-width:400px}
+
+/* HISTORY */
+.history-wrap{margin-top:1.5rem}
+.history-title{font-family:'JetBrains Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:2px;color:#888;margin-bottom:0.75rem}
+.history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0.75rem}
+.hist-card{background:#fff;border:2px solid #e8e0d5;border-radius:12px;padding:1rem 1.1rem;cursor:pointer;transition:all 0.18s}
+.hist-card:hover{border-color:#e05c1a;transform:translateY(-2px)}
+.hist-name{font-family:'Playfair Display',serif;font-size:0.88rem;font-weight:700;color:#1a1a2e;margin-bottom:3px}
+.hist-file{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#bbb}
+.hist-time{font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#ccc;margin-top:4px}
+
+/* HOW TO UPLOAD GUIDE */
+.guide-box{background:#fff;border:2px solid #e8e0d5;border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
+.guide-box h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:#1a1a2e;margin-bottom:0.75rem}
+.guide-steps{counter-reset:step}
+.guide-step{display:flex;align-items:flex-start;gap:12px;margin-bottom:0.75rem;font-size:0.84rem;color:#555;line-height:1.6}
+.guide-step-num{background:#e05c1a;color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;flex-shrink:0;margin-top:1px}
+.guide-step code{background:#f0e9de;padding:1px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#a03a08}
+.github-box{background:#1a1a2e;border-radius:10px;padding:1rem 1.25rem;margin-top:0.75rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:rgba(255,255,255,0.7);line-height:1.8}
+.github-box strong{color:#f2a900}
+
+@media(max-width:900px){
+  .app{grid-template-columns:1fr}
+  .sidebar{position:static;max-height:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="https://merahaq.online" target="_blank">Mera<span>Haq</span></a>
+  <span class="nav-badge">⚡ Auto Page Generator</span>
+</nav>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-title">Page Topics</div>
+    <div class="sidebar-sub">Select to auto-generate</div>
+
+    <div class="topic-section">
+      <div class="topic-section-title">🏛️ Government Schemes</div>
+      <button class="topic-btn" onclick="selectTopic(this,'pm-awas-yojana-gramin','PM Awas Yojana Gramin','🏠')"><span class="ticon">🏠</span>PM Awas Yojana Gramin</button>
+      <button class="topic-btn" onclick="selectTopic(this,'pm-ujjwala-yojana-2','PM Ujjwala Yojana 2.0','🔥')"><span class="ticon">🔥</span>PM Ujjwala Yojana 2.0</button>
+      <button class="topic-btn" onclick="selectTopic(this,'kisan-credit-card','Kisan Credit Card','💳')"><span class="ticon">💳</span>Kisan Credit Card</button>
+      <button class="topic-btn" onclick="selectTopic(this,'national-pension-scheme','National Pension Scheme','👴')"><span class="ticon">👴</span>National Pension Scheme</button>
+      <button class="topic-btn" onclick="selectTopic(this,'stand-up-india','Stand Up India Scheme','🚀')"><span class="ticon">🚀</span>Stand Up India</button>
+      <button class="topic-btn" onclick="selectTopic(this,'pradhan-mantri-matru-vandana','PM Matru Vandana Yojana','🤱')"><span class="ticon">🤱</span>PM Matru Vandana</button>
+      <button class="topic-btn" onclick="selectTopic(this,'poshan-abhiyaan','POSHAN Abhiyaan','🥗')"><span class="ticon">🥗</span>POSHAN Abhiyaan</button>
+    </div>
+
+    <div class="topic-section">
+      <div class="topic-section-title">⚖️ Legal Rights</div>
+      <button class="topic-btn" onclick="selectTopic(this,'right-to-education','Right to Education Act','📚')"><span class="ticon">📚</span>Right to Education</button>
+      <button class="topic-btn" onclick="selectTopic(this,'consumer-protection-2019','Consumer Protection Act 2019','🛡️')"><span class="ticon">🛡️</span>Consumer Protection 2019</button>
+      <button class="topic-btn" onclick="selectTopic(this,'posh-act-workplace','POSH Act — Workplace Rights','⚖️')"><span class="ticon">⚖️</span>POSH Act</button>
+      <button class="topic-btn" onclick="selectTopic(this,'disability-rights-india','Rights of Persons with Disabilities','♿')"><span class="ticon">♿</span>Disability Rights</button>
+      <button class="topic-btn" onclick="selectTopic(this,'senior-citizen-rights','Senior Citizen Rights India','👴')"><span class="ticon">👴</span>Senior Citizen Rights</button>
+    </div>
+
+    <div class="topic-section">
+      <div class="topic-section-title">📋 How-To Guides</div>
+      <button class="topic-btn" onclick="selectTopic(this,'how-to-apply-passport-india','How to Apply for Passport India','🛂')"><span class="ticon">🛂</span>Apply for Passport</button>
+      <button class="topic-btn" onclick="selectTopic(this,'how-to-link-aadhaar-pan','How to Link Aadhaar with PAN','🔗')"><span class="ticon">🔗</span>Link Aadhaar–PAN</button>
+      <button class="topic-btn" onclick="selectTopic(this,'how-to-file-income-tax-return','How to File Income Tax Return','💼')"><span class="ticon">💼</span>File Income Tax Return</button>
+      <button class="topic-btn" onclick="selectTopic(this,'how-to-apply-driving-licence','How to Apply Driving Licence','🚗')"><span class="ticon">🚗</span>Apply Driving Licence</button>
+      <button class="topic-btn" onclick="selectTopic(this,'how-to-apply-birth-certificate','How to Get Birth Certificate','👶')"><span class="ticon">👶</span>Get Birth Certificate</button>
+    </div>
+
+    <div class="topic-section">
+      <div class="topic-section-title">✏️ Custom Topic</div>
+      <div class="custom-section">
+        <label>Page Topic / Scheme Name</label>
+        <input class="custom-input" id="custom-topic" placeholder="e.g. PM Garib Kalyan Yojana" />
+        <label>URL Slug</label>
+        <input class="custom-input" id="custom-slug" placeholder="e.g. pm-garib-kalyan-yojana" />
+      </div>
+    </div>
+
+    <button class="gen-btn" id="gen-btn" onclick="generatePage()" disabled>
+      <span id="gen-btn-text">⚡ Generate Page</span>
+    </button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="main-header">
+      <h1>Auto Page <em>Generator</em></h1>
+      <p>Select a topic → AI fetches official government data → generates a page that exactly matches your MeraHaq design → download & upload to GitHub.</p>
+    </div>
+
+    <!-- UPLOAD GUIDE -->
+    <div class="guide-box">
+      <h3>📤 How to Upload Generated Pages to merahaq.online</h3>
+      <div class="guide-steps">
+        <div class="guide-step"><div class="guide-step-num">1</div><span>Generate a page using this tool and click <strong>Download HTML</strong></span></div>
+        <div class="guide-step"><div class="guide-step-num">2</div><span>Go to your GitHub repo: <code>github.com/webdev-atharv/merahaq</code></span></div>
+        <div class="guide-step"><div class="guide-step-num">3</div><span>Click <strong>Add file → Upload files</strong>, drag the downloaded <code>.html</code> file</span></div>
+        <div class="guide-step"><div class="guide-step-num">4</div><span>Click <strong>Commit changes</strong> — Vercel auto-deploys in ~30 seconds ✅</span></div>
+        <div class="guide-step"><div class="guide-step-num">5</div><span>Add the new page link to your <code>sitemap.xml</code> and homepage for SEO</span></div>
+      </div>
+      <div class="github-box">
+        <strong>Your live site:</strong> merahaq.vercel.app · merahaq.online<br/>
+        <strong>GitHub:</strong> github.com/webdev-atharv/merahaq<br/>
+        <strong>Deployment:</strong> Vercel auto-deploys on every GitHub push — no server needed
+      </div>
+    </div>
+
+    <div class="status-bar">
+      <div class="status-dot idle" id="status-dot"></div>
+      <span id="status-text">Select a topic from the sidebar to begin generating a page.</span>
+    </div>
+
+    <!-- PREVIEW AREA -->
+    <div class="preview-wrap" id="preview-wrap">
+      <div class="preview-toolbar">
+        <div class="preview-toolbar-left">
+          <span class="preview-label">Output</span>
+          <span class="preview-filename" id="preview-filename">no file yet</span>
+        </div>
+        <div class="toolbar-btns">
+          <button class="tbtn tbtn-preview" onclick="toggleView('preview')" id="btn-preview">👁️ Preview</button>
+          <button class="tbtn tbtn-copy" onclick="toggleView('code')" id="btn-code">📋 View Code</button>
+          <button class="tbtn tbtn-copy" onclick="copyCode()" id="btn-copy-code" style="display:none">📋 Copy HTML</button>
+          <button class="tbtn tbtn-dl" onclick="downloadPage()" id="btn-dl" style="display:none">⬇️ Download</button>
+          <button class="tbtn tbtn-github" onclick="openGitHub()" id="btn-gh" style="display:none">🐙 Open GitHub</button>
+        </div>
+      </div>
+      <div class="preview-frame" id="preview-frame">
+        <div class="placeholder">
+          <div class="placeholder-icon">✨</div>
+          <h2>Your Page Will Appear Here</h2>
+          <p>Select any topic from the sidebar and click Generate. The AI will create a complete, SEO-optimized page matching your MeraHaq design.</p>
+        </div>
+      </div>
+      <div class="code-view" id="code-view">
+        <pre id="code-content"></pre>
+      </div>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="history-wrap" id="history-wrap" style="display:none">
+      <div class="history-title">📁 Generated This Session</div>
+      <div class="history-grid" id="history-grid"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════
+let currentTopic = null;
+let currentSlug = null;
+let currentIcon = null;
+let generatedHTML = '';
+let history = [];
+
+// ═══════════════════════════════════════════
+// TOPIC SELECTION
+// ═══════════════════════════════════════════
+function selectTopic(btn, slug, topic, icon) {
+  document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentTopic = topic;
+  currentSlug = slug;
+  currentIcon = icon;
+  document.getElementById('custom-topic').value = '';
+  document.getElementById('custom-slug').value = '';
+  document.getElementById('gen-btn').disabled = false;
+  setStatus('idle', `Ready to generate: "${topic}"`);
+}
+
+document.getElementById('custom-topic').addEventListener('input', function() {
+  if (this.value.trim()) {
+    document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+    currentTopic = this.value.trim();
+    currentSlug = document.getElementById('custom-slug').value.trim() || slugify(this.value.trim());
+    currentIcon = '📋';
+    document.getElementById('gen-btn').disabled = false;
+    setStatus('idle', `Custom topic ready: "${currentTopic}"`);
+  }
+});
+
+document.getElementById('custom-slug').addEventListener('input', function() {
+  if (document.getElementById('custom-topic').value.trim()) {
+    currentSlug = this.value.trim() || slugify(document.getElementById('custom-topic').value.trim());
+  }
+});
+
+function slugify(s) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+// ═══════════════════════════════════════════
+// STATUS
+// ═══════════════════════════════════════════
+function setStatus(state, msg) {
+  const dot = document.getElementById('status-dot');
+  const txt = document.getElementById('status-text');
+  dot.className = 'status-dot ' + (state === 'loading' ? 'loading' : state === 'idle' ? 'idle' : '');
+  txt.textContent = msg;
+}
+
+// ═══════════════════════════════════════════
+// GENERATE PAGE — calls Claude API
+// ═══════════════════════════════════════════
+async function generatePage() {
+  if (!currentTopic) return;
+
+  const btn = document.getElementById('gen-btn');
+  const btnText = document.getElementById('gen-btn-text');
+  btn.disabled = true;
+  btnText.textContent = '⏳ Generating…';
+  setStatus('loading', `Fetching official data & generating page for "${currentTopic}"…`);
+
+  // Show loading frame
+  document.getElementById('preview-frame').innerHTML = `
+    <div class="placeholder">
+      <div class="placeholder-icon" style="animation:spin 1s linear infinite;display:inline-block">⚙️</div>
+      <h2>Generating Page…</h2>
+      <p>AI is fetching official government data and building your MeraHaq page. This takes 15–30 seconds.</p>
+    </div>
+    <style>@keyframes spin{to{transform:rotate(360deg)}}</style>`;
+  document.getElementById('code-view').style.display = 'none';
+  document.getElementById('preview-frame').style.display = 'block';
+
+  const prompt = buildPrompt(currentTopic, currentSlug, currentIcon);
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 8000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await response.json();
+    const raw = data.content.map(b => b.text || '').join('');
+
+    // Extract HTML from response
+    let html = raw;
+    const m1 = raw.match(/```html\s*([\s\S]*?)```/i);
+    const m2 = raw.match(/(<!DOCTYPE[\s\S]*<\/html>)/i);
+    if (m1) html = m1[1].trim();
+    else if (m2) html = m2[1].trim();
+
+    generatedHTML = html;
+
+    // Show preview
+    renderPreview(html);
+    const fname = currentSlug + '.html';
+    document.getElementById('preview-filename').textContent = fname;
+    document.getElementById('btn-dl').style.display = 'flex';
+    document.getElementById('btn-copy-code').style.display = 'flex';
+    document.getElementById('btn-gh').style.display = 'flex';
+
+    // Add to history
+    addToHistory(currentTopic, currentSlug, currentIcon, html);
+
+    setStatus('', `✅ Page generated successfully! Download and upload to GitHub.`);
+    document.getElementById('status-dot').style.background = '#4ade80';
+    document.getElementById('status-dot').style.animation = 'none';
+
+  } catch(err) {
+    setStatus('idle', '❌ Error: ' + err.message + ' — Please try again.');
+    document.getElementById('preview-frame').innerHTML = `<div class="placeholder"><div class="placeholder-icon">⚠️</div><h2>Generation Failed</h2><p>${err.message}</p></div>`;
+  }
+
+  btn.disabled = false;
+  btnText.textContent = '⚡ Generate Page';
+}
+
+// ═══════════════════════════════════════════
+// PROMPT BUILDER
+// ═══════════════════════════════════════════
+function buildPrompt(topic, slug, icon) {
+  return `You are an expert web developer for MeraHaq (merahaq.online) — India's free government schemes & rights guide.
+
+Your task: Generate a COMPLETE, production-ready HTML page for the topic: "${topic}"
+
+CRITICAL DESIGN RULES — Must match exactly:
+- Colors: Background #f8f3eb, Navy #1a1a2e, Orange #e05c1a, Gold #f2a900, Green #22a876
+- Fonts: Playfair Display (serif headings), Nunito (body), JetBrains Mono (mono/labels)
+- Nav: sticky, #1a1a2e background, 3px #e05c1a bottom border, logo "Mera<span style='color:#e05c1a'>Haq</span>"
+- Cards: white, 2px #e8e0d5 border, 16px border-radius, hover: transform translateY(-4px)
+- Hero: linear-gradient(135deg, #1a1a2e, #2d2d5e, #1a1a2e)
+- Section labels: JetBrains Mono, 0.7rem, #a03a08, uppercase, letterSpacing 3px
+- Section titles: Playfair Display, 900 weight, #1a1a2e, em tags in #e05c1a
+- Benefit boxes: background #fdf6e3, border rgba(242,169,0,0.3), color #7a4f00
+- How-to boxes: background #f0faf6, border-left 3px solid #22a876
+- Footer: #1a1a2e, 4-column grid
+
+CONTENT REQUIREMENTS — Use only official Indian government data:
+1. Full eligibility criteria from official .gov.in sources
+2. Exact benefit amounts in ₹ with current figures  
+3. Official helpline numbers (verified)
+4. Step-by-step application process with official portal links
+5. Required documents list
+6. Important deadlines/dates if any
+7. FAQ section (at least 5 real questions)
+8. Schema.org structured data (FAQPage + Article)
+9. Open Graph meta tags
+10. Canonical URL: https://merahaq.online/${slug}
+
+PAGE STRUCTURE (follow this exactly):
+1. <head> with complete SEO meta, OG tags, Schema.org JSON-LD, Google Fonts, AdSense (ca-pub-7633997088146449), GA4 (G-SP7DL5SNJW)
+2. Nav (same as homepage with links to /, /about, /blog)
+3. Hero section (dark gradient, topic title, verified badge "✅ Official .gov.in Source")
+4. Breadcrumb: Home > Topic
+5. At-a-glance box: 3-4 key stats with icons (benefit amount, beneficiaries, ministry)
+6. Eligibility criteria section (cards with ✅/❌ indicators)
+7. Benefits section (what you get, in benefit-box style)
+8. Required Documents (styled doc chips)
+9. Step-by-step application guide (numbered, with official portal links)
+10. Helpline section (dark background, JetBrains Mono phone numbers in #f2a900)  
+11. FAQ section (expandable accordions with FAQ Schema)
+12. Related pages grid (link to 3-4 related MeraHaq pages)
+13. Footer (same 4-column footer as homepage)
+14. Cookie consent banner (same as homepage)
+
+Icon for this topic: ${icon}
+Slug: ${slug}
+
+IMPORTANT:
+- Make content 100% accurate from official sources (myscheme.gov.in, india.gov.in, respective ministry sites)
+- Include "Last updated" timestamp and source citations
+- Mobile responsive (same breakpoints as homepage)
+- All external links go to official .gov.in domains only
+- Add MeraHaq's disclaimer at bottom
+
+Output ONLY the complete HTML file, starting with <!DOCTYPE html>. No explanations.`;
+}
+
+// ═══════════════════════════════════════════
+// UI HELPERS
+// ═══════════════════════════════════════════
+function renderPreview(html) {
+  const frame = document.getElementById('preview-frame');
+  frame.style.display = 'block';
+  frame.innerHTML = '<iframe id="preview-iframe" sandbox="allow-scripts allow-same-origin"></iframe>';
+  const iframe = document.getElementById('preview-iframe');
+  iframe.srcdoc = html;
+  document.getElementById('code-content').textContent = html;
+  document.getElementById('code-view').style.display = 'none';
+}
+
+function toggleView(view) {
+  const pf = document.getElementById('preview-frame');
+  const cv = document.getElementById('code-view');
+  const bp = document.getElementById('btn-preview');
+  const bc = document.getElementById('btn-code');
+  if (view === 'preview') {
+    pf.style.display = 'block';
+    cv.style.display = 'none';
+    bp.style.background = '#22a876';
+    bc.style.background = '#1a1a2e';
+  } else {
+    pf.style.display = 'none';
+    cv.style.display = 'block';
+    bp.style.background = '#444';
+    bc.style.background = '#e05c1a';
+    document.getElementById('btn-copy-code').style.display = 'flex';
+  }
+}
+
+function copyCode() {
+  navigator.clipboard.writeText(generatedHTML).then(() => {
+    const btn = document.getElementById('btn-copy-code');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✅ Copied!';
+    setTimeout(() => btn.innerHTML = orig, 2000);
+  });
+}
+
+function downloadPage() {
+  if (!generatedHTML) return;
+  const a = document.createElement('a');
+  a.href = 'data:text/html;charset=utf-8,' + encodeURIComponent(generatedHTML);
+  a.download = currentSlug + '.html';
+  a.click();
+}
+
+function openGitHub() {
+  window.open('https://github.com/webdev-atharv/merahaq', '_blank');
+}
+
+function addToHistory(topic, slug, icon, html) {
+  const now = new Date().toLocaleTimeString('en-IN');
+  history.unshift({ topic, slug, icon, html, time: now });
+  
+  document.getElementById('history-wrap').style.display = 'block';
+  const grid = document.getElementById('history-grid');
+  grid.innerHTML = history.map((h, i) => `
+    <div class="hist-card" onclick="loadFromHistory(${i})">
+      <div style="font-size:1.5rem;margin-bottom:5px">${h.icon}</div>
+      <div class="hist-name">${h.topic}</div>
+      <div class="hist-file">${h.slug}.html</div>
+      <div class="hist-time">Generated at ${h.time}</div>
+    </div>`).join('');
+}
+
+function loadFromHistory(i) {
+  const h = history[i];
+  generatedHTML = h.html;
+  currentSlug = h.slug;
+  currentTopic = h.topic;
+  renderPreview(h.html);
+  document.getElementById('preview-filename').textContent = h.slug + '.html';
+  document.getElementById('btn-dl').style.display = 'flex';
+  document.getElementById('btn-copy-code').style.display = 'flex';
+  document.getElementById('btn-gh').style.display = 'flex';
+  setStatus('', `Loaded: "${h.topic}" — Generated at ${h.time}`);
+  document.getElementById('status-dot').style.background = '#4ade80';
+  document.getElementById('status-dot').style.animation = 'none';
+}
+</script>
+</body>
+</html>
