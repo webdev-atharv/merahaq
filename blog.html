@@ -38,18 +38,6 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://merahaq.online/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://merahaq.online/blog"}]}
 </script>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KE845KJ8TC"></script>
-<script>
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js',new Date());
-  gtag('config','G-KE845KJ8TC');
-</script>
-
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7633997088146449" crossorigin="anonymous"></script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
@@ -225,6 +213,16 @@ footer{background:#1a1a2e;padding:3rem 2rem}
   #btt{bottom:1.25rem;right:1.25rem}
 }
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP7DL5SNJW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP7DL5SNJW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7633997088146449" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -375,7 +373,7 @@ footer{background:#1a1a2e;padding:3rem 2rem}
       <a href="https://merahaq.online/sukanya-samriddhi">Sukanya Samriddhi</a>
       <a href="https://merahaq.online/consumer-rights-india-complaint">Consumer Rights</a>
       <a href="https://merahaq.online/epf-withdrawal-how-to">EPF Withdrawal</a>
-      <a href="https://merahaq.online/mudra-loan">MUDRA Loan</a>
+      <a href="https://merahaq.online/pm-mudra-yojana">MUDRA Loan</a>
       <a href="https://merahaq.online/fasal-bima-yojana">Fasal Bima</a>
       <a href="https://merahaq.online/free-legal-aid-india">Free Legal Aid</a>
       <a href="https://merahaq.online/national-scholarship-portal-guide">NSP Guide</a>
@@ -391,14 +389,6 @@ footer{background:#1a1a2e;padding:3rem 2rem}
 <button id="btt" aria-label="Back to top" title="Back to top">↑</button>
 
 <!-- Cookie banner — same as index.html -->
-<div id="cookie" role="dialog" aria-label="Cookie consent" aria-live="polite">
-  <span style="flex:1;min-width:200px">
-    🍪 This site uses cookies for analytics and advertising.
-    <a href="/privacy-policy" style="color:#f2a900;font-weight:700;text-decoration:underline">Learn More</a>
-  </span>
-  <button class="cookie-ok" id="cookie-ok">Accept</button>
-</div>
-
 <!-- ════════════════════════════════════════════════
      JAVASCRIPT
      ════════════════════════════════════════════════ -->
@@ -546,10 +536,10 @@ const ARTICLES = [
    desc:'Free bank account with zero balance, RuPay card, ₹2 lakh accident insurance, and ₹10,000 overdraft facility. Every Indian is eligible. No minimum balance.',
    url:'https://merahaq.online/jan-dhan-yojana',badge:'',words:950},
 
-  {id:'mudra-loan',icon:'💰',cat:'finance',catLabel:'Finance',
+  {id:'pm-mudra-yojana',icon:'💰',cat:'finance',catLabel:'Finance',
    title:'MUDRA Loan – Up to ₹10 Lakh for Small Businesses',
    desc:'PM MUDRA Yojana gives collateral-free business loans of ₹50,000 to ₹10 lakh to small entrepreneurs, artisans, shopkeepers, and self-employed individuals.',
-   url:'https://merahaq.online/mudra-loan',badge:'',words:1000},
+   url:'https://merahaq.online/pm-mudra-yojana',badge:'',words:1000},
 
   {id:'mudra-loan-how-to-apply',icon:'💰',cat:'finance',catLabel:'Finance',
    title:'How to Apply for MUDRA Loan – Step by Step at Any Bank',
@@ -852,5 +842,22 @@ document.getElementById('hero-total').textContent = ARTICLES.length;
 render(true);
 </script>
 
+<!-- Cookie Consent Banner -->
+<div id="mh-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#fff;padding:1rem 1.5rem;z-index:9999;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;border-top:3px solid #e05c1a;font-family:'Nunito',sans-serif;font-size:0.85rem;box-shadow:0 -4px 24px rgba(0,0,0,0.3);">
+  <span style="flex:1;min-width:200px;">&#x1F36A; We use cookies for analytics &amp; advertising. <a href="/privacy-policy" style="color:#f2a900;font-weight:700;text-decoration:underline;">Privacy Policy</a></span>
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+    <button onclick="mhRejectCookies()" style="background:transparent;color:rgba(255,255,255,0.75);border:2px solid rgba(255,255,255,0.3);padding:8px 18px;border-radius:6px;font-weight:800;font-size:0.86rem;cursor:pointer;font-family:'Nunito',sans-serif;">Reject</button>
+    <button onclick="mhAcceptCookies()" style="background:#e05c1a;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:800;font-size:0.86rem;cursor:pointer;font-family:'Nunito',sans-serif;">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  var c=localStorage.getItem('mh_cookie_consent');
+  if(c==='rejected'){window['ga-disable-G-SP7DL5SNJW']=true;}
+  if(!c){var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='flex';}
+})();
+function mhAcceptCookies(){localStorage.setItem('mh_cookie_consent','accepted');var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='none';}
+function mhRejectCookies(){localStorage.setItem('mh_cookie_consent','rejected');window['ga-disable-G-SP7DL5SNJW']=true;var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='none';}
+</script>
 </body>
 </html>

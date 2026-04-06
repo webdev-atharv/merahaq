@@ -8,9 +8,7 @@
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://merahaq.online/privacy-policy"/>
 <link rel="icon" type="image/png" href="/favicon.png"/>
-<script>if(localStorage.getItem('mh_cookie_consent')==='rejected'){window['ga-disable-G-SP7DL5SNJW']=true;}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP7DL5SNJW"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SP7DL5SNJW',{'anonymize_ip':true});</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
@@ -72,6 +70,16 @@ footer a{color:#f2a900;text-decoration:none}
 .mob-menu a:hover{color:#f2a900}
 @media(max-width:768px){.hamburger{display:flex}}
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP7DL5SNJW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP7DL5SNJW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7633997088146449" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -216,27 +224,22 @@ footer a{color:#f2a900;text-decoration:none}
   <p style="margin-top:0.4rem">Not affiliated with any government body &nbsp;·&nbsp; For informational purposes only</p>
 </footer>
 
+<!-- Cookie Consent Banner -->
+<div id="mh-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#fff;padding:1rem 1.5rem;z-index:9999;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;border-top:3px solid #e05c1a;font-family:'Nunito',sans-serif;font-size:0.85rem;box-shadow:0 -4px 24px rgba(0,0,0,0.3);">
+  <span style="flex:1;min-width:200px;">&#x1F36A; We use cookies for analytics &amp; advertising. <a href="/privacy-policy" style="color:#f2a900;font-weight:700;text-decoration:underline;">Privacy Policy</a></span>
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+    <button onclick="mhRejectCookies()" style="background:transparent;color:rgba(255,255,255,0.75);border:2px solid rgba(255,255,255,0.3);padding:8px 18px;border-radius:6px;font-weight:800;font-size:0.86rem;cursor:pointer;font-family:'Nunito',sans-serif;">Reject</button>
+    <button onclick="mhAcceptCookies()" style="background:#e05c1a;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:800;font-size:0.86rem;cursor:pointer;font-family:'Nunito',sans-serif;">Accept</button>
+  </div>
+</div>
 <script>
-document.getElementById('yr').textContent=new Date().getFullYear();
 (function(){
-  var b=document.getElementById('banner');
   var c=localStorage.getItem('mh_cookie_consent');
-  if(b&&(c==='accepted'||c==='rejected'))b.style.display='none';
+  if(c==='rejected'){window['ga-disable-G-SP7DL5SNJW']=true;}
+  if(!c){var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='flex';}
 })();
-function acceptCookies(){localStorage.setItem('mh_cookie_consent','accepted');document.getElementById('banner').style.display='none';}
-function rejectCookies(){localStorage.setItem('mh_cookie_consent','rejected');window['ga-disable-G-SP7DL5SNJW']=true;document.getElementById('banner').style.display='none';}
-function toggleMenu(){
-  var m=document.getElementById('mob-menu'),h=document.getElementById('ham');
-  if(!m||!h)return;
-  var o=m.classList.toggle('open');
-  h.classList.toggle('open',o);h.setAttribute('aria-expanded',String(o));
-}
-document.addEventListener('click',function(e){
-  var m=document.getElementById('mob-menu'),h=document.getElementById('ham');
-  if(m&&m.classList.contains('open')&&!m.contains(e.target)&&h&&!h.contains(e.target)){
-    m.classList.remove('open');h.classList.remove('open');h.setAttribute('aria-expanded','false');
-  }
-});
+function mhAcceptCookies(){localStorage.setItem('mh_cookie_consent','accepted');var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='none';}
+function mhRejectCookies(){localStorage.setItem('mh_cookie_consent','rejected');window['ga-disable-G-SP7DL5SNJW']=true;var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='none';}
 </script>
 </body>
 </html>

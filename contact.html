@@ -13,15 +13,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KE845KJ8TC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-KE845KJ8TC');
-</script>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#1a1a2e}
@@ -91,6 +82,16 @@ footer{background:#1a1a2e;padding:2rem;text-align:center}
 .foot-bottom a{color:rgba(255,255,255,0.4);text-decoration:none;margin:0 0.4rem}
 .foot-bottom a:hover{color:#f2a900}
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP7DL5SNJW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP7DL5SNJW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7633997088146449" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -234,10 +235,23 @@ function submitForm(){
 </script>
 
 <!-- Cookie Banner -->
-<div id="cb" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#fff;padding:1rem 1.5rem;z-index:9999;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:3px solid #e05c1a;font-family:'Nunito',sans-serif;font-size:0.85rem;">
-  <span>🍪 This site uses cookies for analytics and advertising. <a href="/privacy-policy" style="color:#f2a900;font-weight:700;text-decoration:underline;">Learn More</a></span>
-  <button onclick="document.getElementById('cb').style.display='none';localStorage.setItem('merahaq_cookie_ok','1')" style="background:#e05c1a;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;">Accept</button>
-</div>
 <script>if(!localStorage.getItem('merahaq_cookie_ok')){document.getElementById('cb').style.display='flex';}</script>
+<!-- Cookie Consent Banner -->
+<div id="mh-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#fff;padding:1rem 1.5rem;z-index:9999;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;border-top:3px solid #e05c1a;font-family:'Nunito',sans-serif;font-size:0.85rem;box-shadow:0 -4px 24px rgba(0,0,0,0.3);">
+  <span style="flex:1;min-width:200px;">&#x1F36A; We use cookies for analytics &amp; advertising. <a href="/privacy-policy" style="color:#f2a900;font-weight:700;text-decoration:underline;">Privacy Policy</a></span>
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+    <button onclick="mhRejectCookies()" style="background:transparent;color:rgba(255,255,255,0.75);border:2px solid rgba(255,255,255,0.3);padding:8px 18px;border-radius:6px;font-weight:800;font-size:0.86rem;cursor:pointer;font-family:'Nunito',sans-serif;">Reject</button>
+    <button onclick="mhAcceptCookies()" style="background:#e05c1a;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:800;font-size:0.86rem;cursor:pointer;font-family:'Nunito',sans-serif;">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  var c=localStorage.getItem('mh_cookie_consent');
+  if(c==='rejected'){window['ga-disable-G-SP7DL5SNJW']=true;}
+  if(!c){var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='flex';}
+})();
+function mhAcceptCookies(){localStorage.setItem('mh_cookie_consent','accepted');var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='none';}
+function mhRejectCookies(){localStorage.setItem('mh_cookie_consent','rejected');window['ga-disable-G-SP7DL5SNJW']=true;var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='none';}
+</script>
 </body>
 </html> 

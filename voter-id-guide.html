@@ -36,14 +36,6 @@
   "inLanguage": "en-IN"
 }
 </script>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP7DL5SNJW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SP7DL5SNJW');
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
@@ -113,16 +105,26 @@ footer a{color:#f2a900;text-decoration:none}
   ]
 }
 </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP7DL5SNJW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP7DL5SNJW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7633997088146449" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
   <a class="logo" href="/">🇮🇳 Mera<span>Haq</span></a>
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="blog">Blog</a>
-    <a href="about">About</a>
-    <a href="contact">Contact</a>
-    <a href="privacy-policy">Privacy</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy-policy">Privacy</a>
   </div>
   <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
     <span></span><span></span><span></span>
@@ -132,12 +134,12 @@ footer a{color:#f2a900;text-decoration:none}
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
   <a href="/">🏠 Home</a>
-  <a href="blog">📖 Blog</a>
-  <a href="about">ℹ️ About</a>
-  <a href="contact">✉️ Contact</a>
-  <a href="privacy-policy">🔒 Privacy Policy</a>
-  <a href="terms">📋 Terms</a>
-  <a href="disclaimer">⚠️ Disclaimer</a>
+  <a href="/blog">📖 Blog</a>
+  <a href="/about">ℹ️ About</a>
+  <a href="/contact">✉️ Contact</a>
+  <a href="/privacy-policy">🔒 Privacy Policy</a>
+  <a href="/terms">📋 Terms</a>
+  <a href="/disclaimer">⚠️ Disclaimer</a>
 </div>
 
 <div class="hero">
@@ -249,12 +251,12 @@ footer a{color:#f2a900;text-decoration:none}
 <footer>
   <p>© <span id="yr"></span> MeraHaq &nbsp;·&nbsp;
     <a href="/">Home</a> &nbsp;·&nbsp;
-    <a href="about">About</a> &nbsp;·&nbsp;
-    <a href="contact">Contact</a> &nbsp;·&nbsp;
-    <a href="privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="terms">Terms</a> &nbsp;·&nbsp;
-    <a href="disclaimer">Disclaimer</a> &nbsp;·&nbsp;
-    <a href="cookie-policy">Cookie Policy</a>
+    <a href="/about">About</a> &nbsp;·&nbsp;
+    <a href="/contact">Contact</a> &nbsp;·&nbsp;
+    <a href="/privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="/terms">Terms</a> &nbsp;·&nbsp;
+    <a href="/disclaimer">Disclaimer</a> &nbsp;·&nbsp;
+    <a href="/cookie-policy">Cookie Policy</a>
   </p>
 </footer>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
@@ -277,6 +279,23 @@ document.addEventListener('click',function(e){
     btn.setAttribute('aria-expanded','false');
   }
 });
+</script>
+<!-- Cookie Consent Banner -->
+<div id="mh-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#fff;padding:1rem 1.5rem;z-index:9999;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;border-top:3px solid #e05c1a;font-family:'Nunito',sans-serif;font-size:0.85rem;box-shadow:0 -4px 24px rgba(0,0,0,0.3);">
+  <span style="flex:1;min-width:200px;">&#x1F36A; We use cookies for analytics &amp; advertising. <a href="/privacy-policy" style="color:#f2a900;font-weight:700;text-decoration:underline;">Privacy Policy</a></span>
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+    <button onclick="mhRejectCookies()" style="background:transparent;color:rgba(255,255,255,0.75);border:2px solid rgba(255,255,255,0.3);padding:8px 18px;border-radius:6px;font-weight:800;font-size:0.86rem;cursor:pointer;font-family:'Nunito',sans-serif;">Reject</button>
+    <button onclick="mhAcceptCookies()" style="background:#e05c1a;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:800;font-size:0.86rem;cursor:pointer;font-family:'Nunito',sans-serif;">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  var c=localStorage.getItem('mh_cookie_consent');
+  if(c==='rejected'){window['ga-disable-G-SP7DL5SNJW']=true;}
+  if(!c){var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='flex';}
+})();
+function mhAcceptCookies(){localStorage.setItem('mh_cookie_consent','accepted');var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='none';}
+function mhRejectCookies(){localStorage.setItem('mh_cookie_consent','rejected');window['ga-disable-G-SP7DL5SNJW']=true;var b=document.getElementById('mh-cookie-banner');if(b)b.style.display='none';}
 </script>
 </body>
 </html>
