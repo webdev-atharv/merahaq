@@ -11,8 +11,8 @@ const API_KEY = process.env.GEMINI_API_KEY;
 const FORCE   = process.env.FORCE_REGENERATE === 'true';
 const CUSTOM  = process.env.CUSTOM_TOPICS || '';
 
-// ✅ Daily limit — stays within Gemini free tier quota
-const DAILY_LIMIT = 5;
+// ✅ Daily limit — stays within Gemini free tier quota (3 pages = ~4 min total with waits)
+const DAILY_LIMIT = 3;
 
 if (!API_KEY) {
   console.error('❌ GEMINI_API_KEY secret is not set in GitHub secrets!');
@@ -185,7 +185,7 @@ async function generateHTML(topic, slug, icon, attempt = 1) {
     const err = await response.text();
     // Rate limit — wait and retry up to 3 times
     if (response.status === 429 && attempt < 3) {
-      const wait = attempt * 30000;
+      const wait = attempt * 60000;
       console.log(`  ⏳ Rate limited. Waiting ${wait / 1000}s before retry…`);
       await sleep(wait);
       return generateHTML(topic, slug, icon, attempt + 1);
@@ -292,10 +292,10 @@ async function main() {
       failed.push({ topic, slug, error: err.message });
     }
 
-    // Wait 5 seconds between calls (Gemini free tier: 15 req/min)
+    // Wait 65 seconds between calls (Gemini free tier is strict on RPM)
     if (i < topics.length - 1) {
-      console.log('  ⏳ Waiting 5 seconds before next page…');
-      await sleep(5000);
+      console.log('  ⏳ Waiting 65 seconds before next page (free tier rate limit)…');
+      await sleep(65000);
     }
   }
 
@@ -331,3 +331,4 @@ main().catch(err => {
   console.error('💥 Fatal error:', err);
   process.exit(1);
 });
+  
