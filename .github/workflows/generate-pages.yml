@@ -1,0 +1,55 @@
+name: Auto Generate MeraHaq Pages
+
+on:
+  schedule:
+    - cron: '30 20 * * *'
+  workflow_dispatch:
+    inputs:
+      topics:
+        description: 'Comma-separated slugs to generate'
+        required: false
+        default: ''
+      force_regenerate:
+        description: 'Regenerate even if file already exists'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  generate:
+    name: Generate Pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install node-fetch@3
+      - name: Run page generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FORCE_REGENERATE: ${{ github.event.inputs.force_regenerate || 'false' }}
+          CUSTOM_TOPICS: ${{ github.event.inputs.topics || '' }}
+        run: node scripts/generate-pages.js
+      - name: Commit and push generated pages
+        run: |
+          git config --global user.name "MeraHaq Bot"
+          git config --global user.email "bot@merahaq.online"
+          git add *.html sitemap.xml 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No new pages to commit."
+          else
+            git commit -m "Auto-generated pages"
+            git push
+          fi
