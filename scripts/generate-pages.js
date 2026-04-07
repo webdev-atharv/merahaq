@@ -11,6 +11,9 @@ const API_KEY = process.env.GEMINI_API_KEY;
 const FORCE   = process.env.FORCE_REGENERATE === 'true';
 const CUSTOM  = process.env.CUSTOM_TOPICS || '';
 
+// ✅ Daily limit — stays within Gemini free tier quota
+const DAILY_LIMIT = 5;
+
 if (!API_KEY) {
   console.error('❌ GEMINI_API_KEY secret is not set in GitHub secrets!');
   process.exit(1);
@@ -63,26 +66,38 @@ const ALL_TOPICS = [
 
 // ═══════════════════════════════════════════════════════════════
 //  SCHEDULE LOGIC — decides which topics to generate today
+//  ✅ Capped at DAILY_LIMIT to stay within Gemini free quota
 // ═══════════════════════════════════════════════════════════════
 function getTodaysTopics() {
   if (CUSTOM.trim()) {
     const slugs = CUSTOM.split(',').map(s => s.trim()).filter(Boolean);
-    return ALL_TOPICS.filter(t => slugs.includes(t.slug));
+    const customTopics = ALL_TOPICS.filter(t => slugs.includes(t.slug));
+    // Still cap custom topics to DAILY_LIMIT
+    return customTopics.slice(0, DAILY_LIMIT);
   }
 
   const today       = new Date();
   const dayOfWeek   = today.getDay();
   const dayOfMonth  = today.getDate();
 
-  return ALL_TOPICS.filter(t => {
+  const scheduled = ALL_TOPICS.filter(t => {
     const fileExists = fs.existsSync(`${t.slug}.html`);
-    if (!fileExists) return true;
+    if (!fileExists) return true;   // Always generate missing pages
     if (FORCE)       return true;
     if (t.schedule === 'daily')   return true;
     if (t.schedule === 'weekly')  return dayOfWeek === 1;
     if (t.schedule === 'monthly') return dayOfMonth === 1;
     return false;
   });
+
+  // ✅ Cap to DAILY_LIMIT — prevents quota exceeded errors
+  if (scheduled.length > DAILY_LIMIT) {
+    console.log(`⚠️  ${scheduled.length} pages scheduled but capping to ${DAILY_LIMIT}/day (free tier limit).`);
+    console.log(`   Remaining ${scheduled.length - DAILY_LIMIT} pages will generate on future days.\n`);
+    return scheduled.slice(0, DAILY_LIMIT);
+  }
+
+  return scheduled;
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -147,7 +162,7 @@ Output ONLY the complete HTML file, starting with <!DOCTYPE html>. No explanatio
 }
 
 // ═══════════════════════════════════════════════════════════════
-//  GEMINI API CALL — FREE tier (gemini-1.5-flash)
+//  GEMINI API CALL — FREE tier (gemini-2.0-flash)
 // ═══════════════════════════════════════════════════════════════
 async function generateHTML(topic, slug, icon, attempt = 1) {
   console.log(`  📡 Calling Gemini API (attempt ${attempt})…`);
@@ -238,6 +253,7 @@ async function main() {
   console.log('\n══════════════════════════════════════════════');
   console.log('  🤖 MeraHaq Auto Page Generator (Gemini)');
   console.log(`  📅 ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST`);
+  console.log(`  📊 Daily limit: ${DAILY_LIMIT} pages (free tier)`);
   console.log('══════════════════════════════════════════════\n');
 
   const topics = getTodaysTopics();
@@ -315,4 +331,3 @@ main().catch(err => {
   console.error('💥 Fatal error:', err);
   process.exit(1);
 });
-      
