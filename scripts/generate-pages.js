@@ -167,7 +167,7 @@ Output ONLY the complete HTML file, starting with <!DOCTYPE html>. No explanatio
 async function generateHTML(topic, slug, icon, attempt = 1) {
   console.log(`  📡 Calling Gemini API (attempt ${attempt})…`);
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`;
+  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent`;
 
   const response = await fetch(url, {
     method: 'POST',
@@ -334,4 +334,3 @@ main().catch(err => {
   console.error('💥 Fatal error:', err);
   process.exit(1);
 });
-    
