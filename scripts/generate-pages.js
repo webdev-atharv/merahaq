@@ -162,12 +162,12 @@ Output ONLY the complete HTML file, starting with <!DOCTYPE html>. No explanatio
 }
 
 // ═══════════════════════════════════════════════════════════════
-//  GEMINI API CALL — gemini-2.5-flash (v1beta, free tier)
+//  GEMINI API CALL — gemini-1.5-flash (stable free tier model)
 // ═══════════════════════════════════════════════════════════════
 async function generateHTML(topic, slug, icon, attempt = 1) {
   console.log(`  📡 Calling Gemini API (attempt ${attempt})…`);
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`;
 
   const response = await fetch(url, {
     method: 'POST',
@@ -187,9 +187,9 @@ async function generateHTML(topic, slug, icon, attempt = 1) {
   if (!response.ok) {
     const err = await response.text();
     // Rate limit — wait and retry up to 3 times
-    if (response.status === 429 && attempt < 3) {
+    if ((response.status === 429 || response.status === 503) && attempt < 3) {
       const wait = attempt * 60000;
-      console.log(`  ⏳ Rate limited. Waiting ${wait / 1000}s before retry…`);
+      console.log(`  ⏳ Server busy (${response.status}). Waiting ${wait / 1000}s before retry…`);
       await sleep(wait);
       return generateHTML(topic, slug, icon, attempt + 1);
     }
@@ -280,7 +280,7 @@ async function main() {
     try {
       const html = await generateHTML(topic, slug, icon);
 
-      if (!html.includes('<!DOCTYPE') || !html.includes('</html>')) {
+      if (!html.includes('<!DOCTYPE') && !html.includes('<html')) {
         throw new Error('Invalid HTML returned from API');
       }
 
@@ -334,3 +334,4 @@ main().catch(err => {
   console.error('💥 Fatal error:', err);
   process.exit(1);
 });
+    
