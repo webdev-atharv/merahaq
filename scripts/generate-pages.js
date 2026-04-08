@@ -162,16 +162,19 @@ Output ONLY the complete HTML file, starting with <!DOCTYPE html>. No explanatio
 }
 
 // ═══════════════════════════════════════════════════════════════
-//  GEMINI API CALL — FREE tier (gemini-2.0-flash)
+//  GEMINI API CALL — gemini-2.5-flash (v1beta, free tier)
 // ═══════════════════════════════════════════════════════════════
 async function generateHTML(topic, slug, icon, attempt = 1) {
   console.log(`  📡 Calling Gemini API (attempt ${attempt})…`);
 
-  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`;
 
   const response = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-goog-api-key': API_KEY,
+    },
     body: JSON.stringify({
       contents: [{ parts: [{ text: buildPrompt(topic, slug, icon) }] }],
       generationConfig: {
@@ -331,4 +334,3 @@ main().catch(err => {
   console.error('💥 Fatal error:', err);
   process.exit(1);
 });
-  
