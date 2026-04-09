@@ -13,7 +13,5 @@
       ]
     }
   ],
-  "rewrites": [
-    { "source": "/:page", "destination": "/:page.html" }
-  ]
+  "trailingSlash": false
 }
