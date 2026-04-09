@@ -14,31 +14,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/blog",                  "destination": "/blog.html" },
-    { "source": "/about",                 "destination": "/about.html" },
-    { "source": "/contact",               "destination": "/contact.html" },
-    { "source": "/terms",                 "destination": "/terms.html" },
-    { "source": "/privacy-policy",        "destination": "/privacy-policy.html" },
-    { "source": "/disclaimer",            "destination": "/disclaimer.html" },
-    { "source": "/cookie-policy",         "destination": "/cookie-policy.html" },
-    { "source": "/aadhaar-guide",         "destination": "/aadhaar-guide.html" },
-    { "source": "/voter-id-guide",        "destination": "/voter-id-guide.html" },
-    { "source": "/pan-card-guide",        "destination": "/pan-card-guide.html" },
-    { "source": "/rti-guide",             "destination": "/rti-guide.html" },
-    { "source": "/legal-rights",          "destination": "/legal-rights.html" },
-    { "source": "/labour-rights-india",   "destination": "/labour-rights-india.html" },
-    { "source": "/women-rights-india",    "destination": "/women-rights-india.html" },
-    { "source": "/ayushman-bharat",       "destination": "/ayushman-bharat.html" },
-    { "source": "/pm-kisan",              "destination": "/pm-kisan.html" },
-    { "source": "/mgnrega",               "destination": "/mgnrega.html" },
-    { "source": "/ration-card",           "destination": "/ration-card.html" },
-    { "source": "/pmay",                  "destination": "/pmay.html" },
-    { "source": "/ujjwala-yojana",        "destination": "/ujjwala-yojana.html" },
-    { "source": "/scholarships",          "destination": "/scholarships.html" },
-    { "source": "/sukanya-samriddhi",     "destination": "/sukanya-samriddhi.html" },
-    { "source": "/jan-dhan-yojana",       "destination": "/jan-dhan-yojana.html" },
-    { "source": "/atal-pension-yojana",   "destination": "/atal-pension-yojana.html" },
-    { "source": "/fasal-bima-yojana",     "destination": "/fasal-bima-yojana.html" },
-    { "source": "/pm-mudra-yojana",       "destination": "/pm-mudra-yojana.html" }
+    { "source": "/:page", "destination": "/:page.html" }
   ]
 }
