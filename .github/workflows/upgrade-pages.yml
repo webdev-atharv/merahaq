@@ -1,0 +1,226 @@
+name: Upgrade All MeraHaq HTML Pages — APEX LEVEL
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**.html'
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Upgrade all HTML pages
+        run: |
+          node << 'NODESCRIPT'
+          const fs = require('fs');
+          const path = require('path');
+
+          // ============================================================
+          // SITE CONFIG
+          // ============================================================
+          const SITE_URL = 'https://merahaq.online';
+          const PUBLISHER_ID = 'pub-7633997088146449';
+
+          // ============================================================
+          // MERAHAQ DESIGN SYSTEM
+          // ============================================================
+          const CSS = `
+          *{box-sizing:border-box;margin:0;padding:0}
+          html{scroll-behavior:smooth}
+          body{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#111;-webkit-font-smoothing:antialiased}
+          nav{background:#1a1a2e;position:sticky;top:0;z-index:999;border-bottom:3px solid #e05c1a;padding:0 2rem;height:58px;display:flex;align-items:center;justify-content:space-between}
+          .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px;text-decoration:none}
+          .logo span{color:#e05c1a}
+          .nav-links{display:flex;gap:1.2rem;align-items:center}
+          .nav-links a{color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:700;text-decoration:none;padding:10px 4px;min-height:44px;display:inline-flex;align-items:center;transition:color 0.2s}
+          .nav-links a:hover{color:#f2a900}
+          .nav-btn{background:#e05c1a;color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:800;font-size:0.82rem;cursor:pointer;font-family:'Nunito',sans-serif;min-height:44px}
+          .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;background:none;border:none;min-height:44px;min-width:44px;justify-content:center;align-items:center}
+          .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.25s}
+          .mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#1a1a2e;border-top:2px solid #e05c1a;z-index:998;padding:1rem 1.5rem;flex-direction:column;gap:0.75rem;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+          .mobile-menu.open{display:flex}
+          .mobile-menu a{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:700;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;min-height:44px;display:flex;align-items:center}
+          @media(max-width:768px){.hamburger{display:flex}.nav-links{display:none}}
+          .hero{background:linear-gradient(135deg,#1a1a2e 0%,#2d2d5e 60%,#1a1a2e 100%);padding:3rem 2rem 2.5rem;text-align:center}
+          .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(242,169,0,0.15);border:1px solid rgba(242,169,0,0.4);color:#f2a900;padding:7px 18px;border-radius:100px;font-size:0.75rem;font-weight:700;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px}
+          .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);color:#fff;line-height:1.15;margin-bottom:1.2rem;font-weight:900}
+          .hero h1 em{color:#e05c1a;font-style:italic}
+          .hero-sub{font-size:1rem;color:rgba(255,255,255,0.87);max-width:700px;margin:0 auto 1.5rem;line-height:2}
+          .breadcrumb{display:flex;align-items:center;gap:8px;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;flex-wrap:wrap}
+          .breadcrumb a{color:rgba(255,255,255,0.55);text-decoration:none}
+          .breadcrumb a:hover{color:#f2a900}
+          .ad-slot{background:#fff;border:1px solid #e8e0d5;border-radius:12px;padding:0.5rem;margin:2rem auto;text-align:center;max-width:900px;overflow:hidden}
+          .ad-label{font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#bbb;margin-bottom:4px;display:block}
+          .content-sec{padding:2.5rem 2rem;max-width:900px;margin:0 auto}
+          .content-sec h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#1a1a2e;margin:2.5rem 0 0.85rem;padding-top:1.5rem;border-top:2px solid #e8e0d5}
+          .content-sec h2:first-child{border-top:none;padding-top:0;margin-top:0}
+          .content-sec h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#1a1a2e;margin:1.5rem 0 0.5rem}
+          .content-sec p{font-size:0.97rem;color:#333;line-height:2;margin-bottom:1.1rem}
+          .content-sec ul,.content-sec ol{margin:0.5rem 0 1.2rem 1.5rem;font-size:0.97rem;color:#333;line-height:2}
+          .content-sec li{margin-bottom:0.55rem}
+          .highlight-box{background:#fff5f0;border-left:4px solid #e05c1a;border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin:1.75rem 0;font-size:0.96rem;color:#1a1a2e;line-height:1.9}
+          .highlight-box strong{color:#e05c1a}
+          .info-box{background:#f0faf6;border-left:4px solid #22a876;border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin:1.75rem 0;font-size:0.96rem;color:#1a1a2e;line-height:1.9}
+          .info-box strong{color:#1a7f5a}
+          .warn-box{background:#fffbf0;border-left:4px solid #f2a900;border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin:1.75rem 0;font-size:0.96rem;color:#1a1a2e;line-height:1.9}
+          .warn-box strong{color:#b37e00}
+          .key-facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}
+          .fact-card{background:#fff;border:2px solid #e8e0d5;border-radius:12px;padding:1.25rem;text-align:center}
+          .fact-card .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#e05c1a;margin-bottom:0.25rem}
+          .fact-card .label{font-size:0.8rem;color:#666;font-weight:700}
+          .steps-list{counter-reset:steps;list-style:none;margin-left:0}
+          .steps-list li{counter-increment:steps;display:flex;gap:1rem;margin-bottom:1.25rem;align-items:flex-start}
+          .steps-list li::before{content:counter(steps);background:#e05c1a;color:#fff;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:0.8rem;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+          .compare-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+          .compare-table th{background:#1a1a2e;color:#fff;padding:0.75rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.8rem}
+          .compare-table td{padding:0.75rem 1rem;border-bottom:1px solid #e8e0d5;color:#333;line-height:1.7}
+          .compare-table tr:nth-child(even) td{background:#fdf8f4}
+          .tip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin:1.5rem 0}
+          .tip-card{background:#fff;border:2px solid #e8e0d5;border-radius:12px;padding:1.25rem}
+          .tip-card .tip-icon{font-size:1.75rem;margin-bottom:0.5rem}
+          .tip-card h4{font-family:'Playfair Display',serif;font-weight:700;font-size:0.95rem;color:#1a1a2e;margin-bottom:0.4rem}
+          .tip-card p{font-size:0.84rem;color:#555;line-height:1.7;margin:0}
+          .faq-section{background:#fff;border-radius:16px;border:2px solid #e8e0d5;overflow:hidden;margin:2rem 0}
+          .faq-head{background:#1a1a2e;padding:1.25rem 1.5rem}
+          .faq-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff}
+          .faq-head p{font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:3px;font-family:'JetBrains Mono',monospace}
+          .faq-item{border-bottom:1px solid #f0e8de;overflow:hidden}
+          .faq-item:last-child{border-bottom:none}
+          .faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.5rem;cursor:pointer;gap:1rem;background:#fff;transition:background 0.18s}
+          .faq-q:hover{background:#fdf8f4}
+          .faq-q-text{font-weight:700;font-size:0.9rem;color:#1a1a2e;line-height:1.4}
+          .faq-icon{font-size:1.1rem;color:#e05c1a;flex-shrink:0;transition:transform 0.2s;font-weight:900}
+          .faq-item.open .faq-icon{transform:rotate(45deg)}
+          .faq-a{display:none;padding:0 1.5rem 1.1rem;font-size:0.88rem;color:#555;line-height:1.9;background:#fdf8f4}
+          .faq-item.open .faq-a{display:block}
+          .apply-bar{background:#1a1a2e;padding:2.5rem 2rem;text-align:center}
+          .apply-bar h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:0.5rem}
+          .apply-bar p{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:1.5rem}
+          .apply-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+          .apply-btn{padding:12px 28px;border-radius:8px;font-weight:800;font-size:0.9rem;cursor:pointer;font-family:'Nunito',sans-serif;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+          .apply-btn.primary{background:#e05c1a;color:#fff;border:2px solid #e05c1a}
+          .apply-btn.primary:hover{background:#ff6b35}
+          .apply-btn.secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3)}
+          .apply-btn.secondary:hover{border-color:#fff}
+          .related-sec{padding:3rem 2rem;background:#f0e9de}
+          .related-sec-inner{max-width:900px;margin:0 auto}
+          .sec-mono{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#a03a08;margin-bottom:0.75rem}
+          .sec-title{font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;color:#1a1a2e;margin-bottom:1.5rem}
+          .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+          .rel-card{background:#fff;border:2px solid #e8e0d5;border-radius:12px;padding:1.25rem;text-decoration:none;display:block;transition:all 0.2s}
+          .rel-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,26,46,0.1);border-color:#e05c1a}
+          .rel-icon{font-size:1.5rem;margin-bottom:0.6rem}
+          .rel-title{font-family:'Playfair Display',serif;font-weight:700;font-size:0.95rem;color:#1a1a2e;margin-bottom:0.4rem;line-height:1.3}
+          .rel-desc{font-size:0.8rem;color:#666;line-height:1.6}
+          footer{background:#1a1a2e;padding:3rem 2rem}
+          .foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+          @media(max-width:768px){.foot-inner{grid-template-columns:1fr}}
+          .foot-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:0.75rem}
+          .foot-logo span{color:#e05c1a}
+          .foot-tag{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.6);line-height:1.9}
+          .foot-col-title{font-size:0.85rem;font-weight:800;color:rgba(255,255,255,0.9);margin-bottom:1rem}
+          .foot-col a{display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.6);margin-bottom:0.5rem;text-decoration:none;min-height:44px;transition:color 0.2s}
+          .foot-col a:hover{color:#f2a900}
+          .foot-bottom{max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;font-family:'JetBrains Mono',monospace;font-size:0.64rem;color:rgba(255,255,255,0.6)}
+          .foot-bottom .green{color:#4ade80}
+          .disclaimer{background:#fff;border-top:2px solid #e8e0d5;padding:1.5rem 2rem;text-align:center}
+          .disc{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#aaa;line-height:1.9;max-width:900px;margin:0 auto}
+          `;
+
+          // ============================================================
+          // AD SLOT HELPER — 3 AdSense units per page
+          // ============================================================
+          function adSlot(format) {
+            if (format === 'banner') {
+              return `<div class="ad-slot" style="padding:1rem 0.5rem">
+                <span class="ad-label">Advertisement</span>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
+              </div>`;
+            }
+            if (format === 'in-article') {
+              return `<div class="ad-slot" style="padding:0.5rem">
+                <span class="ad-label">Advertisement</span>
+                <ins class="adsbygoogle" style="display:block;text-align:center" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto"></ins>
+                <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
+              </div>`;
+            }
+            // rectangle / sidebar
+            return `<div class="ad-slot" style="padding:0.5rem">
+              <span class="ad-label">Advertisement</span>
+              <ins class="adsbygoogle" style="display:block" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+              <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
+            </div>`;
+          }
+
+          // ============================================================
+          // PAGE DATABASE — 1000+ words of informative content per page
+          // ============================================================
+          const pageDB = {
+
+            // ─────────────────────────────────────────────────────────
+            'aadhaar-guide': {
+              title: 'Aadhaar Card Guide 2025 – Download, Update & Link | MeraHaq',
+              desc: 'Complete Aadhaar guide: download eAadhaar, update address/mobile, link with PAN & bank, lock biometrics. Free step-by-step in Hindi & English.',
+              h1: 'Aadhaar Card', sub: 'Complete Guide for Every Indian', badge: '🪪 Identity',
+              keyFacts: [['12-Digit','Unique ID'],['Free','eAadhaar Download'],['OTP-based','Secure Login'],['100%','Legally Valid']],
+              intro: 'Aadhaar is India\'s most important identity document — a 12-digit unique number issued by UIDAI to every resident of India. It is accepted for opening bank accounts, getting SIM cards, accessing government schemes, filing income tax, and hundreds of other services. This complete guide helps you download, update, link, and protect your Aadhaar — free of cost.',
+              content: `
+                <div class="info-box"><strong>✅ eAadhaar is legally valid</strong> — A downloaded eAadhaar PDF is 100% valid everywhere a physical Aadhaar card is accepted — including airports, banks, hospitals, and government offices.</div>
+
+                <h2>What is Aadhaar and Why is it Important?</h2>
+                <p>Aadhaar is a biometric-based identity system managed by the Unique Identification Authority of India (UIDAI). Over 137 crore Indians have been enrolled, making it the world's largest biometric ID system. Aadhaar links your fingerprints and iris scans to your identity — making it nearly impossible to duplicate or misuse.</p>
+                <p>Aadhaar is mandatory or required for: opening a bank account, applying for a mobile SIM, receiving government scheme benefits (DBT), filing income tax returns, getting a PAN card, passport application, EPF withdrawal, and many more daily activities. Understanding your Aadhaar rights and services saves you time, money, and unnecessary visits to government offices.</p>
+
+                <h2>How to Download eAadhaar Online (Step-by-Step)</h2>
+                <p>You can download your Aadhaar PDF instantly from the official UIDAI website at any time for free. Here is the complete process:</p>
+                <ol class="steps-list">
+                  <li>Open <strong>myaadhaar.uidai.gov.in</strong> on your mobile or computer browser</li>
+                  <li>Click on <strong>"Download Aadhaar"</strong> on the homepage</li>
+                  <li>Enter your 12-digit Aadhaar number (or Enrolment ID or Virtual ID)</li>
+                  <li>Enter the security captcha and click "Send OTP"</li>
+                  <li>Enter the OTP received on your registered mobile number</li>
+                  <li>Download the password-protected PDF — Password is <strong>first 4 letters of name in CAPITALS + birth year</strong> (Example: RAMA1990)</li>
+                </ol>
+                <p>The downloaded eAadhaar PDF includes a QR code that can be scanned by any government or bank officer to verify your identity. You can also use the <strong>mAadhaar app</strong> (available on Google Play and App Store) to store and share your Aadhaar digitally from your smartphone.</p>
+
+                <h2>How to Update Your Aadhaar Details</h2>
+                <p>UIDAI allows you to update certain details in your Aadhaar. Here's what you can update and how:</p>
+                <table class="compare-table">
+                  <tr><th>Detail</th><th>Online Update</th><th>Offline Update</th><th>Times Allowed</th></tr>
+                  <tr><td>Address</td><td>✅ Free at myaadhaar.uidai.gov.in</td><td>✅ Any Aadhaar center</td><td>Unlimited</td></tr>
+                  <tr><td>Mobile Number</td><td>❌ Not available</td><td>✅ Aadhaar center only</td><td>Multiple times</td></tr>
+                  <tr><td>Name</td><td>❌ Not available</td><td>✅ With supporting docs</td><td>Once only</td></tr>
+                  <tr><td>Date of Birth</td><td>❌ Not available</td><td>✅ With birth certificate</td><td>Once only</td></tr>
+                  <tr><td>Gender</td><td>❌ Not available</td><td>✅ With medical certificate</td><td>Once only</td></tr>
+                </table>
+                <p>For online address update: Go to myaadhaar.uidai.gov.in → Update Address → Login with OTP → Upload proof of address (electricity bill, bank passbook, or rent agreement) → Submit. Changes are reflected within 5-10 working days.</p>
+
+                <h2>How to Link Aadhaar with PAN Card</h2>
+                <p>Linking Aadhaar with PAN is now mandatory for all Indian taxpayers. An unlinked PAN becomes inoperative, meaning you cannot file income tax returns, receive refunds, or conduct financial transactions. Here's how to link:</p>
+                <ol class="steps-list">
+                  <li>Visit <strong>incometax.gov.in</strong> and go to "Quick Links" → "Link Aadhaar"</li>
+                  <li>Enter your PAN number and Aadhaar number</li>
+                  <li>Pay the ₹1,000 fee via challan (if applicable — fee applies if linking is done after deadline)</li>
+                  <li>Verify with OTP sent to your Aadhaar-linked mobile number</li>
+                  <li>Linking is confirmed immediately or within 4-5 working days</li>
+                </ol>
+
+                <h2>Aadhaar Lock & Unlock — Protect Your Biometrics</h2>
+                <p>One of the most powerful but least-known Aadhaar features is the ability to lock and unlock your biometric data. When locked, no one can use your fingerprints or iris scan for Aadhaar authentication — protecting you from identity fraud. You can temporarily unlock it whenever needed.</p>
+                <p>To lock biometrics: Login to myaadhaar.uidai.gov.in → Go to "Lock/Unlock Biometrics" → Enter OTP → Loc
