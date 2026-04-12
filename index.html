@@ -291,6 +291,71 @@ footer{background:#1a1a2e;padding:3rem 2rem}
 .modal-web-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#e05c1a;border:2px solid #e05c1a;padding:9px 18px;border-radius:8px;font-weight:800;font-size:0.88rem;text-decoration:none;font-family:'Nunito',sans-serif;transition:all 0.2s}
 .modal-web-btn:hover{background:#e05c1a;color:#fff}
 .modal-stamp{padding:0.65rem 1.5rem;text-align:center;font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#bbb;background:#fafaf8;border-top:1px solid #f0e8de}
+
+/* ===== COMPREHENSIVE MOBILE FIX ===== */
+@media(max-width:768px){
+  /* Prevent horizontal overflow */
+  html,body{overflow-x:hidden;width:100%}
+  *{max-width:100%;box-sizing:border-box}
+
+  /* Fix navbar - hide button, show hamburger */
+  nav{padding:0 1rem;height:54px}
+  .nav-btn{display:none !important}
+  .hamburger{display:flex !important}
+  .nav-links{display:none !important}
+  .logo{font-size:1.2rem}
+
+  /* Hero section */
+  .hero{padding:2rem 1rem 0}
+  .hero h1{font-size:1.7rem}
+  .hero-sub{font-size:0.9rem;line-height:1.7}
+  .hero-badge{font-size:0.68rem;padding:5px 10px;white-space:normal;text-align:center}
+
+  /* Finder/Quiz box */
+  .finder-wrap{padding:0 0 3rem}
+  .finder{border-radius:12px}
+
+  /* Grids - single column */
+  .grid{grid-template-columns:1fr !important}
+  .hl-grid{grid-template-columns:1fr !important}
+  .foot-inner{grid-template-columns:1fr !important;gap:1.5rem}
+  .rti-wrap{grid-template-columns:1fr !important}
+
+  /* Sections */
+  .sec{padding:2rem 1rem}
+  .sec-inner{padding:0}
+  .ssc-section{padding:2rem 1rem}
+
+  /* Cards */
+  .card{margin-bottom:0.5rem}
+
+  /* Results bar */
+  .results-bar-inner{flex-direction:column;align-items:flex-start;gap:0.5rem}
+
+  /* Buttons */
+  .find-btn{width:100% !important;max-width:100% !important}
+  .nav-btn{width:100%;text-align:center}
+
+  /* Footer */
+  .foot-bottom{flex-direction:column;text-align:center;gap:0.25rem}
+
+  /* Ad slots */
+  .ad-slot{margin:1rem 0;padding:0.25rem}
+
+  /* SSC sections */
+  .ssc-hero{padding:2rem 1rem}
+  .ssc-guides-grid{grid-template-columns:1fr !important}
+  .ssc-helplines-grid{grid-template-columns:1fr !important}
+  .ssc-why-grid{grid-template-columns:1fr !important}
+}
+
+@media(max-width:480px){
+  .hero h1{font-size:1.45rem}
+  nav{padding:0 0.75rem}
+  .logo{font-size:1.1rem}
+  .sec-title{font-size:1.3rem}
+}
+
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP7DL5SNJW"></script>
