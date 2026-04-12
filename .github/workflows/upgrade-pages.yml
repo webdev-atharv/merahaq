@@ -1,4 +1,4 @@
-name: Upgrade All MeraHaq HTML Pages â€” APEX LEVEL
+name: Upgrade All MeraHaq HTML Pages - APEX LEVEL
 
 on:
   workflow_dispatch:
@@ -222,4 +222,4 @@ jobs:
                 </ol>
 
                 <h2>Aadhaar Lock & Unlock â€” Protect Your Biometrics</h2>
-                <p>One of the most powerful but least-known Aadhaar features is the ability to lock and unlock your biometric data. When locked, no one can use your fingerprints or iris scan for Aadhaar authentication â€” protecting you from ide
+                <p>One of the most powerful but least-known Aadhaar features is the ability to lock and unlock your biometric data. When locked, no one can use your fingerprints or iris scan for Aadhaar authentication â€” protecting you from ident
