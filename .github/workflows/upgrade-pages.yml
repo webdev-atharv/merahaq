@@ -39,7 +39,7 @@ jobs:
           // ============================================================
           // MERAHAQ DESIGN SYSTEM
           // ============================================================
-          const CSS = \`
+          const CSS = `
           *{box-sizing:border-box;margin:0;padding:0}
           html{scroll-behavior:smooth}
           body{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#111;-webkit-font-smoothing:antialiased}
@@ -140,32 +140,32 @@ jobs:
           .foot-bottom .green{color:#4ade80}
           .disclaimer{background:#fff;border-top:2px solid #e8e0d5;padding:1.5rem 2rem;text-align:center}
           .disc{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#aaa;line-height:1.9;max-width:900px;margin:0 auto}
-          \`;
+          `;
 
           // ============================================================
           // AD SLOT HELPER — 3 AdSense units per page
           // ============================================================
           function adSlot(format) {
             if (format === 'banner') {
-              return \`<div class="ad-slot" style="padding:1rem 0.5rem">
+              return `<div class="ad-slot" style="padding:1rem 0.5rem">
                 <span class="ad-label">Advertisement</span>
                 <ins class="adsbygoogle" style="display:block" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
-              </div>\`;
+              </div>`;
             }
             if (format === 'in-article') {
-              return \`<div class="ad-slot" style="padding:0.5rem">
+              return `<div class="ad-slot" style="padding:0.5rem">
                 <span class="ad-label">Advertisement</span>
                 <ins class="adsbygoogle" style="display:block;text-align:center" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto"></ins>
                 <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
-              </div>\`;
+              </div>`;
             }
             // rectangle / sidebar
-            return \`<div class="ad-slot" style="padding:0.5rem">
+            return `<div class="ad-slot" style="padding:0.5rem">
               <span class="ad-label">Advertisement</span>
               <ins class="adsbygoogle" style="display:block" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
               <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
-            </div>\`;
+            </div>`;
           }
 
           // ============================================================
@@ -180,7 +180,7 @@ jobs:
               h1: 'Aadhaar Card', sub: 'Complete Guide for Every Indian', badge: '🪪 Identity',
               keyFacts: [['12-Digit','Unique ID'],['Free','eAadhaar Download'],['OTP-based','Secure Login'],['100%','Legally Valid']],
               intro: 'Aadhaar is India\'s most important identity document — a 12-digit unique number issued by UIDAI to every resident of India. It is accepted for opening bank accounts, getting SIM cards, accessing government schemes, filing income tax, and hundreds of other services. This complete guide helps you download, update, link, and protect your Aadhaar — free of cost.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ eAadhaar is legally valid</strong> — A downloaded eAadhaar PDF is 100% valid everywhere a physical Aadhaar card is accepted — including airports, banks, hospitals, and government offices.</div>
 
                 <h2>What is Aadhaar and Why is it Important?</h2>
@@ -239,7 +239,7 @@ jobs:
 
                 <h2>Aadhaar Seva Kendra — For Offline Services</h2>
                 <p>For updates that cannot be done online (mobile number, name, DOB changes), visit your nearest Aadhaar Seva Kendra or Common Service Centre (CSC). Carry original documents as proof. The update fee at a Seva Kendra is ₹50 for biometric updates. Address update at CSC is free. Find nearest center at appointments.uidai.gov.in.</p>
-                <p>After visiting the center, you receive an Update Request Number (URN). Use this URN to track your update status at myaadhaar.uidai.gov.in. Most updates are completed within 5-10 working days.</p>\`,
+                <p>After visiting the center, you receive an Update Request Number (URN). Use this URN to track your update status at myaadhaar.uidai.gov.in. Most updates are completed within 5-10 working days.</p>`,
               faqs: [
                 ['Is Aadhaar enrollment free?', 'Yes, completely free. Visit any Aadhaar Seva Kendra with proof of identity and address. You only pay ₹50 for biometric update services at authorized centers.'],
                 ['Can I use eAadhaar without original physical card?', 'Yes, eAadhaar downloaded from the official UIDAI website is legally valid everywhere. Print it or show digitally — it\'s fully accepted at banks, airports, and government offices.'],
@@ -262,7 +262,7 @@ jobs:
               h1: 'Ayushman Bharat Yojana', sub: '₹5 Lakh Free Health Insurance for Indians', badge: '🏥 Health',
               keyFacts: [['₹5 Lakh','Per Family Per Year'],['1,929+','Medical Procedures'],['28,000+','Empanelled Hospitals'],['55 Crore','Beneficiaries']],
               intro: 'Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY) is the world\'s largest government-funded health insurance programme. It provides free medical coverage of up to ₹5 lakh per family per year for hospitalization, surgeries, and serious illnesses at over 28,000 government and private hospitals across India — completely free from the first day.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ Pre-existing conditions fully covered</strong> — All existing diseases are covered from Day 1 under PM-JAY. No waiting period. No medical test required before joining.</div>
 
                 <h2>What is Ayushman Bharat and How Does It Work?</h2>
@@ -324,7 +324,7 @@ jobs:
                 <p>Over 28,000 hospitals are empanelled under PM-JAY including both government and private hospitals. Find them at: pmjay.gov.in → "Find Hospital" → Enter your state, district, and treatment type. You can also call the National Helpline 14555 to find nearest hospitals.</p>
                 <p>At any empanelled hospital, ask for the Ayushman Mitra (a trained helper at the hospital). The Ayushman Mitra will verify your card, help you complete paperwork, and ensure you receive cashless treatment without any hassle.</p>
 
-                <div class="warn-box"><strong>⚠️ Important:</strong> PM-JAY currently covers only inpatient (hospitalization) treatment. OPD (outpatient) consultations and medicines outside hospital are not covered. For free OPD care, visit Ayushman Arogya Mandirs (Health and Wellness Centers) near you.</div>\`,
+                <div class="warn-box"><strong>⚠️ Important:</strong> PM-JAY currently covers only inpatient (hospitalization) treatment. OPD (outpatient) consultations and medicines outside hospital are not covered. For free OPD care, visit Ayushman Arogya Mandirs (Health and Wellness Centers) near you.</div>`,
               faqs: [
                 ['How to check Ayushman Bharat eligibility?', 'Visit pmjay.gov.in → "Am I Eligible" → Enter mobile for OTP → Enter name, ration card number, or SECC ID. Or call 14555 for assistance.'],
                 ['Can I use Ayushman card at private hospitals?', 'Yes, over 13,000 private hospitals are empanelled. Always confirm the hospital is listed on pmjay.gov.in before admission.'],
@@ -347,7 +347,7 @@ jobs:
               h1: 'Jan Dhan Yojana', sub: 'Zero Balance Bank Account for Every Indian', badge: '🏦 Banking',
               keyFacts: [['Zero','Min Balance Ever'],['₹2 Lakh','Accident Insurance'],['₹10,000','Overdraft Facility'],['52 Crore+','Accounts Opened']],
               intro: 'Pradhan Mantri Jan Dhan Yojana (PMJDY) is India\'s financial inclusion mission launched in 2014. It gives every Indian — especially the poor and unbanked — a free bank account with a RuPay debit card, accident insurance, life insurance, and overdraft facility. With over 52 crore accounts opened, it is one of the world\'s most successful financial inclusion programmes. This account is the gateway to all government scheme benefits paid through Direct Benefit Transfer (DBT).',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ Only Aadhaar card needed</strong> — Walk into any bank branch with your Aadhaar and get your Jan Dhan account opened the same day. No other document required.</div>
 
                 <h2>What are the Benefits of Jan Dhan Yojana?</h2>
@@ -388,7 +388,7 @@ jobs:
                 <h2>Linking Jan Dhan to Government Schemes</h2>
                 <p>Once you have a Jan Dhan account, link it to your Aadhaar through the bank. This enables Direct Benefit Transfer (DBT) — meaning government money reaches you directly without any middlemen. Schemes that pay money into Jan Dhan accounts include: PM-KISAN (₹6,000/year for farmers), LPG subsidy (for Ujjwala beneficiaries), MGNREGA wages, scholarships (NSP), PM Matru Vandana Yojana, and many state government schemes.</p>
 
-                <div class="highlight-box"><strong>💡 Women's Empowerment:</strong> Priority for overdraft is given to women account holders. Encourage every woman in your family to have her own Jan Dhan account for financial independence.</div>\`,
+                <div class="highlight-box"><strong>💡 Women's Empowerment:</strong> Priority for overdraft is given to women account holders. Encourage every woman in your family to have her own Jan Dhan account for financial independence.</div>`,
               faqs: [
                 ['Can I open Jan Dhan if I already have a bank account?', 'Yes, no restriction. You can have a Jan Dhan account even if you already have a regular savings account at the same or different bank.'],
                 ['Is the ₹2 lakh accident insurance automatic?', 'Yes, it is automatic for new RuPay card holders. You must make at least one financial transaction (ATM or purchase) every 90 days to keep it active.'],
@@ -411,7 +411,7 @@ jobs:
               h1: 'PM-KISAN Samman Nidhi', sub: '₹6,000 Per Year Directly to Farmers', badge: '🌾 Agriculture',
               keyFacts: [['₹6,000','Per Year'],['3','Installments of ₹2,000'],['11 Crore+','Beneficiaries'],['Direct','Bank Transfer']],
               intro: 'PM-KISAN Samman Nidhi is a central government scheme that provides income support of ₹6,000 per year to all landholding farmer families in India. The money is paid in three equal installments of ₹2,000 every four months — directly into the farmer\'s bank account through Direct Benefit Transfer (DBT) with no middlemen involved. This guide covers registration, eKYC, status check, and everything you need to know about PM-KISAN in 2025.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ eKYC is now mandatory</strong> — Complete your eKYC at pmkisan.gov.in or nearest CSC. Without eKYC, your installment will be blocked. It takes only 2 minutes online.</div>
 
                 <h2>What is PM-KISAN and Who Started It?</h2>
@@ -469,7 +469,7 @@ jobs:
                   <li>Call helpline <strong>155261</strong> or <strong>1800-115-526</strong> (toll-free) for status inquiry</li>
                 </ul>
 
-                <div class="highlight-box"><strong>⚠️ Common reasons installments are stopped:</strong> eKYC not done, Aadhaar not linked to bank account, bank account details incorrect, land records mismatch, or name in the exclusion list. Check all these if payment stops.</div>\`,
+                <div class="highlight-box"><strong>⚠️ Common reasons installments are stopped:</strong> eKYC not done, Aadhaar not linked to bank account, bank account details incorrect, land records mismatch, or name in the exclusion list. Check all these if payment stops.</div>`,
               faqs: [
                 ['What if PM-KISAN installment is not received?', 'Check: (1) eKYC is done, (2) Aadhaar linked to bank account, (3) bank details are correct, (4) you are not in exclusion list. Contact your agriculture office or call 155261.'],
                 ['Can tenant or sharecropper farmers get PM-KISAN?', 'No. Only land-owning farmers are eligible. Tenant farmers, sharecroppers, and landless agricultural laborers are not covered under current PM-KISAN rules.'],
@@ -492,7 +492,7 @@ jobs:
               h1: 'MGNREGA', sub: '100 Days Guaranteed Employment for Rural Families', badge: '👷 Employment',
               keyFacts: [['100 Days','Work Guarantee/Year'],['₹237-357','Daily Wage (by state)'],['15 Days','Payment Deadline'],['Free','Job Card']],
               intro: 'MGNREGA (Mahatma Gandhi National Rural Employment Guarantee Act) is a landmark Indian law that legally guarantees at least 100 days of wage employment per year to every rural household whose adult members are willing to do unskilled manual work. It is one of the world\'s largest work guarantee programmes, benefiting crores of rural poor. If work is not provided within 15 days of demand, the government must pay an unemployment allowance. This complete guide covers job cards, wage rates, how to demand work, and how to check payment status.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ MGNREGA is a Legal Right</strong> — Unlike most welfare schemes, MGNREGA is a law (not just a scheme). Getting work within 15 days of demand is your legal entitlement. If denied, you can demand unemployment allowance.</div>
 
                 <h2>What is MGNREGA and How Does It Help?</h2>
@@ -549,7 +549,7 @@ jobs:
                 <h2>Unemployment Allowance — If Work is Not Provided</h2>
                 <p>If the Gram Panchayat fails to provide work within 15 days of a valid demand, the worker is entitled to an unemployment allowance paid by the state government: First 30 days — at least 1/4 of the wage rate per day. Beyond 30 days — at least 1/2 of the wage rate per day. This allowance cannot be avoided or delayed by the Panchayat without legal consequences.</p>
 
-                <div class="highlight-box"><strong>💡 Women get special rights:</strong> At least 1/3 of MGNREGA workers must be women at equal wages. Creche facilities must be arranged for children under 6 years. Women cannot be assigned physically dangerous tasks.</div>\`,
+                <div class="highlight-box"><strong>💡 Women get special rights:</strong> At least 1/3 of MGNREGA workers must be women at equal wages. Creche facilities must be arranged for children under 6 years. Women cannot be assigned physically dangerous tasks.</div>`,
               faqs: [
                 ['Can anyone in a rural household apply for job card?', 'Any adult (18+) residing in a rural area can apply regardless of income, caste, or land ownership. There is no income or poverty criteria for MGNREGA.'],
                 ['What if work is not given within 15 days?', 'You are entitled to unemployment allowance: 25% of wage rate for first 30 days, 50% of wage rate for remaining days of that year.'],
@@ -572,7 +572,7 @@ jobs:
               h1: 'PM Mudra Loan', sub: 'Business Loan Up to ₹20 Lakh — No Collateral', badge: '💼 Business',
               keyFacts: [['₹20 Lakh','Maximum Loan (2024)'],['Zero','Collateral Required'],['40 Crore+','Loans Disbursed'],['7–12%','Approx. Interest Rate']],
               intro: 'PM Mudra Yojana (Pradhan Mantri Mudra Yojana) provides collateral-free loans to small and micro businesses across India. The scheme covers four categories — Shishu (up to ₹50,000), Kishore (₹50,001–₹5 lakh), Tarun (₹5–10 lakh), and the newly added Tarun Plus (₹10–20 lakh). Available at all banks, NBFCs, and microfinance institutions. No processing fee, no collateral required, and the government provides credit guarantee to lenders under CGTMSE.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ No Collateral, No Guarantor Needed</strong> — All Mudra loans are covered under the CGTMSE credit guarantee scheme. Banks are not allowed to ask for property, gold, or any security for Mudra loans up to ₹20 lakh.</div>
 
                 <h2>Mudra Loan Categories Explained</h2>
@@ -621,7 +621,7 @@ jobs:
                   <div class="tip-card"><div class="tip-icon">🌐</div><h4>Apply Online</h4><p>Visit udyamimitra.in to apply online and compare offers from multiple banks — saves time and gets you the best rate.</p></div>
                 </div>
 
-                <div class="highlight-box"><strong>⚠️ Beware of fraudsters:</strong> No agent or middleman is needed to apply for a Mudra loan. Banks are obligated to consider your application directly. Never pay anyone a "commission" for getting a Mudra loan.</div>\`,
+                <div class="highlight-box"><strong>⚠️ Beware of fraudsters:</strong> No agent or middleman is needed to apply for a Mudra loan. Banks are obligated to consider your application directly. Never pay anyone a "commission" for getting a Mudra loan.</div>`,
               faqs: [
                 ['Can I get Mudra loan for a new business with no income proof?', 'Yes, especially for Shishu loans. Banks may ask for a simple business plan or description. Many banks approve Shishu loans based on Aadhaar and business viability.'],
                 ['Is Mudra loan only for poor people?', 'No income limit or poverty criteria. Any non-farm small business owner — from any income group — can apply for Mudra loan.'],
@@ -644,7 +644,7 @@ jobs:
               h1: 'Legal Rights of Indians', sub: 'Know Your Constitutional & Everyday Rights', badge: '⚖️ Rights',
               keyFacts: [['6','Fundamental Rights'],['Free','Legal Aid via NALSA'],['RTI','30-Day Response'],['Art. 32','Direct SC Access']],
               intro: 'Every Indian citizen has powerful legal rights guaranteed by the Constitution of India. These rights cannot be taken away by any government or person — they are enforceable in court. But millions of Indians are unaware of these rights and cannot protect themselves from exploitation. This complete guide covers your fundamental rights, everyday legal rights, how to use RTI, how to get free legal help, and what to do when rights are violated.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ Your rights are enforceable in court</strong> — If any of your fundamental rights are violated, you can directly approach the High Court or Supreme Court of India for protection. This right itself (Article 32) is a fundamental right.</div>
 
                 <h2>The 6 Fundamental Rights of Every Indian</h2>
@@ -688,7 +688,7 @@ jobs:
                 <p>Under Article 39A, the state must provide free legal aid to ensure justice is not denied due to poverty. NALSA (National Legal Services Authority) provides completely free legal services to eligible citizens including: free lawyers for court cases, legal advice, help drafting documents, mediation, and assistance in Lok Adalats.</p>
                 <p>Call NALSA helpline <strong>15100</strong> for free guidance. Or visit your nearest District Legal Services Authority (DLSA) office.</p>
 
-                <div class="highlight-box"><strong>💡 Lok Adalat — Fast, Free, Final:</strong> NALSA organizes Lok Adalats (People's Courts) where disputes are resolved through mediation for free. Settlements at Lok Adalat are final and binding — equivalent to a court decree — and cannot be appealed.</div>\`,
+                <div class="highlight-box"><strong>💡 Lok Adalat — Fast, Free, Final:</strong> NALSA organizes Lok Adalats (People's Courts) where disputes are resolved through mediation for free. Settlements at Lok Adalat are final and binding — equivalent to a court decree — and cannot be appealed.</div>`,
               faqs: [
                 ['What can I do if my fundamental right is violated?', 'File a Writ Petition at the High Court (Article 226) or Supreme Court (Article 32). For free legal help, call NALSA at 15100.'],
                 ['How to file an RTI application?', 'Write a simple application addressing the Public Information Officer (PIO) of the concerned department, stating what information you need. Pay ₹10 fee (postal order or court fee stamp). Use MeraHaq\'s RTI tool to generate it for free.'],
@@ -711,7 +711,7 @@ jobs:
               h1: 'Consumer Rights India', sub: 'File Complaint & Claim Your Refund or Compensation', badge: '🛒 Consumer',
               keyFacts: [['6','Consumer Rights'],['Free','Complaint up to ₹5L'],['1915','Consumer Helpline'],['2 Years','Complaint Time Limit']],
               intro: 'Every person who buys a product or uses a service in India is a consumer with 6 powerful legal rights under the Consumer Protection Act 2019. Whether you were sold a defective product, received poor service, were overcharged, or were misled by advertising — you have the legal right to demand a refund, replacement, or compensation. Filing a consumer complaint is free for claims up to ₹5 lakh and you do not need a lawyer. This guide explains all your rights and exactly how to exercise them.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ Filing complaint is FREE up to ₹5 lakh</strong> — No court fees, no lawyer needed for complaints up to ₹5 lakh at the District Consumer Commission. You can represent yourself.</div>
 
                 <h2>Your 6 Consumer Rights in India</h2>
@@ -752,7 +752,7 @@ jobs:
                 <div class="highlight-box"><strong>⚠️ Time Limit is 2 Years:</strong> A consumer complaint must be filed within 2 years from the date of the deficiency or cause of action. Beyond 2 years, you need to give valid reasons for delay to the Forum.</div>
 
                 <h2>What Compensation Can You Claim?</h2>
-                <p>Consumer courts can award: full refund of purchase price, replacement with a defect-free product, repair of the defective product, compensation for mental agony and harassment, cost of litigation (even the time you spent), and in cases of unfair trade practices — punitive damages against the seller/company. Always claim mental agony compensation in addition to the product cost — courts regularly award this.</p>\`,
+                <p>Consumer courts can award: full refund of purchase price, replacement with a defect-free product, repair of the defective product, compensation for mental agony and harassment, cost of litigation (even the time you spent), and in cases of unfair trade practices — punitive damages against the seller/company. Always claim mental agony compensation in addition to the product cost — courts regularly award this.</p>`,
               faqs: [
                 ['Can I file consumer complaint without a lawyer?', 'Yes, for claims up to ₹50 lakh in District Commission you can represent yourself. Consumer forums are designed to be consumer-friendly without legal complexity.'],
                 ['What is the time limit to file consumer complaint?', 'Complaint must be filed within 2 years of the cause of action (date of problem). Beyond 2 years, provide reasons for delay — courts may condone the delay for genuine reasons.'],
@@ -775,7 +775,7 @@ jobs:
               h1: 'EPF Withdrawal', sub: 'Claim Your Provident Fund Online — Step by Step', badge: '💰 Savings',
               keyFacts: [['Full PF','After 2 Months Out of Job'],['75%','Advance After 1 Month'],['3–7 Days','Online Claim Time'],['Tax Free','After 5 Years Service']],
               intro: 'EPF (Employee Provident Fund) is the retirement savings of every salaried employee in India. Managed by EPFO (Employees\' Provident Fund Organisation), it holds 12% of your salary contributed by you and 12% by your employer every month. You can now withdraw your EPF completely online through the EPFO member portal without visiting any office or needing your employer\'s involvement in many cases. This guide covers when you can withdraw, how to apply online, and important tax rules.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ Online claim = 3–7 days only</strong> — With Aadhaar linked to UAN and bank account verified, online EPF claims are processed and credited within 3–7 working days — no office visit needed.</div>
 
                 <h2>What is UAN and Why Does It Matter?</h2>
@@ -826,7 +826,7 @@ jobs:
                   <li>💡 <strong>Tip:</strong> Provide Form 15G/15H to avoid TDS if your total income is below the taxable limit</li>
                 </ul>
 
-                <div class="highlight-box"><strong>⚠️ Partial withdrawal is better than full withdrawal:</strong> Avoid fully withdrawing EPF when changing jobs. Transfer your PF to your new employer's account using UAN-based transfer — it preserves your service continuity and tax-free status.</div>\`,
+                <div class="highlight-box"><strong>⚠️ Partial withdrawal is better than full withdrawal:</strong> Avoid fully withdrawing EPF when changing jobs. Transfer your PF to your new employer's account using UAN-based transfer — it preserves your service continuity and tax-free status.</div>`,
               faqs: [
                 ['How long does EPF withdrawal take?', 'Online claims with Aadhaar-linked UAN are processed in 3–7 working days. Offline paper claims take 15–30 working days through employer and EPFO office.'],
                 ['Can I withdraw EPF while still employed?', 'Yes, partial withdrawals (advances) are allowed for specific purposes — medical emergency, home purchase, education, marriage — while still employed.'],
@@ -849,7 +849,7 @@ jobs:
               h1: 'Free Legal Aid India', sub: 'Get a Free Lawyer — Your Constitutional Right', badge: '⚖️ Justice',
               keyFacts: [['Free','For Eligible Citizens'],['NALSA','National Authority'],['15100','Free Helpline'],['Civil & Criminal','Both Covered']],
               intro: 'Free legal aid is not charity — it is a constitutional right guaranteed under Article 39A of the Indian Constitution. The National Legal Services Authority (NALSA) and District Legal Services Authorities (DLSAs) across India provide completely free legal representation, advice, mediation, and document drafting to millions of eligible citizens every year. If you cannot afford a lawyer, you must not go without justice. This guide explains who qualifies, how to apply, and what free legal services you can receive.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ Free legal aid is your RIGHT, not charity</strong> — Article 39A of the Constitution mandates that the state must provide free legal aid. No authority can deny you justice because you cannot afford a lawyer.</div>
 
                 <h2>Who is Eligible for Free Legal Aid?</h2>
@@ -892,7 +892,7 @@ jobs:
                 <p>Lok Adalats (People's Courts) are organized by NALSA at the national, state, district, and taluk levels. They resolve disputes through mutual discussion and compromise — without the formality and adversarial nature of regular courts. Benefits include: completely free, much faster than regular courts, settlement is final and cannot be challenged in any court, no stamp duty on settlement decree, and available for motor accident, matrimonial, labour, public utility, and compoundable criminal cases.</p>
                 <p>In 2023 alone, Lok Adalats resolved over 1.5 crore cases across India, providing justice to millions who might otherwise wait years in regular courts.</p>
 
-                <div class="highlight-box"><strong>💡 Know this at the time of arrest:</strong> Under Section 303 of CrPC, every accused has the right to a lawyer of their choice at the time of arrest. If they cannot afford one, the police or magistrate must ensure free legal aid is arranged. This is a mandatory legal duty.</div>\`,
+                <div class="highlight-box"><strong>💡 Know this at the time of arrest:</strong> Under Section 303 of CrPC, every accused has the right to a lawyer of their choice at the time of arrest. If they cannot afford one, the police or magistrate must ensure free legal aid is arranged. This is a mandatory legal duty.</div>`,
               faqs: [
                 ['What types of cases get free legal aid?', 'Civil cases (property, divorce, custody, tenancy), criminal cases (as accused or victim), labour disputes, consumer complaints, family matters, and PIL (public interest) matters.'],
                 ['Can I choose my own lawyer through NALSA?', 'DLSA assigns a lawyer from their approved panel. You can request a change if unsatisfied, but cannot choose a specific private lawyer to be paid by DLSA.'],
@@ -915,7 +915,7 @@ jobs:
               h1: 'Atal Pension Yojana', sub: 'Guaranteed Monthly Pension After 60 — For Every Worker', badge: '👴 Pension',
               keyFacts: [['₹5,000','Max Monthly Pension'],['18–40','Eligible Age'],['60 Years','Pension Starts'],['Government','Guarantees Pension']],
               intro: 'Atal Pension Yojana (APY) is a government-backed pension scheme designed for workers in the unorganized sector — domestic workers, daily wage earners, small traders, farmers, and anyone without a formal pension plan. It guarantees a fixed monthly pension of ₹1,000 to ₹5,000 starting at age 60, regardless of market conditions. The government guarantees the pension amount — making it completely risk-free. Starting early keeps contributions very low. This complete guide explains all pension slabs, how to open the account, and what happens in case of death or disability.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ 100% Government Guarantee</strong> — Unlike mutual funds or market-linked schemes, APY pension is guaranteed by the Government of India. You will receive exactly the pension amount you chose — for life — no matter what the market does.</div>
 
                 <h2>APY Pension Slabs and Monthly Contributions</h2>
@@ -960,7 +960,7 @@ jobs:
                 <div class="highlight-box"><strong>⚠️ Don't default on contributions:</strong> Missing contributions attracts monthly penalties: ₹1 for every ₹100 of contribution. Continued default (6+ months) leads to account freezing. After 12 months of default, the account is deactivated, and after 24 months, closed — you only get your contributions with interest, not the government-guaranteed pension.</div>
 
                 <h2>Tax Benefits of APY</h2>
-                <p>APY contributions up to ₹1.5 lakh per year qualify for income tax deduction under Section 80CCD(1), which is within the overall Section 80C limit. This makes APY a tax-saving investment as well as a retirement security plan. Self-employed persons can claim this deduction in their income tax return.</p>\`,
+                <p>APY contributions up to ₹1.5 lakh per year qualify for income tax deduction under Section 80CCD(1), which is within the overall Section 80C limit. This makes APY a tax-saving investment as well as a retirement security plan. Self-employed persons can claim this deduction in their income tax return.</p>`,
               faqs: [
                 ['What happens to APY if I die before 60?', 'Your spouse can continue the same APY account with same contributions and eventually receive the pension. If spouse also dies, the nominee gets the full accumulated corpus back.'],
                 ['Can I withdraw money from APY before age 60?', 'Early exit is allowed only in case of terminal illness or death. Otherwise, you get only your own contributions plus earned interest — not the guaranteed pension. The scheme is designed for long-term commitment.'],
@@ -983,7 +983,7 @@ jobs:
               h1: 'Domestic Violence Rights', sub: 'Legal Protection, Free Help & Emergency Resources', badge: '🛡️ Protection',
               keyFacts: [['PWDVA 2005','Your Legal Shield'],['Free','Legal Aid & Shelter'],['181','Women Helpline 24/7'],['3 Days','Protection Order']],
               intro: 'Domestic violence is not a private family matter — it is a serious crime under Indian law. The Protection of Women from Domestic Violence Act 2005 (PWDVA) protects women and children from physical, emotional, sexual, verbal, and economic abuse within the home. Courts can issue protection orders within 3 days, residence orders preventing eviction, and monetary compensation — all accessible through free government support. You are not alone, and you have powerful legal rights. This guide helps you understand those rights and how to exercise them.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ All help is free and confidential</strong> — One Stop Centres, Protection Officers, and NALSA lawyers provide free, confidential support. Your identity and case details are protected from the public.</div>
 
                 <h2>What Counts as Domestic Violence Under Indian Law?</h2>
@@ -1029,7 +1029,7 @@ jobs:
                   <li>💰 Maintain a small amount of personal savings separately if possible</li>
                   <li>📸 Photograph injuries immediately after incidents — these are crucial evidence</li>
                   <li>📝 Keep a private diary of dates, nature, and witnesses of incidents</li>
-                </ul>\`,
+                </ul>`,
               faqs: [
                 ['Can a husband be arrested for domestic violence?', 'Yes. Under Section 498A IPC (now BNS), cruelty by husband or his relatives is a criminal offense with up to 3 years imprisonment. Under PWDVA, civil protection and monetary orders are also available.'],
                 ['Does PWDVA only protect wives?', 'No. PWDVA protects women in any domestic relationship — daughters, sisters, mothers, daughters-in-law, live-in partners — from abuse by any male member of the shared household.'],
@@ -1052,7 +1052,7 @@ jobs:
               h1: 'Kisan Credit Card (KCC)', sub: 'Low-Cost Farm Credit — 4% Interest for Farmers', badge: '🌾 Farm Credit',
               keyFacts: [['4%','Effective Interest Rate'],['₹3 Lakh','Subsidized Limit'],['All Farmers','Eligible'],['5 Years','Card Validity']],
               intro: 'Kisan Credit Card (KCC) is a special credit facility that provides farmers with affordable, timely, and flexible credit for their agricultural needs. With the government\'s 3% interest subvention on prompt repayment, the effective interest rate for KCC loans up to ₹3 lakh is just 4% per year — far lower than any commercial loan or moneylender rate. This complete guide covers who is eligible, documents needed, how to apply, and how to maximize the benefits of your Kisan Credit Card.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ Effective Rate Just 4%</strong> — Banks charge 7% interest on KCC loans up to ₹3 lakh. The government pays 3% as interest subvention on prompt repayment — making the effective rate only 4%. This is among the lowest interest rates for any loan in India.</div>
 
                 <h2>What is Kisan Credit Card and Why Do Farmers Need It?</h2>
@@ -1103,7 +1103,7 @@ jobs:
                 <h2>PM-KISAN and KCC Link</h2>
                 <p>Under a special government campaign, all PM-KISAN beneficiaries who do not yet have a KCC are being contacted to apply for one. If you receive PM-KISAN installments, ask your bank to issue you a KCC using your PM-KISAN registration details — the process is simplified for PM-KISAN holders.</p>
 
-                <div class="highlight-box"><strong>💡 Insurance included:</strong> KCC automatically includes personal accident insurance of ₹50,000 for accidental death/disability and ₹25,000 for other risks — completely free for the farmer.</div>\`,
+                <div class="highlight-box"><strong>💡 Insurance included:</strong> KCC automatically includes personal accident insurance of ₹50,000 for accidental death/disability and ₹25,000 for other risks — completely free for the farmer.</div>`,
               faqs: [
                 ['Who is eligible for Kisan Credit Card?', 'All farmers — owner-cultivators, tenant farmers, sharecroppers, oral lessees — and also dairy farmers, poultry farmers, fishermen, and animal husbandry farmers.'],
                 ['What is the maximum KCC loan amount?', 'Up to ₹3 lakh at 4% effective interest with government subvention. Higher amounts available at bank\'s normal interest rate without subvention.'],
@@ -1126,7 +1126,7 @@ jobs:
               h1: 'Sukanya Samriddhi Yojana', sub: '8.2% Tax-Free Savings for Your Daughter\'s Future', badge: '👧 Girl Child',
               keyFacts: [['8.2%','Interest Rate (Q1 2025)'],['Triple Tax','EEE Exempt Status'],['₹250','Minimum Deposit/Year'],['21 Years','Full Maturity']],
               intro: 'Sukanya Samriddhi Yojana (SSY) is India\'s highest-interest small savings scheme, designed exclusively for the girl child\'s future — her education and marriage. It offers 8.2% annual interest (highest among all small savings schemes as of 2025), complete tax exemption at three stages (deposit, interest, and maturity), and is backed by the Government of India — making it 100% safe. With just ₹250 per year minimum contribution, it is accessible to every family across India. This complete guide explains everything about opening the account, contribution rules, early withdrawal options, and maturity benefits.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ Triple Tax Exemption (EEE)</strong> — SSY is one of India's few EEE schemes: (1) Deposits qualify for ₹1.5 lakh Section 80C deduction, (2) Annual interest is completely tax-free, (3) Maturity amount is 100% tax-free.</div>
 
                 <h2>Why Sukanya Samriddhi Yojana is the Best Savings for Girl Child</h2>
@@ -1169,7 +1169,7 @@ jobs:
                   <div class="tip-card"><div class="tip-icon">💰</div><h4>Deposit Maximum Each Year</h4><p>Depositing ₹1.5 lakh each year maximizes both Section 80C tax benefit and the corpus growth over 21 years.</p></div>
                   <div class="tip-card"><div class="tip-icon">🔄</div><h4>Account Can Be Transferred</h4><p>SSY account can be transferred between post offices or banks anywhere in India if the family relocates — no closure needed.</p></div>
                   <div class="tip-card"><div class="tip-icon">👧</div><h4>Open at Birth</h4><p>Opening the account at birth gives 21 years of compound interest growth — the earlier the account, the bigger the maturity corpus for your daughter.</p></div>
-                </div>\`,
+                </div>`,
               faqs: [
                 ['How many SSY accounts can be opened per family?', 'One account per girl child. Maximum two girl children per family, except if second birth results in twin girls — then three accounts allowed.'],
                 ['What if minimum deposit is not made in a year?', 'Account becomes defaulted. Pay ₹50 penalty per year of default plus minimum ₹250 deposit to regularize it and resume normal deposits.'],
@@ -1192,7 +1192,7 @@ jobs:
               h1: 'Labour Rights India', sub: 'Know Your Rights as a Worker — Complete Guide', badge: '👷 Labour',
               keyFacts: [['4 Labour Codes','Consolidated from 29 laws'],['26 Weeks','Maternity Leave'],['5 Years','Gratuity Eligibility'],['₹2 Lakh','e-Shram Insurance']],
               intro: 'Every working person in India — whether in a factory, office, shop, farm, or gig economy — has legal rights. India has consolidated 29 labour laws into 4 major Labour Codes covering wages, industrial relations, social security, and occupational safety. From minimum wages to maternity leave, EPF contributions to gratuity, workplace safety to protection from wrongful termination — this comprehensive guide covers all rights every Indian worker must know to protect themselves from exploitation.',
-              content: \`
+              content: `
                 <div class="info-box"><strong>✅ e-Shram Registration is Free and Important</strong> — If you work in the unorganized sector, register at e-shram.gov.in for free ₹2 lakh accident insurance, government scheme priority access, and social security benefits.</div>
 
                 <h2>Your Core Labour Rights in India</h2>
@@ -1244,7 +1244,7 @@ jobs:
                   <li>🌐 Shram Suvidha Portal: shramsuvidha.gov.in — online complaint filing</li>
                 </ul>
 
-                <div class="highlight-box"><strong>💡 POSH Act — Prevention of Sexual Harassment:</strong> Every workplace with 10+ employees must have an Internal Complaints Committee (ICC) for sexual harassment complaints. Any woman can file a complaint at the ICC. External Complaints Committee (ECC) handles complaints for workplaces with less than 10 employees or domestic workers.</div>\`,
+                <div class="highlight-box"><strong>💡 POSH Act — Prevention of Sexual Harassment:</strong> Every workplace with 10+ employees must have an Internal Complaints Committee (ICC) for sexual harassment complaints. Any woman can file a complaint at the ICC. External Complaints Committee (ECC) handles complaints for workplaces with less than 10 employees or domestic workers.</div>`,
               faqs: [
                 ['Can an employer fire an employee without notice?', 'In industrial establishments with 100+ workers, retrenchment requires 3 months notice and government approval. Smaller establishments require notice as per contract. All workers are entitled to notice pay.'],
                 ['What is the maximum working hours per day?', '9 hours per day and 48 hours per week under Factories Act. Overtime beyond this is paid at double wage rate. This limit protects workers from forced overwork.'],
@@ -1270,12 +1270,12 @@ jobs:
             const titleCase = name.replace(/\b\w/g, l => l.toUpperCase());
 
             return {
-              title: \`${titleCase} 2025 – Complete Guide for Indians | MeraHaq\`,
-              desc: \`Complete guide to ${titleCase}: eligibility, how to apply, required documents, benefits, and step-by-step process for Indian citizens. Free information.\`,
+              title: `${titleCase} 2025 – Complete Guide for Indians | MeraHaq`,
+              desc: `Complete guide to ${titleCase}: eligibility, how to apply, required documents, benefits, and step-by-step process for Indian citizens. Free information.`,
               h1: titleCase, sub: 'Complete Guide, Eligibility & How to Apply', badge: '📋 Scheme Guide',
               keyFacts: [['Free','To Apply'],['Online','Available'],['All Indians','Can Apply'],['2025','Updated Guide']],
-              intro: \`${titleCase} is a government scheme or service available to eligible Indian citizens. This comprehensive guide covers the complete eligibility criteria, application process, required documents, benefits you will receive, and official helpline numbers — all in one place for free.\`,
-              content: \`
+              intro: `${titleCase} is a government scheme or service available to eligible Indian citizens. This comprehensive guide covers the complete eligibility criteria, application process, required documents, benefits you will receive, and official helpline numbers — all in one place for free.`,
+              content: `
                 <div class="info-box"><strong>✅ Free Information on MeraHaq</strong> — MeraHaq provides accurate, verified information about ${titleCase} and all government schemes completely free. No registration or payment required.</div>
 
                 <h2>About ${titleCase}</h2>
@@ -1316,7 +1316,7 @@ jobs:
                 <h2>Common Service Centre (CSC) Help</h2>
                 <p>If you face difficulty applying online, visit your nearest Common Service Centre (CSC). CSC operators assist with applications, document upload, and status tracking. A nominal service fee (₹20–50) may apply at CSC. Find nearest CSC at locator.csccloud.in.</p>
 
-                <div class="highlight-box"><strong>💡 Need help?</strong> Visit merahaq.online for guides on all government schemes. For any scheme-related query, call PM Helpline 1800-11-0031 (toll-free, 8 AM–8 PM).</div>\`,
+                <div class="highlight-box"><strong>💡 Need help?</strong> Visit merahaq.online for guides on all government schemes. For any scheme-related query, call PM Helpline 1800-11-0031 (toll-free, 8 AM–8 PM).</div>`,
               faqs: [
                 ['How do I check my eligibility?', 'Visit the official government portal or call the scheme helpline. Your local CSC operator or Gram Panchayat can also help verify eligibility using your documents.'],
                 ['Are there any charges to apply?', 'Government scheme applications are free. CSC centers charge a nominal service fee (₹20–50) for assisted applications. No other payment should be required.'],
@@ -1372,35 +1372,35 @@ jobs:
           function buildPage(slug, data) {
             const relatedCards = (data.related || []).slice(0, 4).map(rel => {
               const r = relatedInfo[rel] || { icon: '📋', title: rel.replace(/-/g,' ').replace(/\b\w/g,l=>l.toUpperCase()), desc: 'Complete guide and how to apply' };
-              return \`<a href="/${rel}.html" class="rel-card">
+              return `<a href="/${rel}.html" class="rel-card">
                 <div class="rel-icon">${r.icon}</div>
                 <div class="rel-title">${r.title}</div>
                 <div class="rel-desc">${r.desc}</div>
-              </a>\`;
+              </a>`;
             }).join('');
 
-            const faqItems = (data.faqs || []).map((f, i) => \`
+            const faqItems = (data.faqs || []).map((f, i) => `
               <div class="faq-item" id="faq${i}">
                 <div class="faq-q" onclick="toggleFaq(${i})">
                   <span class="faq-q-text">${f[0]}</span>
                   <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-a">${f[1]}</div>
-              </div>\`).join('');
+              </div>`).join('');
 
-            const keyFactCards = (data.keyFacts || []).map(f => \`
+            const keyFactCards = (data.keyFacts || []).map(f => `
               <div class="fact-card">
                 <div class="num">${f[0]}</div>
                 <div class="label">${f[1]}</div>
-              </div>\`).join('');
+              </div>`).join('');
 
-            const schemaFAQ = (data.faqs || []).map(f => \`{
+            const schemaFAQ = (data.faqs || []).map(f => `{
               "@type": "Question",
               "name": "${f[0].replace(/"/g,'\\"')}",
               "acceptedAnswer": {"@type": "Answer", "text": "${f[1].replace(/"/g,'\\"')}"}
-            }\`).join(',');
+            }`).join(',');
 
-            return \`<!DOCTYPE html>
+            return `<!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="UTF-8"/>
@@ -1565,13 +1565,13 @@ jobs:
 </div>
 
 <!-- RELATED SCHEMES -->
-${relatedCards ? \`<div class="related-sec">
+${relatedCards ? `<div class="related-sec">
   <div class="related-sec-inner">
     <div class="sec-mono">Also Explore</div>
     <div class="sec-title">Related Schemes & Services</div>
     <div class="related-grid">${relatedCards}</div>
   </div>
-</div>\` : ''}
+</div>` : ''}
 
 <!-- DISCLAIMER -->
 <div class="disclaimer">
@@ -1634,7 +1634,7 @@ document.addEventListener('click',function(e){
 });
 </script>
 </body>
-</html>\`;
+</html>`;
           }
 
           // ============================================================
@@ -1668,11 +1668,11 @@ document.addEventListener('click',function(e){
             const data = pageDB[slug] || autoGeneratePage(filename);
             const html = buildPage(slug, data);
             fs.writeFileSync(filePath, html, 'utf8');
-            console.log(\`✅ Upgraded: ${filename}\`);
+            console.log(`✅ Upgraded: ${filename}`);
             upgraded++;
           }
 
-          console.log(\`\n🎉 Done! Upgraded ${upgraded} pages with apex-level content.\`);
+          console.log(`\n🎉 Done! Upgraded ${upgraded} pages with apex-level content.`);
           NODESCRIPT
 
       - name: Commit and push changes
