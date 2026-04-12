@@ -1,5 +1,5 @@
 User-agent: *
-Allow: /
+Allow: /ads.txt
 Disallow: /schema-markup-final
 Disallow: /schema-markup-final.html
 Disallow: /faq-snippet
