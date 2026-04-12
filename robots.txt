@@ -1,10 +1,6 @@
 User-agent: *
-Allow: /ads.txt
-Disallow: /schema-markup-final
-Disallow: /schema-markup-final.html
-Disallow: /faq-snippet
-Disallow: /faq-snippet.html
-Disallow: /jan-dhan-yojana-1
-Disallow: /google6f5d78cf560f6e86.html
+Allow: /
+Disallow: /admin/
+Disallow: /private/
 
 Sitemap: https://merahaq.online/sitemap.xml
