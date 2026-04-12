@@ -1,4 +1,4 @@
-name: Upgrade All MeraHaq HTML Pages — APEX LEVEL
+name: Upgrade All MeraHaq HTML Pages â€” APEX LEVEL
 
 on:
   workflow_dispatch:
@@ -39,7 +39,7 @@ jobs:
           // ============================================================
           // MERAHAQ DESIGN SYSTEM
           // ============================================================
-          const CSS = `
+          const CSS = \`
           *{box-sizing:border-box;margin:0;padding:0}
           html{scroll-behavior:smooth}
           body{font-family:'Nunito',sans-serif;background:#f8f3eb;color:#111;-webkit-font-smoothing:antialiased}
@@ -140,51 +140,51 @@ jobs:
           .foot-bottom .green{color:#4ade80}
           .disclaimer{background:#fff;border-top:2px solid #e8e0d5;padding:1.5rem 2rem;text-align:center}
           .disc{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#aaa;line-height:1.9;max-width:900px;margin:0 auto}
-          `;
+          \`;
 
           // ============================================================
-          // AD SLOT HELPER — 3 AdSense units per page
+          // AD SLOT HELPER â€” 3 AdSense units per page
           // ============================================================
           function adSlot(format) {
             if (format === 'banner') {
-              return `<div class="ad-slot" style="padding:1rem 0.5rem">
+              return \`<div class="ad-slot" style="padding:1rem 0.5rem">
                 <span class="ad-label">Advertisement</span>
                 <ins class="adsbygoogle" style="display:block" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
-              </div>`;
+              </div>\`;
             }
             if (format === 'in-article') {
-              return `<div class="ad-slot" style="padding:0.5rem">
+              return \`<div class="ad-slot" style="padding:0.5rem">
                 <span class="ad-label">Advertisement</span>
                 <ins class="adsbygoogle" style="display:block;text-align:center" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto"></ins>
                 <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
-              </div>`;
+              </div>\`;
             }
             // rectangle / sidebar
-            return `<div class="ad-slot" style="padding:0.5rem">
+            return \`<div class="ad-slot" style="padding:0.5rem">
               <span class="ad-label">Advertisement</span>
               <ins class="adsbygoogle" style="display:block" data-ad-client="${PUBLISHER_ID}" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
               <script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script>
-            </div>`;
+            </div>\`;
           }
 
           // ============================================================
-          // PAGE DATABASE — 1000+ words of informative content per page
+          // PAGE DATABASE â€” 1000+ words of informative content per page
           // ============================================================
           const pageDB = {
 
-            // ─────────────────────────────────────────────────────────
+            // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             'aadhaar-guide': {
-              title: 'Aadhaar Card Guide 2025 – Download, Update & Link | MeraHaq',
+              title: 'Aadhaar Card Guide 2025 â€“ Download, Update & Link | MeraHaq',
               desc: 'Complete Aadhaar guide: download eAadhaar, update address/mobile, link with PAN & bank, lock biometrics. Free step-by-step in Hindi & English.',
-              h1: 'Aadhaar Card', sub: 'Complete Guide for Every Indian', badge: '🪪 Identity',
+              h1: 'Aadhaar Card', sub: 'Complete Guide for Every Indian', badge: 'ðŸªª Identity',
               keyFacts: [['12-Digit','Unique ID'],['Free','eAadhaar Download'],['OTP-based','Secure Login'],['100%','Legally Valid']],
-              intro: 'Aadhaar is India\'s most important identity document — a 12-digit unique number issued by UIDAI to every resident of India. It is accepted for opening bank accounts, getting SIM cards, accessing government schemes, filing income tax, and hundreds of other services. This complete guide helps you download, update, link, and protect your Aadhaar — free of cost.',
-              content: `
-                <div class="info-box"><strong>✅ eAadhaar is legally valid</strong> — A downloaded eAadhaar PDF is 100% valid everywhere a physical Aadhaar card is accepted — including airports, banks, hospitals, and government offices.</div>
+              intro: 'Aadhaar is India\'s most important identity document â€” a 12-digit unique number issued by UIDAI to every resident of India. It is accepted for opening bank accounts, getting SIM cards, accessing government schemes, filing income tax, and hundreds of other services. This complete guide helps you download, update, link, and protect your Aadhaar â€” free of cost.',
+              content: \`
+                <div class="info-box"><strong>âœ… eAadhaar is legally valid</strong> â€” A downloaded eAadhaar PDF is 100% valid everywhere a physical Aadhaar card is accepted â€” including airports, banks, hospitals, and government offices.</div>
 
                 <h2>What is Aadhaar and Why is it Important?</h2>
-                <p>Aadhaar is a biometric-based identity system managed by the Unique Identification Authority of India (UIDAI). Over 137 crore Indians have been enrolled, making it the world's largest biometric ID system. Aadhaar links your fingerprints and iris scans to your identity — making it nearly impossible to duplicate or misuse.</p>
+                <p>Aadhaar is a biometric-based identity system managed by the Unique Identification Authority of India (UIDAI). Over 137 crore Indians have been enrolled, making it the world's largest biometric ID system. Aadhaar links your fingerprints and iris scans to your identity â€” making it nearly impossible to duplicate or misuse.</p>
                 <p>Aadhaar is mandatory or required for: opening a bank account, applying for a mobile SIM, receiving government scheme benefits (DBT), filing income tax returns, getting a PAN card, passport application, EPF withdrawal, and many more daily activities. Understanding your Aadhaar rights and services saves you time, money, and unnecessary visits to government offices.</p>
 
                 <h2>How to Download eAadhaar Online (Step-by-Step)</h2>
@@ -195,7 +195,7 @@ jobs:
                   <li>Enter your 12-digit Aadhaar number (or Enrolment ID or Virtual ID)</li>
                   <li>Enter the security captcha and click "Send OTP"</li>
                   <li>Enter the OTP received on your registered mobile number</li>
-                  <li>Download the password-protected PDF — Password is <strong>first 4 letters of name in CAPITALS + birth year</strong> (Example: RAMA1990)</li>
+                  <li>Download the password-protected PDF â€” Password is <strong>first 4 letters of name in CAPITALS + birth year</strong> (Example: RAMA1990)</li>
                 </ol>
                 <p>The downloaded eAadhaar PDF includes a QR code that can be scanned by any government or bank officer to verify your identity. You can also use the <strong>mAadhaar app</strong> (available on Google Play and App Store) to store and share your Aadhaar digitally from your smartphone.</p>
 
@@ -203,24 +203,23 @@ jobs:
                 <p>UIDAI allows you to update certain details in your Aadhaar. Here's what you can update and how:</p>
                 <table class="compare-table">
                   <tr><th>Detail</th><th>Online Update</th><th>Offline Update</th><th>Times Allowed</th></tr>
-                  <tr><td>Address</td><td>✅ Free at myaadhaar.uidai.gov.in</td><td>✅ Any Aadhaar center</td><td>Unlimited</td></tr>
-                  <tr><td>Mobile Number</td><td>❌ Not available</td><td>✅ Aadhaar center only</td><td>Multiple times</td></tr>
-                  <tr><td>Name</td><td>❌ Not available</td><td>✅ With supporting docs</td><td>Once only</td></tr>
-                  <tr><td>Date of Birth</td><td>❌ Not available</td><td>✅ With birth certificate</td><td>Once only</td></tr>
-                  <tr><td>Gender</td><td>❌ Not available</td><td>✅ With medical certificate</td><td>Once only</td></tr>
+                  <tr><td>Address</td><td>âœ… Free at myaadhaar.uidai.gov.in</td><td>âœ… Any Aadhaar center</td><td>Unlimited</td></tr>
+                  <tr><td>Mobile Number</td><td>âŒ Not available</td><td>âœ… Aadhaar center only</td><td>Multiple times</td></tr>
+                  <tr><td>Name</td><td>âŒ Not available</td><td>âœ… With supporting docs</td><td>Once only</td></tr>
+                  <tr><td>Date of Birth</td><td>âŒ Not available</td><td>âœ… With birth certificate</td><td>Once only</td></tr>
+                  <tr><td>Gender</td><td>âŒ Not available</td><td>âœ… With medical certificate</td><td>Once only</td></tr>
                 </table>
-                <p>For online address update: Go to myaadhaar.uidai.gov.in → Update Address → Login with OTP → Upload proof of address (electricity bill, bank passbook, or rent agreement) → Submit. Changes are reflected within 5-10 working days.</p>
+                <p>For online address update: Go to myaadhaar.uidai.gov.in â†’ Update Address â†’ Login with OTP â†’ Upload proof of address (electricity bill, bank passbook, or rent agreement) â†’ Submit. Changes are reflected within 5-10 working days.</p>
 
                 <h2>How to Link Aadhaar with PAN Card</h2>
                 <p>Linking Aadhaar with PAN is now mandatory for all Indian taxpayers. An unlinked PAN becomes inoperative, meaning you cannot file income tax returns, receive refunds, or conduct financial transactions. Here's how to link:</p>
                 <ol class="steps-list">
-                  <li>Visit <strong>incometax.gov.in</strong> and go to "Quick Links" → "Link Aadhaar"</li>
+                  <li>Visit <strong>incometax.gov.in</strong> and go to "Quick Links" â†’ "Link Aadhaar"</li>
                   <li>Enter your PAN number and Aadhaar number</li>
-                  <li>Pay the ₹1,000 fee via challan (if applicable — fee applies if linking is done after deadline)</li>
+                  <li>Pay the â‚¹1,000 fee via challan (if applicable â€” fee applies if linking is done after deadline)</li>
                   <li>Verify with OTP sent to your Aadhaar-linked mobile number</li>
                   <li>Linking is confirmed immediately or within 4-5 working days</li>
                 </ol>
 
-                <h2>Aadhaar Lock & Unlock — Protect Your Biometrics</h2>
-                <p>One of the most powerful but least-known Aadhaar features is the ability to lock and unlock your biometric data. When locked, no one can use your fingerprints or iris scan for Aadhaar authentication — protecting you from identity fraud. You can temporarily unlock it whenever needed.</p>
-                <p>To lock biometrics: Login to myaadhaar.uidai.gov.in → Go to "Lock/Unlock Biometrics" → Enter OTP → Loc
+                <h2>Aadhaar Lock & Unlock â€” Protect Your Biometrics</h2>
+                <p>One of the most powerful but least-known Aadhaar features is the ability to lock and unlock your biometric data. When locked, no one can use your fingerprints or iris scan for Aadhaar authentication â€” protecting you from ide
