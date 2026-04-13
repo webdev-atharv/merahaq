@@ -76,23 +76,37 @@ nav{background:#1a1a2e;position:sticky;top:0;z-index:999;border-bottom:3px solid
 .verified-badge{display:none}
 
 /* ── FINDER ── */
-.finder-wrap{max-width:740px;margin:0 auto;padding-bottom:5rem;position:relative;z-index:2}
+.finder-wrap{max-width:760px;margin:0 auto;padding-bottom:5rem;position:relative;z-index:2}
 .finder{background:#fff;border-radius:20px;box-shadow:0 20px 80px rgba(26,26,46,0.3);overflow:hidden}
-.finder-head{background:#e05c1a;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between}
-.finder-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff}
-.finder-head p{font-size:0.8rem;color:rgba(255,255,255,0.8);margin-top:3px}
-.finder-body{padding:2rem}
-.fq{font-size:0.72rem;font-weight:800;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:0.7rem}
-.fopts{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
-.fopt{padding:8px 16px;border:2px solid #ddd;border-radius:8px;cursor:pointer;font-size:0.88rem;font-weight:700;background:#fff;color:#444;transition:all 0.18s;font-family:'Nunito',sans-serif}
-.fopt:hover{border-color:#e05c1a;color:#e05c1a}
-.fopt.sel{background:#e05c1a;color:#fff;border-color:#e05c1a}
-.finput{width:100%;padding:11px 14px;border:2px solid #ddd;border-radius:8px;font-size:0.95rem;font-family:'Nunito',sans-serif;outline:none;transition:border-color 0.2s;margin-bottom:1.5rem}
-.finput:focus{border-color:#e05c1a}
-.find-btn{width:100%;padding:14px;background:#1a1a2e;color:#fff;font-weight:800;font-size:1rem;border:none;border-radius:10px;cursor:pointer;font-family:'Nunito',sans-serif;transition:background 0.2s}
-.find-btn:hover{background:#2d2d5e}
-.find-btn:disabled{background:#bbb;cursor:not-allowed}
-.privacy-note{text-align:center;font-size:0.7rem;color:#999;margin-top:0.75rem;font-family:'JetBrains Mono',monospace}
+.finder-head{background:linear-gradient(135deg,#e05c1a 0%,#c44a0e 100%);padding:1.4rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.finder-head-text h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff;margin:0}
+.finder-head-text p{font-size:0.78rem;color:rgba(255,255,255,0.85);margin-top:4px;display:flex;align-items:center;gap:6px}
+.finder-head-icon{font-size:2rem;flex-shrink:0;opacity:0.9}
+.finder-body{padding:1.75rem 1.75rem 2rem}
+.fq-block{margin-bottom:1.5rem}
+.fq{font-size:0.68rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:1.8px;margin-bottom:0.65rem;display:flex;align-items:center;gap:6px}
+.fq-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:#e05c1a;color:#fff;font-size:0.6rem;font-weight:900;border-radius:50%;flex-shrink:0}
+/* occupation: 2-column grid on mobile, wrap on desktop */
+.fopts-occ{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;margin-bottom:0}
+.fopts-occ .fopt{justify-content:flex-start;text-align:left;padding:10px 12px;font-size:0.88rem}
+/* income: row wrap */
+.fopts-inc{display:flex;flex-wrap:wrap;gap:0.55rem;margin-bottom:0}
+.fopts-inc .fopt{flex:1 1 calc(33.333% - 0.55rem);min-width:100px;text-align:center;justify-content:center}
+/* special: 2-column grid */
+.fopts-special{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;margin-bottom:0}
+.fopts-special .fopt{justify-content:flex-start;text-align:left;padding:10px 12px}
+.fopt{display:flex;align-items:center;gap:7px;padding:10px 14px;border:2px solid #e2ddd7;border-radius:10px;cursor:pointer;font-size:0.88rem;font-weight:700;background:#fdfaf7;color:#444;transition:all 0.18s;font-family:'Nunito',sans-serif;line-height:1.3}
+.fopt:hover{border-color:#e05c1a;color:#e05c1a;background:#fff5f0}
+.fopt.sel{background:#e05c1a;color:#fff;border-color:#e05c1a;box-shadow:0 2px 8px rgba(224,92,26,0.3)}
+.fopt.multi.sel{background:#1a1a2e;color:#fff;border-color:#1a1a2e;box-shadow:0 2px 8px rgba(26,26,46,0.25)}
+.finput{width:100%;padding:12px 14px;border:2px solid #e2ddd7;border-radius:10px;font-size:0.95rem;font-family:'Nunito',sans-serif;outline:none;transition:border-color 0.2s;background:#fdfaf7;margin-bottom:0}
+.finput:focus{border-color:#e05c1a;background:#fff}
+.find-btn{width:100%;padding:15px;background:#1a1a2e;color:#fff;font-weight:800;font-size:1rem;border:none;border-radius:12px;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s;margin-top:1.5rem;letter-spacing:0.2px}
+.find-btn:hover{background:#2d2d5e;transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,26,46,0.3)}
+.find-btn:disabled{background:#c4bfba;cursor:not-allowed;transform:none;box-shadow:none}
+.privacy-note{text-align:center;font-size:0.7rem;color:#aaa;margin-top:0.75rem;font-family:'JetBrains Mono',monospace}
+/* divider between questions */
+.fq-divider{border:none;border-top:1px solid #f0ece6;margin:0 0 1.5rem}
 
 /* ── PAGES ── */
 .page{display:none}
@@ -314,6 +328,14 @@ footer{background:#1a1a2e;padding:3rem 2rem}
   /* Finder/Quiz box */
   .finder-wrap{padding:0 0 3rem}
   .finder{border-radius:12px}
+  .finder-body{padding:1.25rem 1rem 1.5rem}
+  .finder-head{padding:1rem 1.1rem}
+  .finder-head-text h2{font-size:1rem}
+  .finder-head-icon{font-size:1.6rem}
+  .fopts-occ .fopt,.fopts-special .fopt{font-size:0.82rem;padding:9px 10px}
+  .fopts-inc .fopt{flex:1 1 calc(50% - 0.55rem);font-size:0.82rem}
+  .fq{font-size:0.65rem;letter-spacing:1.2px}
+  .fq-num{width:18px;height:18px;font-size:0.55rem}
 
   /* Grids - single column */
   .grid{grid-template-columns:1fr !important}
@@ -670,44 +692,62 @@ footer{background:#1a1a2e;padding:3rem 2rem}
       <div class="finder-wrap">
         <div class="finder">
           <div class="finder-head">
-            <div><h2 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin:0">Find Your Benefits — Free, 2 Minutes</h2><p>No registration. No data stored. 100% free.</p></div>
-            <span style="font-size:2rem">🔍</span>
+            <div class="finder-head-text">
+              <h2>Find Your Benefits — Free, 2 Minutes</h2>
+              <p>🔒 No registration &nbsp;·&nbsp; No data stored &nbsp;·&nbsp; 100% free</p>
+            </div>
+            <div class="finder-head-icon">🔍</div>
           </div>
           <div class="finder-body">
 
-            <div class="fq">1. What is your main occupation?</div>
-            <div class="fopts" id="occ-opts">
-              <div class="fopt" onclick="selectOpt(this,'occ','farmer')">🌾 Farmer</div>
-              <div class="fopt" onclick="selectOpt(this,'occ','labour')">⛏️ Daily Wage / Labour</div>
-              <div class="fopt" onclick="selectOpt(this,'occ','salaried')">💼 Salaried (Private)</div>
-              <div class="fopt" onclick="selectOpt(this,'occ','govt')">🏛️ Salaried (Govt)</div>
-              <div class="fopt" onclick="selectOpt(this,'occ','student')">📚 Student</div>
-              <div class="fopt" onclick="selectOpt(this,'occ','business')">🏪 Small Business</div>
-              <div class="fopt" onclick="selectOpt(this,'occ','unemployed')">🏠 Unemployed</div>
+            <div class="fq-block">
+              <div class="fq"><span class="fq-num">1</span> What is your main occupation?</div>
+              <div class="fopts-occ" id="occ-opts">
+                <div class="fopt" onclick="selectOpt(this,'occ','farmer')">🌾 Farmer</div>
+                <div class="fopt" onclick="selectOpt(this,'occ','labour')">⛏️ Daily Wage / Labour</div>
+                <div class="fopt" onclick="selectOpt(this,'occ','salaried')">💼 Salaried (Private)</div>
+                <div class="fopt" onclick="selectOpt(this,'occ','govt')">🏛️ Salaried (Govt)</div>
+                <div class="fopt" onclick="selectOpt(this,'occ','student')">📚 Student</div>
+                <div class="fopt" onclick="selectOpt(this,'occ','business')">🏪 Small Business</div>
+                <div class="fopt" onclick="selectOpt(this,'occ','unemployed')">🏠 Unemployed</div>
+              </div>
             </div>
 
-            <div class="fq">2. Yearly household income (approx.)</div>
-            <div class="fopts" id="inc-opts">
-              <div class="fopt" onclick="selectOpt(this,'inc','80000')">Below ₹1 Lakh</div>
-              <div class="fopt" onclick="selectOpt(this,'inc','175000')">₹1 – 2.5 Lakh</div>
-              <div class="fopt" onclick="selectOpt(this,'inc','375000')">₹2.5 – 5 Lakh</div>
-              <div class="fopt" onclick="selectOpt(this,'inc','750000')">₹5 – 10 Lakh</div>
-              <div class="fopt" onclick="selectOpt(this,'inc','1200000')">Above ₹10 Lakh</div>
+            <hr class="fq-divider"/>
+
+            <div class="fq-block">
+              <div class="fq"><span class="fq-num">2</span> Yearly household income (approx.)</div>
+              <div class="fopts-inc" id="inc-opts">
+                <div class="fopt" onclick="selectOpt(this,'inc','80000')">Below ₹1 Lakh</div>
+                <div class="fopt" onclick="selectOpt(this,'inc','175000')">₹1 – 2.5 Lakh</div>
+                <div class="fopt" onclick="selectOpt(this,'inc','375000')">₹2.5 – 5 Lakh</div>
+                <div class="fopt" onclick="selectOpt(this,'inc','750000')">₹5 – 10 Lakh</div>
+                <div class="fopt" onclick="selectOpt(this,'inc','1200000')">Above ₹10 Lakh</div>
+              </div>
             </div>
 
-            <div class="fq">3. Special category (select all that apply)</div>
-            <div class="fopts" id="special-opts">
-              <div class="fopt multi" onclick="toggleSpecial(this,'women')">👩 Women</div>
-              <div class="fopt multi" onclick="toggleSpecial(this,'senior')">👴 Senior (60+)</div>
-              <div class="fopt multi" onclick="toggleSpecial(this,'disabled')">♿ Disabled</div>
-              <div class="fopt multi" onclick="toggleSpecial(this,'sc')">📋 SC/ST/OBC</div>
-              <div class="fopt multi" onclick="toggleSpecial(this,'bpl')">📃 BPL Card Holder</div>
+            <hr class="fq-divider"/>
+
+            <div class="fq-block">
+              <div class="fq"><span class="fq-num">3</span> Special category <span style="font-size:0.6rem;color:#aaa;font-weight:600;text-transform:none;letter-spacing:0">(select all that apply)</span></div>
+              <div class="fopts-special" id="special-opts">
+                <div class="fopt multi" onclick="toggleSpecial(this,'women')">👩 Women</div>
+                <div class="fopt multi" onclick="toggleSpecial(this,'senior')">👴 Senior (60+)</div>
+                <div class="fopt multi" onclick="toggleSpecial(this,'disabled')">♿ Disabled</div>
+                <div class="fopt multi" onclick="toggleSpecial(this,'sc')">📋 SC / ST / OBC</div>
+                <div class="fopt multi" onclick="toggleSpecial(this,'bpl')">📃 BPL Card Holder</div>
+              </div>
             </div>
 
-            <div class="fq">4. Your state (optional)</div>
-            <input class="finput" id="state-input" placeholder="e.g. Maharashtra, Uttar Pradesh, Karnataka..." />
+            <hr class="fq-divider"/>
+
+            <div class="fq-block">
+              <div class="fq"><span class="fq-num">4</span> Your state <span style="font-size:0.6rem;color:#aaa;font-weight:600;text-transform:none;letter-spacing:0">(optional)</span></div>
+              <input class="finput" id="state-input" placeholder="e.g. Maharashtra, Uttar Pradesh, Karnataka…" />
+            </div>
 
             <button class="find-btn" id="find-btn" onclick="findSchemesAI()" disabled>← Select your occupation &amp; income first</button>
+            <p class="privacy-note">🔒 Nothing is saved. All processing happens in your browser.</p>
 
           </div>
         </div>
