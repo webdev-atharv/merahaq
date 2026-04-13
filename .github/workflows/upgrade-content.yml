@@ -1,0 +1,33 @@
+name: Upgrade Content for AdSense
+
+on:
+  workflow_dispatch: # Run manually with one click
+
+jobs:
+  upgrade-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install beautifulsoup4
+
+      - name: Run content upgrader
+        run: python upgrade_content.py
+
+      - name: Commit and push upgraded files
+        run: |
+          git config user.name "content-bot"
+          git config user.email "bot@merahaq.online"
+          git add -A
+          git diff --staged --quiet || git commit -m "Auto-upgrade: Add rich content to all pages for AdSense"
+          git push
