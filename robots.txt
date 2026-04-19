@@ -4,3 +4,6 @@ Disallow: /admin/
 Disallow: /private/
 
 Sitemap: https://merahaq.online/sitemap.xml
+Disallow: /faq-snippet
+Disallow: /schema-markup-final
+Disallow: /merahaq-meta-tags-FIXED
