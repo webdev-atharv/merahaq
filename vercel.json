@@ -1,0 +1,27 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/pm-ujjwala-yojana-2.html",            "destination": "/ujjwala-yojana",                   "permanent": true },
+    { "source": "/pm-ujjwala-yojana-2",                 "destination": "/ujjwala-yojana",                   "permanent": true },
+    { "source": "/pmay-housing-scheme-apply.html",       "destination": "/pmay",                             "permanent": true },
+    { "source": "/pmay-housing-scheme-apply",            "destination": "/pmay",                             "permanent": true },
+    { "source": "/pm-awas-yojana-gramin.html",           "destination": "/pm-awas-yojana-gramin",            "permanent": true },
+    { "source": "/national-scholarship-portal-guide.html","destination": "/national-scholarship-portal-guide","permanent": true },
+    { "source": "/jan-dhan-yojana.html",                 "destination": "/jan-dhan-yojana",                  "permanent": true },
+    { "source": "/national-pension-scheme.html",         "destination": "/national-pension-scheme",          "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",    "value": "nosniff" },
+        { "key": "X-Frame-Options",           "value": "SAMEORIGIN" },
+        { "key": "X-XSS-Protection",          "value": "1; mode=block" },
+        { "key": "Referrer-Policy",           "value": "strict-origin-when-cross-origin" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "Permissions-Policy",        "value": "camera=(), microphone=(), geolocation=(), payment=()" }
+      ]
+    }
+  ]
+}
