@@ -2,14 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/pm-ujjwala-yojana-2.html",            "destination": "/ujjwala-yojana",                   "permanent": true },
-    { "source": "/pm-ujjwala-yojana-2",                 "destination": "/ujjwala-yojana",                   "permanent": true },
-    { "source": "/pmay-housing-scheme-apply.html",       "destination": "/pmay",                             "permanent": true },
-    { "source": "/pmay-housing-scheme-apply",            "destination": "/pmay",                             "permanent": true },
-    { "source": "/pm-awas-yojana-gramin.html",           "destination": "/pm-awas-yojana-gramin",            "permanent": true },
-    { "source": "/national-scholarship-portal-guide.html","destination": "/national-scholarship-portal-guide","permanent": true },
-    { "source": "/jan-dhan-yojana.html",                 "destination": "/jan-dhan-yojana",                  "permanent": true },
-    { "source": "/national-pension-scheme.html",         "destination": "/national-pension-scheme",          "permanent": true }
+    { "source": "/pm-ujjwala-yojana-2",      "destination": "/ujjwala-yojana", "permanent": true },
+    { "source": "/pmay-housing-scheme-apply", "destination": "/pmay",           "permanent": true }
   ],
   "headers": [
     {
