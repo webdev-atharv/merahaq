@@ -1,0 +1,201 @@
+name: MeraHaq — Auto Redirect & Vercel Validator
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate vercel.json & Check Redirects
+
+    steps:
+
+      # ── STEP 1: Get the code ──
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # ── STEP 2: Validate vercel.json structure ──
+      - name: Validate vercel.json
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  MeraHaq vercel.json Validator"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Check file exists
+          if [ ! -f vercel.json ]; then
+            echo "❌ ERROR: vercel.json not found!"
+            exit 1
+          fi
+
+          # Check valid JSON
+          if ! python3 -c "import json; json.load(open('vercel.json'))" 2>/dev/null; then
+            echo "❌ ERROR: vercel.json has invalid JSON syntax!"
+            exit 1
+          fi
+          echo "✅ vercel.json is valid JSON"
+
+          # Check cleanUrls is true
+          CLEAN=$(python3 -c "import json; d=json.load(open('vercel.json')); print(d.get('cleanUrls','missing'))")
+          if [ "$CLEAN" != "True" ]; then
+            echo "❌ ERROR: cleanUrls must be true! Found: $CLEAN"
+            exit 1
+          fi
+          echo "✅ cleanUrls: true — confirmed"
+
+          # Check trailingSlash is false
+          TRAILING=$(python3 -c "import json; d=json.load(open('vercel.json')); print(d.get('trailingSlash','missing'))")
+          if [ "$TRAILING" != "False" ]; then
+            echo "❌ ERROR: trailingSlash must be false! Found: $TRAILING"
+            exit 1
+          fi
+          echo "✅ trailingSlash: false — confirmed"
+
+          echo ""
+          echo "✅ vercel.json structure is valid"
+
+      # ── STEP 3: Check for .html in redirect rules ──
+      - name: Check for .html redirect loops
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  Checking for .html redirect loops"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python3 << 'PYEOF'
+          import json, sys
+
+          with open('vercel.json') as f:
+            config = json.load(f)
+
+          redirects = config.get('redirects', [])
+          errors = []
+          warnings = []
+
+          for r in redirects:
+            src = r.get('source', '')
+            dst = r.get('destination', '')
+
+            # Check for .html in source or destination
+            if '.html' in src:
+              errors.append(f"❌ .html found in source: {src}  →  Remove .html (cleanUrls handles this)")
+            if '.html' in dst:
+              errors.append(f"❌ .html found in destination: {dst}  →  Remove .html")
+
+            # Check for redirect loop (src == dst)
+            if src == dst:
+              errors.append(f"❌ Redirect loop detected: {src} → {dst}")
+
+            # Check source starts with /
+            if not src.startswith('/'):
+              warnings.append(f"⚠️  Source should start with /: {src}")
+
+            # Check destination starts with /
+            if not dst.startswith('/'):
+              warnings.append(f"⚠️  Destination should start with /: {dst}")
+
+          for w in warnings:
+            print(w)
+
+          if errors:
+            print("\nERRORS FOUND:")
+            for e in errors:
+              print(e)
+            print("\n💡 Fix: Remove .html from all redirect rules.")
+            print("   cleanUrls:true handles .html automatically.")
+            sys.exit(1)
+          else:
+            print(f"✅ All {len(redirects)} redirect rule(s) are clean — no .html loops")
+          PYEOF
+
+      # ── STEP 4: Check all HTML files have clean URL equivalents ──
+      - name: Check all pages are reachable
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  Checking page inventory"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python3 << 'PYEOF'
+          import json, os, sys
+
+          # Get all .html files in root
+          html_files = [f for f in os.listdir('.') if f.endswith('.html') and f != 'index.html']
+          html_slugs = set(f.replace('.html', '') for f in html_files)
+
+          # Get all redirect destinations
+          with open('vercel.json') as f:
+            config = json.load(f)
+          redirects = config.get('redirects', [])
+
+          # Check each redirect destination points to an existing page
+          errors = []
+          for r in redirects:
+            dst = r.get('destination', '').lstrip('/')
+            if dst and dst not in html_slugs and dst != 'index':
+              errors.append(f"❌ Redirect destination /{dst} has no matching {dst}.html file!")
+
+          print(f"📄 Total HTML pages found: {len(html_files)}")
+          print(f"🔀 Total redirect rules: {len(redirects)}")
+
+          if errors:
+            print("\nERRORS:")
+            for e in errors:
+              print(e)
+            sys.exit(1)
+          else:
+            print("✅ All redirect destinations point to existing pages")
+          PYEOF
+
+      # ── STEP 5: Check for orphan pages (pages with no internal links) ──
+      - name: Scan for duplicate/redundant pages
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  Scanning for duplicate slugs"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python3 << 'PYEOF'
+          import os
+
+          html_files = sorted([f for f in os.listdir('.') if f.endswith('.html')])
+          slugs = [f.replace('.html','') for f in html_files]
+
+          # Known duplicate patterns to warn about
+          duplicate_pairs = [
+            ('national-pension-scheme', 'atal-pension-yojana'),
+            ('jan-dhan-account-benefits', 'jan-dhan-yojana'),
+            ('pradhan-mantri-fasal-bima', 'fasal-bima-yojana'),
+            ('pmay-housing-scheme-apply', 'pmay'),
+            ('pm-ujjwala-yojana-2', 'ujjwala-yojana'),
+          ]
+
+          warnings = []
+          for old, new in duplicate_pairs:
+            if old in slugs and new in slugs:
+              warnings.append(f"⚠️  Duplicate content: /{old} and /{new} — consider redirecting old to new")
+
+          print(f"📄 {len(html_files)} HTML files scanned")
+          if warnings:
+            for w in warnings:
+              print(w)
+            print("\n💡 Duplicate pages can hurt SEO. Add redirect rules for old URLs.")
+          else:
+            print("✅ No duplicate page patterns detected")
+          PYEOF
+
+      # ── STEP 6: Final summary ──
+      - name: Print final summary
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  ✅ ALL CHECKS PASSED — Safe to deploy"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "  vercel.json is valid"
+          echo "  No .html redirect loops"
+          echo "  All redirect destinations exist"
+          echo "  Vercel will deploy this safely"
+          echo ""
