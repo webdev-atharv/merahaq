@@ -35,15 +35,35 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "MeraHaq",
-  "url": "https://merahaq.online/",
-  "description": "Free platform helping Indian citizens find government schemes, know their legal rights, access emergency helplines and generate RTI letters.",
-  "inLanguage": "en-IN",
-  "audience": {
-    "@type": "Audience",
-    "audienceType": "Indian Citizens"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "MeraHaq",
+      "url": "https://merahaq.online/",
+      "description": "Free platform helping Indian citizens find government schemes, know their legal rights, access emergency helplines and generate RTI letters.",
+      "inLanguage": "en-IN",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Indian Citizens"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "MeraHaq",
+      "url": "https://merahaq.online/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://merahaq.online/favicon.png"
+      },
+      "description": "Independent citizen information platform helping Indians access government schemes and legal rights. All data sourced from official .gov.in portals.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://merahaq.online/contact"
+      },
+      "sameAs": ["https://merahaq.online/about"]
+    }
+  ]
 }
 </script>
 
@@ -1117,6 +1137,33 @@ footer{background:#1a1a2e;padding:3rem 2rem}
       </a>
 
       </div>
+  </div>
+</div>
+
+<!-- STATIC CRAWLABLE ABOUT SECTION — Critical for Google E-E-A-T -->
+<div style="background:#fff;padding:3rem 2rem;border-top:2px solid #e8e0d5;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:#e05c1a;margin-bottom:0.75rem;">About MeraHaq</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#1a1a2e;margin-bottom:1rem;line-height:1.3;">What Is MeraHaq — <em style="color:#e05c1a;font-style:italic;">And Why We Built It</em></h2>
+    <p style="font-size:0.95rem;color:#444;line-height:1.9;margin-bottom:1rem;">MeraHaq (मेरा हक़ — meaning "my right" or "what is mine by right") is a free citizen information platform built to help every Indian access the government schemes, legal protections, and constitutional rights they are already entitled to — but often don't know about or can't navigate to claim.</p>
+    <p style="font-size:0.95rem;color:#444;line-height:1.9;margin-bottom:1rem;">India has over 500 central and state government welfare schemes covering health insurance, direct cash transfers, free housing, crop insurance, scholarships, food security, and more. The average eligible Indian family claims fewer than 2–3 of the schemes they qualify for. The rest — worth tens of thousands of rupees per year — go unclaimed, not because of ineligibility, but because of awareness gaps and bureaucratic complexity.</p>
+    <p style="font-size:0.95rem;color:#444;line-height:1.9;margin-bottom:1rem;">MeraHaq exists to close that gap. We explain every major scheme in plain language — who qualifies, how to apply step by step, what documents to carry, what to do when something goes wrong, and which official helplines to call. All information is sourced from official .gov.in government portals and verified before publication.</p>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a2e;margin:1.5rem 0 0.75rem;">What MeraHaq Covers</h3>
+    <p style="font-size:0.95rem;color:#444;line-height:1.9;margin-bottom:1rem;">Our guides cover India's most important government schemes and citizen rights across six categories:</p>
+    <ul style="padding-left:1.5rem;margin-bottom:1rem;">
+      <li style="font-size:0.93rem;color:#444;line-height:1.9;margin-bottom:0.5rem;"><strong style="color:#1a1a2e;">Health:</strong> Ayushman Bharat PM-JAY (₹5 lakh free health insurance for 55+ crore Indians), ABHA digital health card, National Dialysis Programme, free maternity benefits</li>
+      <li style="font-size:0.93rem;color:#444;line-height:1.9;margin-bottom:0.5rem;"><strong style="color:#1a1a2e;">Agriculture:</strong> PM-KISAN (₹6,000/year direct transfer to 11 crore farmers), Kisan Credit Card at 4% interest, PM Fasal Bima crop insurance, MGNREGA 100-day work guarantee</li>
+      <li style="font-size:0.93rem;color:#444;line-height:1.9;margin-bottom:0.5rem;"><strong style="color:#1a1a2e;">Housing:</strong> PM Awas Yojana Gramin (free rural housing), PM Awas Yojana Urban, state-specific housing schemes</li>
+      <li style="font-size:0.93rem;color:#444;line-height:1.9;margin-bottom:0.5rem;"><strong style="color:#1a1a2e;">Legal Rights:</strong> RTI (Right to Information) filing guide, free legal aid under NALSA, consumer rights and complaint process, domestic violence protection laws, labour rights</li>
+      <li style="font-size:0.93rem;color:#444;line-height:1.9;margin-bottom:0.5rem;"><strong style="color:#1a1a2e;">Documents:</strong> Aadhaar update and correction, ration card application, PAN card guide, voter ID guide, e-Shram card registration</li>
+      <li style="font-size:0.93rem;color:#444;line-height:1.9;margin-bottom:0.5rem;"><strong style="color:#1a1a2e;">Savings &amp; Pensions:</strong> Sukanya Samriddhi Yojana, Atal Pension Yojana, National Pension System, Jan Dhan zero-balance accounts</li>
+    </ul>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a2e;margin:1.5rem 0 0.75rem;">Our Editorial Approach</h3>
+    <p style="font-size:0.95rem;color:#444;line-height:1.9;margin-bottom:1rem;">Every guide on MeraHaq is researched from primary government sources — ministry notifications, official portals, RTI responses, and NIC (National Informatics Centre) databases. We do not copy or paraphrase other websites. Our content is original, written in plain English and Hindi, and verified for accuracy before publication.</p>
+    <p style="font-size:0.95rem;color:#444;line-height:1.9;margin-bottom:1rem;">We update our guides when scheme rules change — installment dates, eligibility criteria, helpline numbers. Each guide shows its last verified date. If you find outdated information, <a href="/contact" style="color:#e05c1a;font-weight:700;">contact us</a> and we update within 48 hours.</p>
+    <p style="font-size:0.95rem;color:#444;line-height:1.9;margin-bottom:0;"><strong style="color:#1a1a2e;">MeraHaq is completely free, has no registration wall, collects no personal data, and is not affiliated with any government body, political party, or commercial organisation.</strong> We are funded solely by non-intrusive advertising. Your rights and entitlements information will always be free.</p>
   </div>
 </div>
 
