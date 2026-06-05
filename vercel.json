@@ -6,6 +6,121 @@
       "source": "/sukanya-samriddhi",
       "destination": "/sukanya-samriddhi-complete-guide",
       "permanent": true
+    },
+    {
+      "source": "/pm-kisan.html",
+      "destination": "/pm-kisan",
+      "permanent": true
+    },
+    {
+      "source": "/pm-mudra-yojana.html",
+      "destination": "/pm-mudra-yojana",
+      "permanent": true
+    },
+    {
+      "source": "/pm-kisan-installment-not-received.html",
+      "destination": "/pm-kisan-installment-not-received",
+      "permanent": true
+    },
+    {
+      "source": "/pm-vishwakarma-yojana.html",
+      "destination": "/pm-vishwakarma-yojana",
+      "permanent": true
+    },
+    {
+      "source": "/pmay.html",
+      "destination": "/pmay",
+      "permanent": true
+    },
+    {
+      "source": "/jan-dhan-yojana.html",
+      "destination": "/jan-dhan-yojana",
+      "permanent": true
+    },
+    {
+      "source": "/national-pension-scheme.html",
+      "destination": "/national-pension-scheme",
+      "permanent": true
+    },
+    {
+      "source": "/national-scholarship-portal-guide.html",
+      "destination": "/national-scholarship-portal-guide",
+      "permanent": true
+    },
+    {
+      "source": "/pmay-housing-scheme-apply.html",
+      "destination": "/pmay",
+      "permanent": true
+    },
+    {
+      "source": "/pm-awas-yojana-gramin.html",
+      "destination": "/pm-awas-yojana-gramin",
+      "permanent": true
+    },
+    {
+      "source": "/pm-ujjwala-yojana-2.html",
+      "destination": "/ujjwala-yojana",
+      "permanent": true
+    },
+    {
+      "source": "/cookie-policy.html",
+      "destination": "/cookie-policy",
+      "permanent": true
+    },
+    {
+      "source": "/pm-garib-kalyan-yojana.html",
+      "destination": "/pm-garib-kalyan-yojana",
+      "permanent": true
+    },
+    {
+      "source": "/e-shram-card.html",
+      "destination": "/e-shram-card",
+      "permanent": true
+    },
+    {
+      "source": "/epf-withdrawal-how-to.html",
+      "destination": "/epf-withdrawal-how-to",
+      "permanent": true
+    },
+    {
+      "source": "/fasal-bima-yojana.html",
+      "destination": "/fasal-bima-yojana",
+      "permanent": true
+    },
+    {
+      "source": "/google6f5d78cf560f6e86.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-apply-new-ration-card.html",
+      "destination": "/how-to-apply-new-ration-card",
+      "permanent": true
+    },
+    {
+      "source": "/jan-dhan-account-benefits.html",
+      "destination": "/jan-dhan-account-benefits",
+      "permanent": true
+    },
+    {
+      "source": "/kisan-credit-card.html",
+      "destination": "/kisan-credit-card",
+      "permanent": true
+    },
+    {
+      "source": "/agnipath-scheme.html",
+      "destination": "/agnipath-scheme",
+      "permanent": true
+    },
+    {
+      "source": "/atal-pension-yojana.html",
+      "destination": "/atal-pension-yojana",
+      "permanent": true
+    },
+    {
+      "source": "/aadhaar-guide.html",
+      "destination": "/aadhaar-guide",
+      "permanent": true
     }
   ]
 }
